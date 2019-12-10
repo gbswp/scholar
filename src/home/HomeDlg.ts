@@ -6,9 +6,17 @@ namespace app.home {
 
         onCreate() {
             super.onCreate();
-            let sp = new Laya.Sprite();
-            this.addChild(sp)
-            let g = sp.graphics;
+            let sp = new MapComponent();
+            sp.centerX = sp.centerY = 0;
+            this.addChild(sp);
+
+            sp.setData(manager.fight.idioms[0])
+
+        }
+
+        onCompResize(){
+            super.onCompResize();
+            let g = this.graphics;
             g.clear()
             g.drawRect(0,0,this.width,this.height,"#ffffff")
         }
