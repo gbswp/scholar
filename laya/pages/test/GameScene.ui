@@ -321,7 +321,7 @@
             "child":[
                 {
                     "type":"UIView",
-                    "source":"test/Game_dikuang.ui",
+                    "source":"home/IdiomCellView.ui",
                     "props":{"y":4,"x":10},
                     "nodeParent":36,
                     "label":"UIView",
@@ -335,7 +335,7 @@
                 },
                 {
                     "type":"UIView",
-                    "source":"test/Game_dikuang.ui",
+                    "source":"home/IdiomCellView.ui",
                     "props":{"y":4,"x":88},
                     "nodeParent":36,
                     "label":"UIView",
@@ -349,7 +349,7 @@
                 },
                 {
                     "type":"UIView",
-                    "source":"test/Game_dikuang.ui",
+                    "source":"home/IdiomCellView.ui",
                     "props":{"y":84,"x":10},
                     "nodeParent":36,
                     "label":"UIView",
