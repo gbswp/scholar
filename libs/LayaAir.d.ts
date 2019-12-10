@@ -14973,6 +14973,9 @@ declare module laya.display {
      * <code>BitmapFont</code> 是位图字体类，用于定义位图字体信息。
      */
     class BitmapFont {
+/* patch start */
+static registerFontRes(font: string, res: string): void;
+/* patch end */
         protected _texture: Texture;
         protected _fontCharDic: any;
         protected _fontWidthMap: any;
@@ -17304,6 +17307,11 @@ declare module laya.display {
         readonly maxScrollY: number;
         readonly lines: Array<any>;
         underlineColor: string;
+/* patch start */
+format: string;
+value: string | any[];
+setFont(font: string): void;
+/* patch end */
         /**
          * 判断系统是否支持指定的font。
          *
@@ -19921,6 +19929,9 @@ declare module laya.net {
      * <code>Loader</code> 类可用来加载文本、JSON、XML、二进制、图像等资源。
      */
     class Loader extends EventDispatcher {
+/* patch start */
+static clearTextureResByGroup(group:string): void;
+/* patch end */
         /** 文本类型，加载完成后返回文本。*/
         static TEXT: string;
         /** JSON 类型，加载完成后返回json数据。*/
@@ -20056,6 +20067,9 @@ declare module laya.net {
      * @see laya.net.Loader
      */
     class LoaderManager extends EventDispatcher {
+/* patch start */
+loadP(url: any, type?: string, priority?: number, progress?: Handler, cache?: boolean, group?: string, ignoreCache?: boolean): Promise<void>;
+/* patch end */
         static createMap: any;
         /** 加载出错后的重试次数，默认重试一次*/
         retryNum: number;
@@ -22248,6 +22262,9 @@ declare module laya.ui {
      * }
      */
     class Button extends Component implements ISelect {
+/* patch start */
+soundId:string
+/* patch end */
         protected static stateMap: any;
         /**
          * 指定按钮按下时是否是切换按钮的显示状态。
@@ -23100,6 +23117,13 @@ declare module laya.ui {
      * <p>生命周期：preinitialize > createChildren > initialize > 组件构造函数</p>
      */
     class Component extends Sprite implements IComponent {
+/* patch start */
+badge: boolean;
+badgeStyle:IBadgeStyle;
+badgeEnable: boolean;
+updateBadge():void;
+openKey:string
+/* patch end */
         protected _layout: LayoutStyle;
         protected _dataSource: any;
         protected _toolTip: any;
@@ -24203,6 +24227,11 @@ declare module laya.ui {
          * @copy laya.display.Text#underlineColor
          */
         underlineColor: string;
+/* patch start */
+format: string;
+value: string | any[];
+setFont(font: string): void;
+/* patch end */
     }
 }
 declare module laya.ui {
@@ -26490,6 +26519,9 @@ declare module laya.utils {
      * <code>Browser</code> 是浏览器代理类。封装浏览器及原生 js 提供的一些功能。
      */
     class Browser {
+/* patch start */
+static onIPhoneX: boolean;
+/* patch end */
         /** 浏览器代理信息。*/
         static userAgent: string;
         /** 表示是否在 ios 设备。*/
@@ -28243,7 +28275,10 @@ declare module laya.utils {
          * @param	autoRecover 是否自动回收，默认为true，缓动结束之后自动回收到对象池。
          * @return	返回Tween对象。
          */
-        static to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): Tween;
+        //static to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): Tween;
+/* patch start */
+static to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): TweenWrapper;
+/* patch end */
         /**
          * 从props属性，缓动到当前状态。
          * @param	target 目标对象(即将更改属性值的对象)。
@@ -28256,7 +28291,10 @@ declare module laya.utils {
          * @param	autoRecover 是否自动回收，默认为true，缓动结束之后自动回收到对象池。
          * @return	返回Tween对象。
          */
-        static from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): Tween;
+        //static from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): Tween;
+/* patch start */
+static from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean, autoRecover?: boolean): TweenWrapper;
+/* patch end */
         /**
          * 缓动对象的props属性到目标值。
          * @param	target 目标对象(即将更改属性值的对象)。
@@ -28268,7 +28306,10 @@ declare module laya.utils {
          * @param	coverBefore 是否覆盖之前的缓动。
          * @return	返回Tween对象。
          */
-        to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): Tween;
+        //to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): Tween;
+/* patch start */
+to(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): TweenWrapper;
+/* patch end */
         /**
          * 从props属性，缓动到当前状态。
          * @param	target 目标对象(即将更改属性值的对象)。
@@ -28280,7 +28321,10 @@ declare module laya.utils {
          * @param	coverBefore 是否覆盖之前的缓动。
          * @return	返回Tween对象。
          */
-        from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): Tween;
+        //from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): Tween;
+/* patch start */
+from(target: any, props: any, duration: number, ease?: Function, complete?: Handler, delay?: number, coverBefore?: boolean): TweenWrapper;
+/* patch end */
         _create(target: any, props: any, duration: number, ease: Function, complete: Handler, delay: number, coverBefore: boolean, isTo: boolean, usePool: boolean, runNow: boolean): Tween;
         _updateEase(time: number): void;
         /**设置当前执行比例**/

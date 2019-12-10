@@ -4,7 +4,7 @@ namespace app.ui {
         protected createChildren(): void {
             super.createChildren();
             this._clear();
-            if (Laya.Render.isConchApp && Laya.Browser.onAndriod) {
+            if (Laya.Render.isConchApp && Laya.Browser.onAndroid) {
                 this.on(Laya.Event.CLICK, this, this._showNative);
                 this._tf.mouseEnabled = false;
             }
