@@ -136,29 +136,6 @@ namespace app.ui {
         soundOn: boolean = true;
         enableLongPress: boolean = false;//长按enable 阻止事件穿透
 
-        protected initLabelFormat(): void {
-            var isChange: boolean = false;
-            if (this.skin.indexOf("btn_yellow") >= 0) {
-                isChange = true;
-                this.labelStrokeColor = "#c4751c";
-            } else if (this.skin.indexOf("btn_orange") >= 0) {
-                isChange = true;
-                this.labelStrokeColor = "#c45b1c";
-            } else if (this.skin.indexOf("btn_blue") >= 0) {
-                isChange = true;
-                this.labelStrokeColor = "#1c8fd8";
-            } else if (this.skin.indexOf("btn_red") >= 0) {
-                isChange = true;
-                this.labelStrokeColor = "#bf39ca";
-            }
-            if (!isChange) return;
-            this.labelColors = "#ffffff";
-            this.labelFont = "SimHei";
-            this.labelSize = 30;
-            this.labelPadding = "2";
-            this.labelStroke = 4;
-            //  console.log("button -----", Object.getPrototypeOf(this).constructor.name);
-        }
 
         get enableAnimating(): boolean {
             return this._enableAnimating;
@@ -327,8 +304,7 @@ namespace app.ui {
         }
 
         protected changeClips() {
-            if (this.destroyed) return;
-            this.initLabelFormat();
+            if (this.destroyed || !this._skin) return;
             let img = Laya.Loader.getRes(this._skin);
             if (!img) {
                 //console.log("lose skin", this._skin);

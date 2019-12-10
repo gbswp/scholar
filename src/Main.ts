@@ -1,6 +1,6 @@
 class Main {
     constructor() {
-        Laya.init(1280, 720, laya.webgl.WebGL);
+        Laya.init(640, 1136, laya.webgl.WebGL);
         Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_AUTO;
         Laya.stage.screenMode = Laya.Stage.SCREEN_NONE;
         Laya.stage.alignH = Laya.Stage.ALIGN_MIDDLE;

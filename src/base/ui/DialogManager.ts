@@ -1,8 +1,8 @@
 namespace app.ui {
 
     export class UIConfig {
-        public static designWidth = 720;
-        public static desighHeight = 1280;
+        public static designWidth = 640;
+        public static desighHeight = 1136;
         public static popupBgColor = '#000000';
         public static popupBgAlpha = 0.8;
         public static bgMaskColor = '#222222'; // 对话框背景的遮盖颜色，避免切换对话框时显示下面的对话框
