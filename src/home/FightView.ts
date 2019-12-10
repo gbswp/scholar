@@ -9,6 +9,9 @@ namespace app.home {
             map.setData(manager.fight.idioms[0])
         }
 
+        onLstAnswerRender(cell: ui.CellView, index: number): void { }
+
+
 
     }
 
