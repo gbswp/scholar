@@ -1,0 +1,5 @@
+class {className} {
+    _obj: any
+    {@iter obj=fields}{name}: {type};
+    {/iter}
+}

@@ -1,0 +1,67 @@
+<res>
+   <item name="common/img_popupbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=30,30,30,30" picType="0"/>
+   <item name="common/img_content_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=17,16,18,13" picType="0"/>
+   <item name="equip/img_infobg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,13,0,12" picType="0"/>
+   <item name="common/img_bottombg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,29,0,30" picType="0"/>
+   <item name="common/img_bjbk.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=55,55,55,55" picType="0"/>
+   <item name="medal.d/quality_l_3.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0"/>
+   <item name="common/img_head_namebg.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=4,8,4,8" picType="0"/>
+   <item name="wgt1/btn_tab.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=2,12,7,7" picType="0"/>
+   <item name="wgt1/btn_tab$select.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=2,12,7,7" picType="0"/>
+   <item name="common/img_choose.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=86,100,85,116" picType="0"/>
+   <item name="common/img_choose$select.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=86,100,85,116" picType="0"/>
+   <item name="common/img_common_frame.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=156,87,55,44" picType="0"/>
+   <item name="common/img_beingkingdom.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=386,0,30,0" picType="0"/>
+   <item name="wgt1/img_conditionbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=12,12,12,12" picType="0"/>
+   <item name="home/img_auto_equip.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=50,50,71,50" picType="0"/>
+   <item name="common/pbr_yellow.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=5,5,5,5" picType="0"/>
+   <item name="common/pbr_yellow$bar.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=5,5,5,5" picType="0"/>
+   <item name="common/img_skillshow.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=30,30,30,30" picType="0"/>
+   <item name="common/img_popupbg.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=23,0,23,0" picType="0"/>
+   <item name="common/img_jdt.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,10,0,10" picType="0" scale="0"/>
+   <item name="shop/img_addValue.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="login/img_pbr.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,20,0,20" picType="0" scale="0"/>
+   <item name="home/img_eggtimebg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,30,0,30" picType="0" scale="0"/>
+   <item name="wgt1/img_com_bg5.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=25,173,23,175" picType="0" scale="0"/>
+   <item name="wgt1/img_com_bg6.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=25,169,24,180" picType="0" scale="0"/>
+   <item name="common/img_com_bg7.png" type="Image" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="bg/img_smallebg.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=90,0,168,0" picType="0" scale="0"/>
+   <item name="bg/img_middlebg.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=90,0,168,0" picType="0" scale="0"/>
+   <item name="bg/img_bigbg.d.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=90,0,168,0" picType="0" scale="0"/>
+   <item name="common/img_ty_kuang.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=19,20,16,17" picType="0" scale="0"/>
+   <item name="login/img_server_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=20,35,20,35" picType="0" scale="0"/>
+   <item name="login/img_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="welcome/img_btn_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,30,10,30" picType="0" scale="0"/>
+   <item name="common/btn_rect.png" type="Button" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="common.d/btn_yellow.png" type="Button" compress="0" pack="0" quality="80" props="sizeGrid=10,30,10,30" picType="0" scale="0"/>
+   <item name="shop/img_dadiban04.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="common/img_ty_tips_dadiban01.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="wgt1/img_ty_tips_dadiban02.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="common/img_txt_jb_diban.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="common.d/btn_blue.png" type="Button" compress="0" pack="0" quality="80" props="sizeGrid=0,0,0,0" picType="0" scale="0"/>
+   <item name="welcome/dl_tc_db.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="common/txt_jb_diban.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="sevenday/qd_db_zz.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="shop/but_yuan02.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,0,0,0" picType="0" scale="0"/>
+   <item name="bg/img_bpopbg.e.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,0,0,0" picType="0" scale="0"/>
+   <item name="bg/img_spopbg0.e.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,10,0,10" picType="0" scale="0"/>
+   <item name="common/img_coin_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="common.d/db_diwen.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=20,0,20,0" picType="0" scale="0"/>
+   <item name="common/img_page1.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="common/img_planetip0.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,18,0,18" picType="0" scale="0"/>
+   <item name="common/img_currencybg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,10,0,159" picType="0" scale="0"/>
+   <item name="common/img_planetip2.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,20,0,20" picType="0" scale="0"/>
+   <item name="common.d/xsyd_hb_db.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=20,20,20,20" picType="0" scale="0"/>
+   <item name="common/ty_kuang06.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="bg/img_mpopbg.e.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=79,0,48,0" picType="0" scale="0"/>
+   <item name="drawcard.d/zjm_rk_zdhc_zsdb02.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=110,31,16,11" picType="0" scale="0"/>
+   <item name="drawcard.d/zjm_rk_zdhc_zsdb1.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=110,30,19,13" picType="0" scale="0"/>
+   <item name="drawcard/zjm_rk_zdhc_zsdb04.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=5,5,5,5" picType="0" scale="0"/>
+   <item name="drawcard.d/zjm_rk_zdhc_zsdb2.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=110,30,19,13" picType="0" scale="0"/>
+   <item name="drawcard.d/zjm_rk_zdhc_zsdb3.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=110,30,19,13" picType="0" scale="0"/>
+   <item name="chat/lt_zjm_db.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=10,10,10,10" picType="0" scale="0"/>
+   <item name="chat/lt_jm_wzd01.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=21,15,19,25" picType="0" scale="0"/>
+   <item name="chat/lt_jm_wzd02.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=25,26,15,15" picType="0" scale="0"/>
+   <item name="chat/lt_jm_wzk.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=15,15,15,15" picType="0" scale="0"/>
+   <item name="chat/lt_jm_bqk01.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=20,10,20,10" picType="0" scale="0"/>
+</res>

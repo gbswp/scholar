@@ -1,0 +1,53 @@
+var Data;
+(function (Data) {
+{#schemas}var {.className} = (function() {
+    function {.className}(obj) {
+        this._obj = obj;
+    }
+    {@field obj=fields}
+     Object.defineProperty({className}.prototype, "{.name}", {
+        get: function() {
+            {.funcDesc};
+        },
+        enumerable: true,
+        configurable: true
+    })
+    {/field}
+    return {.className};
+})();
+Data.{.className} = {.className}{~n};
+{/schemas}
+
+{#schemas}{?index}
+function get{.className}(index){
+    var t = Data.{.exportName}[index];
+    return t ?new Data.{.className}(t):null;
+}
+Data.get{.className} = get{.className};{/index}{/schemas}
+
+{#schemas}{?index}{@eq key=exportArray value=1}
+function get{.className}Arr(){
+    var arr = Data.{.sheetName}Arr;
+    if(!arr){
+       arr = [];
+       var obj= Data.{.exportName};
+       if(obj){
+          for(let key in obj){
+           arr.push(Data.get{.className}(key));
+          }
+       }
+       Data.{.sheetName}Arr = arr;
+    }
+    return Data.{.sheetName}Arr;
+}
+Data.get{.className}Arr = get{.className}Arr
+{/eq}{/index}{/schemas}
+
+var buildData = function(data){
+    for(var key in data){
+        Data[key] = data[key];
+    }
+}
+
+
+})(Data || (Data = {}));

@@ -1,0 +1,180 @@
+{
+    "package": "pb",
+    "syntax": "proto3",
+    "messages": [
+        {
+            "name": "ComposeDataAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "idx",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "data",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ErrorAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "code",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "message",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "LoginReq",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "openId",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "LoginAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "openId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "loginKey",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "GetServerAddrReq",
+            "syntax": "proto3",
+            "fields": []
+        },
+        {
+            "name": "GetServerAddrAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "addr",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "EnterGameReq",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "openId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "loginKey",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "EnterGameAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "nickName",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "ts",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "version",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "CreateUserReq",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "sex",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "nickName",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "CreateUserAck",
+            "syntax": "proto3",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "nickName",
+                    "id": 1
+                }
+            ]
+        }
+    ],
+    "isNamespace": true,
+    "idMap": {
+        "8": "ErrorAck",
+        "10": "LoginReq",
+        "11": "LoginAck",
+        "14": "GetServerAddrReq",
+        "15": "GetServerAddrAck",
+        "100": "EnterGameReq",
+        "101": "EnterGameAck",
+        "102": "CreateUserReq",
+        "103": "CreateUserAck",
+        "8000": "ComposeDataAck"
+    },
+    "reqMap": {
+        "10": "LoginReq",
+        "14": "GetServerAddrReq",
+        "100": "EnterGameReq",
+        "102": "CreateUserReq"
+    }
+}

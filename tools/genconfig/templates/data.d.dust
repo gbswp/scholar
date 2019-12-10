@@ -1,0 +1,22 @@
+declare module Data {
+{#schemas}{>classDecl /}
+{/schemas}
+
+{#schemas}{?.exportName}var {.exportName}:{ [index: string]:any };{/.exportName}
+{/schemas}
+
+{#schemas}{?index}function get{.className}({.index}:{.|filterIndex}): {.className};{/index}
+{/schemas}
+
+{#specials}class {.exportName} {
+    {@iter obj=fields}static {name}: {type};
+    {/iter}
+}
+{/specials}
+
+{#schemas}{?index}{@eq key=exportArray value=1}function get{.className}Arr(): {.className}[];{/eq}{/index}
+{/schemas}
+
+
+}
+

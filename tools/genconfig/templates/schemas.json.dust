@@ -1,0 +1,16 @@
+{
+{#schemas}
+  "{.sheetName}":{
+
+    "fields":{
+{@itrdata obj=fields}{~s}{~s}{~s}{~s}{~s}{~s}"{key}":{value}{@sep},{~n}{/sep}{/itrdata}
+    },
+    {?.exportName}
+    "index":"{.index}",{?value}{~n}{~s}{~s}{~s}{~s}"value":"{.value}",{/value}
+    "exportName":"{.exportName}",
+    "exportArray":{.exportArray},{/.exportName}
+    "sheetName":"{.sheetName}",
+    "className":"{.className}"
+  }{@sep},{/sep}
+{/schemas}
+}

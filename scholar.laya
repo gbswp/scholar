@@ -1,0 +1,55 @@
+{
+    "proName": "mergeplane",
+    "version": "1.7.18b",
+    "proType": 1,
+    "modules": [
+        {
+            "name": "core"
+        },
+        {
+            "name": "webgl"
+        },
+        {
+            "name": "ani"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "particle"
+        },
+        {
+            "name": "ui"
+        },
+        {
+            "name": "worker",
+            "type": "worker",
+            "files": ["worker.cors.min.js"]
+        },
+        {
+            "name": "promise",
+            "type": "game",
+            "minify": true
+        },
+        {
+            "name": "lodash",
+            "type": "game",
+            "minify": true
+        },
+        {
+            "name": "protobuf",
+            "type": "game",
+            "files": ["long.js", "bytebuffer.js", "protobuf.js"]
+        },
+        {
+            "name": "proto",
+            "type": "game",
+            "minify": true
+        },
+        {
+            "name": "data",
+            "type": "game",
+            "minify": true
+        }
+    ]
+}

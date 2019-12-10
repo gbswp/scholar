@@ -1,0 +1,1253 @@
+{
+
+  "":{
+
+    "fields":{
+
+    },
+    
+    "sheetName":"",
+    "className":""
+  },
+
+  "city":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "icon":{"index":2,"name":"icon","type":"number","referenceClass":""},
+      "citynameicon":{"index":3,"name":"citynameicon","type":"string","referenceClass":""},
+      "coordinate":{"index":4,"name":"coordinate","type":"number[]","referenceClass":""},
+      "unlockTaskId":{"index":5,"name":"unlockTaskId","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"citys",
+    "exportArray":0,
+    "sheetName":"city",
+    "className":"City"
+  },
+
+  "conquer":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "itemId":{"index":1,"name":"itemId","type":"number","referenceClass":""},
+      "unlockTaskId":{"index":2,"name":"unlockTaskId","type":"number","referenceClass":""},
+      "city":{"index":3,"name":"city","type":"number","referenceClass":""},
+      "condition":{"index":4,"name":"condition","type":"map<number>","referenceClass":""},
+      "icon":{"index":5,"name":"icon","type":"string","referenceClass":""},
+      "needGold":{"index":6,"name":"needGold","type":"number","referenceClass":""},
+      "storyPic":{"index":7,"name":"storyPic","type":"number","referenceClass":""},
+      "storyText":{"index":8,"name":"storyText","type":"map<string>","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"conquers",
+    "exportArray":0,
+    "sheetName":"conquer",
+    "className":"Conquer"
+  },
+
+  "conditiondesc":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "desc":{"index":1,"name":"desc","type":"string","referenceClass":""},
+      "stateDesc":{"index":2,"name":"stateDesc","type":"string","referenceClass":""},
+      "linkTo":{"index":3,"name":"linkTo","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"conditiondescs",
+    "exportArray":0,
+    "sheetName":"conditiondesc",
+    "className":"Conditiondesc"
+  },
+
+  "copy":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "displayID":{"index":2,"name":"displayID","type":"number","referenceClass":""},
+      "type":{"index":3,"name":"type","type":"number","referenceClass":""},
+      "heroPosition1":{"index":4,"name":"heroPosition1","type":"number[]","referenceClass":""},
+      "monsterArray":{"index":5,"name":"monsterArray","type":"map<number>","referenceClass":""},
+      "icon":{"index":6,"name":"icon","type":"number","referenceClass":""},
+      "lootDisplay":{"index":7,"name":"lootDisplay","type":"number","referenceClass":""},
+      "cond":{"index":8,"name":"cond","type":"PropInfo[]","referenceClass":""},
+      "saneCombat":{"index":9,"name":"saneCombat","type":"number","referenceClass":""},
+      "next":{"index":10,"name":"next","type":"number","referenceClass":""},
+      "startPlotId":{"index":11,"name":"startPlotId","type":"number","referenceClass":""},
+      "overPlotId":{"index":12,"name":"overPlotId","type":"string","referenceClass":""},
+      "robotWalkingLimit":{"index":13,"name":"robotWalkingLimit","type":"string","referenceClass":""},
+      "robotKillerLimit":{"index":14,"name":"robotKillerLimit","type":"string","referenceClass":""},
+      "robotKillerLimitPerPoint":{"index":15,"name":"robotKillerLimitPerPoint","type":"string","referenceClass":""},
+      "useSkill":{"index":16,"name":"useSkill","type":"number","referenceClass":""},
+      "monsterArrayDistance":{"index":17,"name":"monsterArrayDistance","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"copys",
+    "exportArray":0,
+    "sheetName":"copy",
+    "className":"Copy"
+  },
+
+  "game":{
+
+    "fields":{
+      "equipRandomProperty":{"index":1,"name":"equipRandomProperty","type":"string","referenceClass":""},
+      "minrate":{"index":2,"name":"minrate","type":"string","referenceClass":""},
+      "maxrate":{"index":3,"name":"maxrate","type":"string","referenceClass":""},
+      "initmaxlvl":{"index":4,"name":"initmaxlvl","type":"string","referenceClass":""},
+      "initmove":{"index":5,"name":"initmove","type":"string","referenceClass":""},
+      "maxNormalCopyId":{"index":6,"name":"maxNormalCopyId","type":"string","referenceClass":""},
+      "initstrgthmax":{"index":7,"name":"initstrgthmax","type":"string","referenceClass":""},
+      "initupstarmax":{"index":8,"name":"initupstarmax","type":"string","referenceClass":""},
+      "initvipmax":{"index":9,"name":"initvipmax","type":"string","referenceClass":""},
+      "HitMin":{"index":10,"name":"HitMin","type":"number","referenceClass":""},
+      "CriticalMax":{"index":11,"name":"CriticalMax","type":"number","referenceClass":""},
+      "CriAddHurtRatio":{"index":12,"name":"CriAddHurtRatio","type":"number","referenceClass":""},
+      "GlobalCD":{"index":13,"name":"GlobalCD","type":"number","referenceClass":""},
+      "DefaultClothDisplayIdMale":{"index":14,"name":"DefaultClothDisplayIdMale","type":"number","referenceClass":""},
+      "DefaultClothDisplayIdFemale":{"index":15,"name":"DefaultClothDisplayIdFemale","type":"number","referenceClass":""},
+      "DefaultWeaponDisplayIdMale":{"index":16,"name":"DefaultWeaponDisplayIdMale","type":"number","referenceClass":""},
+      "DefaultWeaponDisplayIdFemale":{"index":17,"name":"DefaultWeaponDisplayIdFemale","type":"number","referenceClass":""},
+      "FirstMainLineTaskId":{"index":18,"name":"FirstMainLineTaskId","type":"number","referenceClass":""},
+      "PveAddHpRate":{"index":19,"name":"PveAddHpRate","type":"number","referenceClass":""},
+      "PveAddHpSeconds":{"index":20,"name":"PveAddHpSeconds","type":"number","referenceClass":""},
+      "DefaultGoods":{"index":21,"name":"DefaultGoods","type":"map<number>","referenceClass":""},
+      "RoleModules":{"index":22,"name":"RoleModules","type":"number[]","referenceClass":""},
+      "HeroModules":{"index":23,"name":"HeroModules","type":"number[]","referenceClass":""},
+      "AttackRunTime":{"index":24,"name":"AttackRunTime","type":"number","referenceClass":""},
+      "VeinMaxLevel":{"index":25,"name":"VeinMaxLevel","type":"number","referenceClass":""},
+      "VeinCountPerKind":{"index":26,"name":"VeinCountPerKind","type":"number","referenceClass":""},
+      "TreasureMonsterMinutes ":{"index":27,"name":"TreasureMonsterMinutes ","type":"number","referenceClass":""},
+      "NameNum":{"index":28,"name":"NameNum","type":"number[]","referenceClass":""},
+      "smeltGetDoubleGold":{"index":29,"name":"smeltGetDoubleGold","type":"string","referenceClass":""},
+      "smeltget":{"index":30,"name":"smeltget","type":"string","referenceClass":""}
+    },
+    
+    "index":"key",
+    "exportName":"gameConf",
+    "exportArray":0,
+    "sheetName":"game",
+    "className":"Game"
+  },
+
+  "open":{
+
+    "fields":{
+      "equip":{"index":1,"name":"equip","type":"number","referenceClass":""},
+      "weapon":{"index":2,"name":"weapon","type":"number","referenceClass":""},
+      "hero":{"index":3,"name":"hero","type":"number","referenceClass":""},
+      "medal":{"index":4,"name":"medal","type":"number","referenceClass":""},
+      "horse":{"index":5,"name":"horse","type":"number","referenceClass":""},
+      "cloak":{"index":6,"name":"cloak","type":"number","referenceClass":""},
+      "silkbag":{"index":7,"name":"silkbag","type":"number","referenceClass":""},
+      "realm":{"index":8,"name":"realm","type":"number","referenceClass":""},
+      "grade":{"index":9,"name":"grade","type":"number","referenceClass":""},
+      "suit":{"index":10,"name":"suit","type":"number","referenceClass":""},
+      "baowu":{"index":11,"name":"baowu","type":"number","referenceClass":""},
+      "gengduo":{"index":12,"name":"gengduo","type":"number","referenceClass":""}
+    },
+    
+    "index":"key",
+    "value":"id",
+    "exportName":"opens",
+    "exportArray":0,
+    "sheetName":"open",
+    "className":"Open"
+  },
+
+  "getSource":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "desc":{"index":1,"name":"desc","type":"string","referenceClass":""},
+      "icon":{"index":2,"name":"icon","type":"number","referenceClass":""},
+      "linkTo":{"index":3,"name":"linkTo","type":"number[]","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"getSources",
+    "exportArray":0,
+    "sheetName":"getSource",
+    "className":"GetSource"
+  },
+
+  "horse":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "desc":{"index":2,"name":"desc","type":"string","referenceClass":""},
+      "ico":{"index":3,"name":"ico","type":"number","referenceClass":""},
+      "ico2":{"index":4,"name":"ico2","type":"number","referenceClass":""},
+      "ico3":{"index":5,"name":"ico3","type":"number","referenceClass":""},
+      "skillId":{"index":6,"name":"skillId","type":"string","referenceClass":""},
+      "activeItemId":{"index":7,"name":"activeItemId","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"horses",
+    "exportArray":0,
+    "sheetName":"horse",
+    "className":"Horse"
+  },
+
+  "upgrade":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "level":{"index":1,"name":"level","type":"number","referenceClass":""},
+      "properties":{"index":2,"name":"properties","type":"map<number>","referenceClass":""},
+      "needItems":{"index":3,"name":"needItems","type":"string","referenceClass":""},
+      "combat":{"index":4,"name":"combat","type":"number","referenceClass":""},
+      "diamondCost":{"index":5,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"upgrades",
+    "exportArray":0,
+    "sheetName":"upgrade",
+    "className":"Upgrade"
+  },
+
+  "item":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "note":{"index":2,"name":"note","type":"string","referenceClass":""},
+      "iconId":{"index":3,"name":"iconId","type":"number","referenceClass":""},
+      "itemLvl":{"index":4,"name":"itemLvl","type":"number","referenceClass":""},
+      "level":{"index":5,"name":"level","type":"number","referenceClass":""},
+      "vip":{"index":6,"name":"vip","type":"number","referenceClass":""},
+      "color":{"index":7,"name":"color","type":"number","referenceClass":""},
+      "type":{"index":8,"name":"type","type":"number","referenceClass":""},
+      "bagTag":{"index":9,"name":"bagTag","type":"number","referenceClass":""},
+      "count":{"index":10,"name":"count","type":"number","referenceClass":""},
+      "canSell":{"index":11,"name":"canSell","type":"number","referenceClass":""},
+      "sellGet":{"index":12,"name":"sellGet","type":"string","referenceClass":""},
+      "dropId":{"index":13,"name":"dropId","type":"number","referenceClass":""},
+      "useType":{"index":14,"name":"useType","type":"number","referenceClass":""},
+      "linkTo":{"index":15,"name":"linkTo","type":"number[]","referenceClass":""},
+      "getSource":{"index":16,"name":"getSource","type":"number","referenceClass":""},
+      "price":{"index":17,"name":"price","type":"string","referenceClass":""},
+      "cherish":{"index":18,"name":"cherish","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"items",
+    "exportArray":0,
+    "sheetName":"item",
+    "className":"Item"
+  },
+
+  "equip":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "type":{"index":2,"name":"type","type":"number","referenceClass":""},
+      "displayId":{"index":3,"name":"displayId","type":"string","referenceClass":""},
+      "slotStrengthProperty":{"index":4,"name":"slotStrengthProperty","type":"map<number>","referenceClass":""},
+      "properties":{"index":5,"name":"properties","type":"map<number>","referenceClass":""},
+      "gradeBase":{"index":6,"name":"gradeBase","type":"number","referenceClass":""},
+      "smeltGet":{"index":7,"name":"smeltGet","type":"number","referenceClass":""},
+      "fightLightID":{"index":8,"name":"fightLightID","type":"number","referenceClass":""},
+      "isRare":{"index":9,"name":"isRare","type":"string","referenceClass":""},
+      "isUp":{"index":10,"name":"isUp","type":"string","referenceClass":""},
+      "isSuper":{"index":11,"name":"isSuper","type":"string","referenceClass":""},
+      "isLocked":{"index":12,"name":"isLocked","type":"string","referenceClass":""},
+      "smeltGetGold":{"index":13,"name":"smeltGetGold","type":"string","referenceClass":""},
+      "smeltGetIntensify":{"index":14,"name":"smeltGetIntensify","type":"string","referenceClass":""},
+      "smeltGetDiamond":{"index":15,"name":"smeltGetDiamond","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"equips",
+    "exportArray":0,
+    "sheetName":"equip",
+    "className":"Equip"
+  },
+
+  "weapon":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "classId":{"index":1,"name":"classId","type":"number","referenceClass":""},
+      "name":{"index":2,"name":"name","type":"string","referenceClass":""},
+      "color":{"index":3,"name":"color","type":"number","referenceClass":""},
+      "displayId":{"index":4,"name":"displayId","type":"number[]","referenceClass":""},
+      "motion":{"index":5,"name":"motion","type":"string","referenceClass":""},
+      "iconId":{"index":6,"name":"iconId","type":"number","referenceClass":""},
+      "desc":{"index":7,"name":"desc","type":"string","referenceClass":""},
+      "type":{"index":8,"name":"type","type":"number","referenceClass":""},
+      "skilllvldata":{"index":9,"name":"skilllvldata","type":"number","referenceClass":""},
+      "blade":{"index":10,"name":"blade","type":"number","referenceClass":""},
+      "skillId":{"index":11,"name":"skillId","type":"number","referenceClass":""},
+      "properties":{"index":12,"name":"properties","type":"map<number>","referenceClass":""},
+      "needItems":{"index":13,"name":"needItems","type":"number[]","referenceClass":""},
+      "lvlProperties":{"index":14,"name":"lvlProperties","type":"map<number>","referenceClass":""},
+      "activeItems":{"index":15,"name":"activeItems","type":"number[]","referenceClass":""},
+      "maxLvl":{"index":16,"name":"maxLvl","type":"number","referenceClass":""},
+      "lvlGold":{"index":17,"name":"lvlGold","type":"number","referenceClass":""},
+      "gradeLvl":{"index":18,"name":"gradeLvl","type":"number","referenceClass":""},
+      "gradeItems":{"index":19,"name":"gradeItems","type":"string","referenceClass":""},
+      "gradeGold":{"index":20,"name":"gradeGold","type":"number","referenceClass":""},
+      "gradeTarget":{"index":21,"name":"gradeTarget","type":"number","referenceClass":""},
+      "break":{"index":22,"name":"break","type":"number","referenceClass":""},
+      "grade":{"index":23,"name":"grade","type":"number","referenceClass":""},
+      "titleImage":{"index":24,"name":"titleImage","type":"number","referenceClass":""},
+      "soundIntroduce":{"index":25,"name":"soundIntroduce","type":"string","referenceClass":""},
+      "show":{"index":26,"name":"show","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"weapons",
+    "exportArray":0,
+    "sheetName":"weapon",
+    "className":"Weapon"
+  },
+
+  "hero":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "classId":{"index":2,"name":"classId","type":"number","referenceClass":""},
+      "iconId":{"index":3,"name":"iconId","type":"number","referenceClass":""},
+      "star":{"index":4,"name":"star","type":"number","referenceClass":""},
+      "effectId":{"index":5,"name":"effectId","type":"number","referenceClass":""},
+      "desc":{"index":6,"name":"desc","type":"string","referenceClass":""},
+      "normalSkillId":{"index":7,"name":"normalSkillId","type":"number","referenceClass":""},
+      "skillId":{"index":8,"name":"skillId","type":"number","referenceClass":""},
+      "properties":{"index":9,"name":"properties","type":"map<number>","referenceClass":""},
+      "lvlProperties":{"index":10,"name":"lvlProperties","type":"map<number>","referenceClass":""},
+      "needItems":{"index":11,"name":"needItems","type":"number[]","referenceClass":""},
+      "activeItems":{"index":12,"name":"activeItems","type":"number[]","referenceClass":""},
+      "maxLvl":{"index":13,"name":"maxLvl","type":"number","referenceClass":""},
+      "lvlGold":{"index":14,"name":"lvlGold","type":"number","referenceClass":""},
+      "starLvl":{"index":15,"name":"starLvl","type":"number","referenceClass":""},
+      "starItems":{"index":16,"name":"starItems","type":"number[]","referenceClass":""},
+      "starGold":{"index":17,"name":"starGold","type":"number","referenceClass":""},
+      "starTarget":{"index":18,"name":"starTarget","type":"number","referenceClass":""},
+      "cardId":{"index":19,"name":"cardId","type":"number","referenceClass":""},
+      "drawSpine":{"index":20,"name":"drawSpine","type":"string","referenceClass":""},
+      "type":{"index":21,"name":"type","type":"number","referenceClass":""},
+      "titleImage":{"index":22,"name":"titleImage","type":"number","referenceClass":""},
+      "sound":{"index":23,"name":"sound","type":"string","referenceClass":""},
+      "soundIntroduce":{"index":24,"name":"soundIntroduce","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"heros",
+    "exportArray":0,
+    "sheetName":"hero",
+    "className":"Hero"
+  },
+
+  "medal":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "classId":{"index":1,"name":"classId","type":"number","referenceClass":""},
+      "name":{"index":2,"name":"name","type":"string","referenceClass":""},
+      "iconId":{"index":3,"name":"iconId","type":"number","referenceClass":""},
+      "displayId":{"index":4,"name":"displayId","type":"number","referenceClass":""},
+      "chatIconId":{"index":5,"name":"chatIconId","type":"number","referenceClass":""},
+      "desc":{"index":6,"name":"desc","type":"string","referenceClass":""},
+      "properties":{"index":7,"name":"properties","type":"map<number>","referenceClass":""},
+      "needItems":{"index":8,"name":"needItems","type":"number[]","referenceClass":""},
+      "lvlItems":{"index":9,"name":"lvlItems","type":"map<number>","referenceClass":""},
+      "lvlProperties":{"index":10,"name":"lvlProperties","type":"map<number>","referenceClass":""},
+      "activeItems":{"index":11,"name":"activeItems","type":"number[]","referenceClass":""},
+      "maxLvl":{"index":12,"name":"maxLvl","type":"number","referenceClass":""},
+      "lvlGold":{"index":13,"name":"lvlGold","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"medals",
+    "exportArray":0,
+    "sheetName":"medal",
+    "className":"Medal"
+  },
+
+  "lottery":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "type":{"index":1,"name":"type","type":"number","referenceClass":""},
+      "itemId":{"index":2,"name":"itemId","type":"number","referenceClass":""},
+      "minNum":{"index":3,"name":"minNum","type":"number","referenceClass":""},
+      "maxNum":{"index":4,"name":"maxNum","type":"number","referenceClass":""},
+      "needLvl":{"index":5,"name":"needLvl","type":"number","referenceClass":""},
+      "surpassLvl":{"index":6,"name":"surpassLvl","type":"number","referenceClass":""},
+      "rate":{"index":7,"name":"rate","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"lotterys",
+    "exportArray":0,
+    "sheetName":"lottery",
+    "className":"Lottery"
+  },
+
+  "itemlogic":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "chestType":{"index":2,"name":"chestType","type":"number","referenceClass":""},
+      "relatedId":{"index":3,"name":"relatedId","type":"string","referenceClass":""},
+      "num":{"index":4,"name":"num","type":"number","referenceClass":""},
+      "create":{"index":5,"name":"create","type":"number[]","referenceClass":""},
+      "create2":{"index":6,"name":"create2","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"itemlogics",
+    "exportArray":0,
+    "sheetName":"itemlogic",
+    "className":"Itemlogic"
+  },
+
+  "mail":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "type":{"index":1,"name":"type","type":"number","referenceClass":""},
+      "fromName":{"index":2,"name":"fromName","type":"string","referenceClass":""},
+      "title":{"index":3,"name":"title","type":"string","referenceClass":""},
+      "content":{"index":4,"name":"content","type":"string","referenceClass":""},
+      "expireDays":{"index":5,"name":"expireDays","type":"number","referenceClass":""},
+      "delHours":{"index":6,"name":"delHours","type":"number","referenceClass":""},
+      "explain":{"index":7,"name":"explain","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"mails",
+    "exportArray":0,
+    "sheetName":"mail",
+    "className":"Mail"
+  },
+
+  "monster":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "note":{"index":2,"name":"note","type":"string","referenceClass":""},
+      "displayID":{"index":3,"name":"displayID","type":"number","referenceClass":""},
+      "level":{"index":4,"name":"level","type":"number","referenceClass":""},
+      "attackType":{"index":5,"name":"attackType","type":"number","referenceClass":""},
+      "maxHp":{"index":6,"name":"maxHp","type":"number","referenceClass":""},
+      "attack":{"index":7,"name":"attack","type":"number","referenceClass":""},
+      "magicAttack":{"index":8,"name":"magicAttack","type":"number","referenceClass":""},
+      "defense":{"index":9,"name":"defense","type":"number","referenceClass":""},
+      "magicDefence":{"index":10,"name":"magicDefence","type":"number","referenceClass":""},
+      "hit":{"index":11,"name":"hit","type":"number","referenceClass":""},
+      "dodge":{"index":12,"name":"dodge","type":"number","referenceClass":""},
+      "critical":{"index":13,"name":"critical","type":"number","referenceClass":""},
+      "disCritical":{"index":14,"name":"disCritical","type":"number","referenceClass":""},
+      "damageIncrease":{"index":15,"name":"damageIncrease","type":"number","referenceClass":""},
+      "damageDecrease":{"index":16,"name":"damageDecrease","type":"number","referenceClass":""},
+      "benumbPro":{"index":17,"name":"benumbPro","type":"number","referenceClass":""},
+      "disBenyumbPro":{"index":18,"name":"disBenyumbPro","type":"number","referenceClass":""},
+      "speed":{"index":19,"name":"speed","type":"number","referenceClass":""},
+      "attackIntervalFight":{"index":20,"name":"attackIntervalFight","type":"number","referenceClass":""},
+      "awardItems":{"index":21,"name":"awardItems","type":"number[]","referenceClass":""},
+      "randomItems":{"index":22,"name":"randomItems","type":"map<number>","referenceClass":""},
+      "properties":{"index":23,"name":"properties","type":"map<number>","referenceClass":""},
+      "skillIds":{"index":24,"name":"skillIds","type":"string","referenceClass":""},
+      "seeDistance":{"index":25,"name":"seeDistance","type":"number","referenceClass":""},
+      "dropId":{"index":26,"name":"dropId","type":"string","referenceClass":""},
+      "scale":{"index":27,"name":"scale","type":"number","referenceClass":""},
+      "combat":{"index":28,"name":"combat","type":"number","referenceClass":""},
+      "walkDistance":{"index":29,"name":"walkDistance","type":"number","referenceClass":""},
+      "initAi":{"index":30,"name":"initAi","type":"number","referenceClass":""},
+      "changeAi":{"index":31,"name":"changeAi","type":"number","referenceClass":""},
+      "hpBar":{"index":32,"name":"hpBar","type":"number","referenceClass":""},
+      "beckonRetinue":{"index":33,"name":"beckonRetinue","type":"string","referenceClass":""},
+      "funnyDialogue":{"index":34,"name":"funnyDialogue","type":"number[]","referenceClass":""},
+      "hitable":{"index":35,"name":"hitable","type":"number","referenceClass":""},
+      "repelable":{"index":36,"name":"repelable","type":"number","referenceClass":""},
+      "dieShake":{"index":37,"name":"dieShake","type":"number","referenceClass":""},
+      "dieact":{"index":38,"name":"dieact","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"monsters",
+    "exportArray":0,
+    "sheetName":"monster",
+    "className":"Monster"
+  },
+
+  "funnydialogue":{
+
+    "fields":{
+      "1":{"index":0,"name":1,"type":"number","referenceClass":""},
+      "4":{"index":2,"name":4,"type":"number","referenceClass":""},
+      "10000":{"index":1,"name":10000,"type":"number","referenceClass":""},
+      "20000":{"index":3,"name":20000,"type":"number","referenceClass":""},
+      "哼，不自量力！":{"index":4,"name":"哼，不自量力！","type":"string","referenceClass":""}
+    },
+    
+    "index":"1",
+    "exportName":"funnydialogues",
+    "exportArray":0,
+    "sheetName":"funnydialogue",
+    "className":"Funnydialogue"
+  },
+
+  "msgcode":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "code":{"index":1,"name":"code","type":"string","referenceClass":""},
+      "text":{"index":2,"name":"text","type":"string","referenceClass":""},
+      "region0":{"index":3,"name":"region0","type":"number","referenceClass":""},
+      "time":{"index":4,"name":"time","type":"number","referenceClass":""},
+      "onTop":{"index":5,"name":"onTop","type":"string","referenceClass":""},
+      "client":{"index":6,"name":"client","type":"number","referenceClass":""},
+      "remark":{"index":7,"name":"remark","type":"string","referenceClass":""},
+      "range":{"index":8,"name":"range","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"msgcodes",
+    "exportArray":0,
+    "sheetName":"msgcode",
+    "className":"Msgcode"
+  },
+
+  "name":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "firstName":{"index":1,"name":"firstName","type":"string","referenceClass":""},
+      "maleName":{"index":2,"name":"maleName","type":"string","referenceClass":""},
+      "femaleName":{"index":3,"name":"femaleName","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"names",
+    "exportArray":0,
+    "sheetName":"name",
+    "className":"Name"
+  },
+
+  "maskword":{
+
+    "fields":{
+      "毛泽东":{"index":0,"name":"毛泽东","type":"string","referenceClass":""}
+    },
+    
+    "index":"毛泽东",
+    "exportName":"maskwords",
+    "exportArray":0,
+    "sheetName":"maskword",
+    "className":"Maskword"
+  },
+
+  "novicemap":{
+
+    "fields":{
+      "copyId":{"index":0,"name":"copyId","type":"number","referenceClass":""},
+      "openConditions":{"index":1,"name":"openConditions","type":"string","referenceClass":""},
+      "completeCondition":{"index":2,"name":"completeCondition","type":"number[]","referenceClass":""},
+      "coordinates":{"index":3,"name":"coordinates","type":"map<number>","referenceClass":""},
+      "title":{"index":4,"name":"title","type":"string","referenceClass":""},
+      "describe":{"index":5,"name":"describe","type":"string","referenceClass":""},
+      "storyId":{"index":6,"name":"storyId","type":"string","referenceClass":""}
+    },
+    
+    "index":"copyId",
+    "exportName":"novicemaps",
+    "exportArray":0,
+    "sheetName":"novicemap",
+    "className":"Novicemap"
+  },
+
+  "offlineAward":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "minLevel":{"index":1,"name":"minLevel","type":"number","referenceClass":""},
+      "maxLevel":{"index":2,"name":"maxLevel","type":"number","referenceClass":""},
+      "duration":{"index":3,"name":"duration","type":"number","referenceClass":""},
+      "pool":{"index":4,"name":"pool","type":"map<number>","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"offlineAwards",
+    "exportArray":0,
+    "sheetName":"offlineAward",
+    "className":"OfflineAward"
+  },
+
+  "property":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"string","referenceClass":""},
+      "displayName":{"index":1,"name":"displayName","type":"string","referenceClass":""},
+      "combat":{"index":2,"name":"combat","type":"string","referenceClass":""},
+      "score":{"index":3,"name":"score","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"propertys",
+    "exportArray":0,
+    "sheetName":"property",
+    "className":"Property"
+  },
+
+  "realm":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"string","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "reqItems":{"index":2,"name":"reqItems","type":"number[]","referenceClass":""},
+      "properties":{"index":3,"name":"properties","type":"map<number>","referenceClass":""},
+      "realinfo":{"index":4,"name":"realinfo","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"realms",
+    "exportArray":0,
+    "sheetName":"realm",
+    "className":"Realm"
+  },
+
+  "itemrealm":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "properties":{"index":2,"name":"properties","type":"number[]","referenceClass":""},
+      "reqItems1":{"index":3,"name":"reqItems1","type":"string","referenceClass":""},
+      "reqCount1":{"index":4,"name":"reqCount1","type":"string","referenceClass":""},
+      "reqItems2":{"index":5,"name":"reqItems2","type":"string","referenceClass":""},
+      "reqCount2":{"index":6,"name":"reqCount2","type":"string","referenceClass":""},
+      "reqItems3":{"index":7,"name":"reqItems3","type":"string","referenceClass":""},
+      "reqCount3":{"index":8,"name":"reqCount3","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"itemrealms",
+    "exportArray":0,
+    "sheetName":"itemrealm",
+    "className":"Itemrealm"
+  },
+
+  "realinfo":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"number","referenceClass":""},
+      "realinfo":{"index":2,"name":"realinfo","type":"map<number>","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"realinfos",
+    "exportArray":0,
+    "sheetName":"realinfo",
+    "className":"Realinfo"
+  },
+
+  "robot":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "lvl":{"index":2,"name":"lvl","type":"number","referenceClass":""},
+      "kingdom":{"index":3,"name":"kingdom","type":"number","referenceClass":""},
+      "medalIds":{"index":4,"name":"medalIds","type":"string","referenceClass":""},
+      "copyId":{"index":5,"name":"copyId","type":"number","referenceClass":""},
+      "sex":{"index":6,"name":"sex","type":"number","referenceClass":""},
+      "weaponDisplayId":{"index":7,"name":"weaponDisplayId","type":"number","referenceClass":""},
+      "clothDisplayId":{"index":8,"name":"clothDisplayId","type":"number","referenceClass":""},
+      "heroId":{"index":9,"name":"heroId","type":"string","referenceClass":""},
+      "weaponIds":{"index":10,"name":"weaponIds","type":"string","referenceClass":""},
+      "properties":{"index":11,"name":"properties","type":"map<number>","referenceClass":""},
+      "heroProperties":{"index":12,"name":"heroProperties","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"robots",
+    "exportArray":0,
+    "sheetName":"robot",
+    "className":"Robot"
+  },
+
+  "lvl":{
+
+    "fields":{
+      "lvl":{"index":0,"name":"lvl","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "minExp":{"index":2,"name":"minExp","type":"number","referenceClass":""},
+      "reqExp":{"index":3,"name":"reqExp","type":"number","referenceClass":""},
+      "upSkillLevel":{"index":4,"name":"upSkillLevel","type":"number","referenceClass":""},
+      "properties":{"index":5,"name":"properties","type":"map<number>","referenceClass":""}
+    },
+    
+    "index":"lvl",
+    "exportName":"lvls",
+    "exportArray":0,
+    "sheetName":"lvl",
+    "className":"Lvl"
+  },
+
+  "lvlHeroScale":{
+
+    "fields":{
+      "classId":{"index":0,"name":"classId","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "scale":{"index":2,"name":"scale","type":"number","referenceClass":""}
+    },
+    
+    "index":"classId",
+    "exportName":"lvlHeroScales",
+    "exportArray":0,
+    "sheetName":"lvlHeroScale",
+    "className":"LvlHeroScale"
+  },
+
+  "grade":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "lvl":{"index":1,"name":"lvl","type":"number","referenceClass":""},
+      "lvlRange":{"index":2,"name":"lvlRange","type":"string","referenceClass":""},
+      "properties":{"index":3,"name":"properties","type":"map<number>","referenceClass":""},
+      "reqExp":{"index":4,"name":"reqExp","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"grades",
+    "exportArray":0,
+    "sheetName":"grade",
+    "className":"Grade"
+  },
+
+  "silkbag":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "desc":{"index":2,"name":"desc","type":"string","referenceClass":""},
+      "ico":{"index":3,"name":"ico","type":"number","referenceClass":""},
+      "ico2":{"index":4,"name":"ico2","type":"number","referenceClass":""},
+      "ico3":{"index":5,"name":"ico3","type":"number","referenceClass":""},
+      "conditions":{"index":6,"name":"conditions","type":"number[]","referenceClass":""},
+      "properties":{"index":7,"name":"properties","type":"map<number>","referenceClass":""},
+      "combat":{"index":8,"name":"combat","type":"number","referenceClass":""},
+      "stratagems":{"index":9,"name":"stratagems","type":"number[]","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"silkbags",
+    "exportArray":0,
+    "sheetName":"silkbag",
+    "className":"Silkbag"
+  },
+
+  "stratagem":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "silkBagId":{"index":2,"name":"silkBagId","type":"number","referenceClass":""},
+      "desc":{"index":3,"name":"desc","type":"string","referenceClass":""},
+      "ico":{"index":4,"name":"ico","type":"number","referenceClass":""},
+      "ico2":{"index":5,"name":"ico2","type":"number","referenceClass":""},
+      "ico3":{"index":6,"name":"ico3","type":"number","referenceClass":""},
+      "conditions":{"index":7,"name":"conditions","type":"number[]","referenceClass":""},
+      "properties":{"index":8,"name":"properties","type":"map<number>","referenceClass":""},
+      "sort":{"index":9,"name":"sort","type":"number","referenceClass":""},
+      "combat":{"index":10,"name":"combat","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"stratagems",
+    "exportArray":0,
+    "sheetName":"stratagem",
+    "className":"Stratagem"
+  },
+
+  "skill":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "desc":{"index":2,"name":"desc","type":"map<string>","referenceClass":""},
+      "displayID":{"index":3,"name":"displayID","type":"number","referenceClass":""},
+      "cd":{"index":4,"name":"cd","type":"number","referenceClass":""},
+      "type":{"index":5,"name":"type","type":"number","referenceClass":""},
+      "priority":{"index":6,"name":"priority","type":"number","referenceClass":""},
+      "effect":{"index":7,"name":"effect","type":"number","referenceClass":""},
+      "attackDistance":{"index":8,"name":"attackDistance","type":"number","referenceClass":""},
+      "targetType":{"index":9,"name":"targetType","type":"number","referenceClass":""},
+      "rangeType":{"index":10,"name":"rangeType","type":"number","referenceClass":""},
+      "effectRadius":{"index":11,"name":"effectRadius","type":"string","referenceClass":""},
+      "aoeMax":{"index":12,"name":"aoeMax","type":"number","referenceClass":""},
+      "special":{"index":13,"name":"special","type":"number","referenceClass":""},
+      "buffID":{"index":14,"name":"buffID","type":"number","referenceClass":""},
+      "maxLinkNum":{"index":15,"name":"maxLinkNum","type":"number","referenceClass":""},
+      "targetEffect":{"index":16,"name":"targetEffect","type":"number","referenceClass":""},
+      "casterEffect":{"index":17,"name":"casterEffect","type":"number","referenceClass":""},
+      "SkillType":{"index":18,"name":"SkillType","type":"number","referenceClass":""},
+      "hitTime":{"index":19,"name":"hitTime","type":"number[]","referenceClass":""},
+      "hitRate":{"index":20,"name":"hitRate","type":"number[]","referenceClass":""},
+      "thumpTime":{"index":21,"name":"thumpTime","type":"number","referenceClass":""},
+      "vibrateTime":{"index":22,"name":"vibrateTime","type":"number","referenceClass":""},
+      "motion":{"index":23,"name":"motion","type":"string","referenceClass":""},
+      "globalCd":{"index":24,"name":"globalCd","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"skills",
+    "exportArray":0,
+    "sheetName":"skill",
+    "className":"Skill"
+  },
+
+  "skilllv":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "skillID":{"index":1,"name":"skillID","type":"number","referenceClass":""},
+      "skillLv":{"index":2,"name":"skillLv","type":"number","referenceClass":""},
+      "level":{"index":3,"name":"level","type":"number","referenceClass":""},
+      "damageA":{"index":4,"name":"damageA","type":"number","referenceClass":""},
+      "damageB":{"index":5,"name":"damageB","type":"number","referenceClass":""},
+      "buffid":{"index":6,"name":"buffid","type":"number","referenceClass":""},
+      "combat":{"index":7,"name":"combat","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"skilllvs",
+    "exportArray":0,
+    "sheetName":"skilllv",
+    "className":"Skilllv"
+  },
+
+  "skilleffect":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "type":{"index":1,"name":"type","type":"number","referenceClass":""},
+      "subType":{"index":2,"name":"subType","type":"number","referenceClass":""},
+      "follow":{"index":3,"name":"follow","type":"number","referenceClass":""},
+      "zorder":{"index":4,"name":"zorder","type":"number","referenceClass":""},
+      "dir":{"index":5,"name":"dir","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"skilleffects",
+    "exportArray":0,
+    "sheetName":"skilleffect",
+    "className":"Skilleffect"
+  },
+
+  "sound":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "soundType":{"index":1,"name":"soundType","type":"number","referenceClass":""},
+      "volumeSize":{"index":2,"name":"volumeSize","type":"number","referenceClass":""},
+      "soundResource":{"index":3,"name":"soundResource","type":"string","referenceClass":""},
+      "loop":{"index":4,"name":"loop","type":"number","referenceClass":""},
+      "delayTime":{"index":5,"name":"delayTime","type":"number","referenceClass":""},
+      "name":{"index":6,"name":"name","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"sounds",
+    "exportArray":0,
+    "sheetName":"sound",
+    "className":"Sound"
+  },
+
+  "stories":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "focusType":{"index":1,"name":"focusType","type":"string","referenceClass":""},
+      "story_pic":{"index":2,"name":"story_pic","type":"number","referenceClass":""},
+      "taskId":{"index":3,"name":"taskId","type":"string","referenceClass":""},
+      "trigger":{"index":4,"name":"trigger","type":"number","referenceClass":""},
+      "npc":{"index":5,"name":"npc","type":"string","referenceClass":""},
+      "story":{"index":6,"name":"story","type":"string","referenceClass":""},
+      "voice":{"index":7,"name":"voice","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"storiess",
+    "exportArray":0,
+    "sheetName":"stories",
+    "className":"Stories"
+  },
+
+  "plot":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "plotId":{"index":1,"name":"plotId","type":"number","referenceClass":""},
+      "trigger":{"index":2,"name":"trigger","type":"number","referenceClass":""},
+      "order":{"index":3,"name":"order","type":"number","referenceClass":""},
+      "command":{"index":4,"name":"command","type":"string","referenceClass":""},
+      "storyPic":{"index":5,"name":"storyPic","type":"number","referenceClass":""},
+      "npc":{"index":6,"name":"npc","type":"string","referenceClass":""},
+      "parameters":{"index":7,"name":"parameters","type":"string","referenceClass":""},
+      "voice":{"index":8,"name":"voice","type":"string","referenceClass":""},
+      "wait":{"index":9,"name":"wait","type":"number","referenceClass":""},
+      "drawSpine":{"index":10,"name":"drawSpine","type":"string","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"plots",
+    "exportArray":0,
+    "sheetName":"plot",
+    "className":"Plot"
+  },
+
+  "strength":{
+
+    "fields":{
+      "lvl":{"index":0,"name":"lvl","type":"number","referenceClass":""},
+      "equipStrengthNum":{"index":1,"name":"equipStrengthNum","type":"number","referenceClass":""},
+      "diamondCost":{"index":2,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"lvl",
+    "exportName":"strengths",
+    "exportArray":0,
+    "sheetName":"strength",
+    "className":"Strength"
+  },
+
+  "strengthrefine":{
+
+    "fields":{
+      "lvl":{"index":0,"name":"lvl","type":"number","referenceClass":""},
+      "needStrLvl":{"index":1,"name":"needStrLvl","type":"number","referenceClass":""},
+      "consumeStr":{"index":2,"name":"consumeStr","type":"number","referenceClass":""},
+      "consumeGold":{"index":3,"name":"consumeGold","type":"number","referenceClass":""},
+      "strAddition":{"index":4,"name":"strAddition","type":"number","referenceClass":""},
+      "succeedPro":{"index":5,"name":"succeedPro","type":"number","referenceClass":""},
+      "diamondCost":{"index":6,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"lvl",
+    "exportName":"strengthrefines",
+    "exportArray":0,
+    "sheetName":"strengthrefine",
+    "className":"Strengthrefine"
+  },
+
+  "upstar":{
+
+    "fields":{
+      "lvl":{"index":0,"name":"lvl","type":"number","referenceClass":""},
+      "upStarNum":{"index":1,"name":"upStarNum","type":"number","referenceClass":""},
+      "upStarPropAdd":{"index":2,"name":"upStarPropAdd","type":"number","referenceClass":""},
+      "diamondCost":{"index":3,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"lvl",
+    "exportName":"upstars",
+    "exportArray":0,
+    "sheetName":"upstar",
+    "className":"Upstar"
+  },
+
+  "upstarbreak":{
+
+    "fields":{
+      "upStarTop":{"index":0,"name":"upStarTop","type":"number","referenceClass":""},
+      "maxUpStarLvl":{"index":1,"name":"maxUpStarLvl","type":"number","referenceClass":""},
+      "topCosNum":{"index":2,"name":"topCosNum","type":"number","referenceClass":""},
+      "succeedPro":{"index":3,"name":"succeedPro","type":"number","referenceClass":""},
+      "propertys":{"index":4,"name":"propertys","type":"map<number>","referenceClass":""},
+      "diamondCost":{"index":5,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"upStarTop",
+    "exportName":"upstarbreaks",
+    "exportArray":0,
+    "sheetName":"upstarbreak",
+    "className":"Upstarbreak"
+  },
+
+  "gem":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "itemID":{"index":1,"name":"itemID","type":"number","referenceClass":""},
+      "index":{"index":2,"name":"index","type":"number","referenceClass":""},
+      "count":{"index":3,"name":"count","type":"number","referenceClass":""},
+      "gemLvl":{"index":4,"name":"gemLvl","type":"number","referenceClass":""},
+      "items1":{"index":5,"name":"items1","type":"string","referenceClass":""},
+      "gemId1":{"index":6,"name":"gemId1","type":"number","referenceClass":""},
+      "effectType1":{"index":7,"name":"effectType1","type":"number","referenceClass":""},
+      "effectPro1":{"index":8,"name":"effectPro1","type":"number","referenceClass":""},
+      "items2":{"index":9,"name":"items2","type":"string","referenceClass":""},
+      "gemId2":{"index":10,"name":"gemId2","type":"number","referenceClass":""},
+      "effectType2":{"index":11,"name":"effectType2","type":"number","referenceClass":""},
+      "effectPro2":{"index":12,"name":"effectPro2","type":"number","referenceClass":""},
+      "items3":{"index":13,"name":"items3","type":"string","referenceClass":""},
+      "gemId3":{"index":14,"name":"gemId3","type":"number","referenceClass":""},
+      "effectType3":{"index":15,"name":"effectType3","type":"number","referenceClass":""},
+      "effectPro3":{"index":16,"name":"effectPro3","type":"number","referenceClass":""},
+      "items4":{"index":17,"name":"items4","type":"string","referenceClass":""},
+      "gemId4":{"index":18,"name":"gemId4","type":"number","referenceClass":""},
+      "effectType4":{"index":19,"name":"effectType4","type":"number","referenceClass":""},
+      "effectPro4":{"index":20,"name":"effectPro4","type":"number","referenceClass":""},
+      "diamondCost":{"index":21,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"gems",
+    "exportArray":0,
+    "sheetName":"gem",
+    "className":"Gem"
+  },
+
+  "mainline":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "nextTaskId":{"index":1,"name":"nextTaskId","type":"number","referenceClass":""},
+      "name":{"index":2,"name":"name","type":"string","referenceClass":""},
+      "note":{"index":3,"name":"note","type":"string","referenceClass":""},
+      "taskType":{"index":4,"name":"taskType","type":"number","referenceClass":""},
+      "targetValue":{"index":5,"name":"targetValue","type":"number[]","referenceClass":""},
+      "icon":{"index":6,"name":"icon","type":"number","referenceClass":""},
+      "rewardId":{"index":7,"name":"rewardId","type":"number","referenceClass":""},
+      "uiLink":{"index":8,"name":"uiLink","type":"string","referenceClass":""},
+      "guide":{"index":9,"name":"guide","type":"number","referenceClass":""},
+      "forceGuide":{"index":10,"name":"forceGuide","type":"string","referenceClass":""},
+      "level":{"index":11,"name":"level","type":"number","referenceClass":""},
+      "genTreasure":{"index":12,"name":"genTreasure","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"mainlines",
+    "exportArray":0,
+    "sheetName":"mainline",
+    "className":"Mainline"
+  },
+
+  "task":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "note":{"index":2,"name":"note","type":"string","referenceClass":""},
+      "taskType":{"index":3,"name":"taskType","type":"number","referenceClass":""},
+      "cTaskType":{"index":4,"name":"cTaskType","type":"number","referenceClass":""},
+      "targetValue":{"index":5,"name":"targetValue","type":"number","referenceClass":""},
+      "rewardId":{"index":6,"name":"rewardId","type":"number","referenceClass":""},
+      "uiLink":{"index":7,"name":"uiLink","type":"number","referenceClass":""},
+      "icon":{"index":8,"name":"icon","type":"number","referenceClass":""},
+      "showvalue":{"index":9,"name":"showvalue","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"tasks",
+    "exportArray":0,
+    "sheetName":"task",
+    "className":"Task"
+  },
+
+  "reward":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "exp":{"index":2,"name":"exp","type":"number","referenceClass":""},
+      "gold":{"index":3,"name":"gold","type":"number","referenceClass":""},
+      "diamond":{"index":4,"name":"diamond","type":"number","referenceClass":""},
+      "prestige":{"index":5,"name":"prestige","type":"number","referenceClass":""},
+      "activity":{"index":6,"name":"activity","type":"number","referenceClass":""},
+      "pureItems":{"index":7,"name":"pureItems","type":"map<number>","referenceClass":""},
+      "rewardItems":{"index":8,"name":"rewardItems","type":"map<number>","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"rewards",
+    "exportArray":0,
+    "sheetName":"reward",
+    "className":"Reward"
+  },
+
+  "target":{
+
+    "fields":{
+      "1":{"index":4,"name":1,"type":"number","referenceClass":""},
+      "2":{"index":5,"name":2,"type":"number","referenceClass":""},
+      "60":{"index":2,"name":60,"type":"number","referenceClass":""},
+      "2,80;2,80;2,80;2,80;2,80;2,80;2,80;2,28":{"index":3,"name":"2,80;2,80;2,80;2,80;2,80;2,80;2,80;2,28","type":"number[]","referenceClass":""}
+    },
+    
+    "index":"1",
+    "exportName":"targets",
+    "exportArray":0,
+    "sheetName":"target",
+    "className":"Target"
+  },
+
+  "vein":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "grade":{"index":2,"name":"grade","type":"number","referenceClass":""},
+      "kind":{"index":3,"name":"kind","type":"number","referenceClass":""},
+      "properties":{"index":4,"name":"properties","type":"map<number>","referenceClass":""},
+      "strengthProperties":{"index":5,"name":"strengthProperties","type":"map<number>","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"veins",
+    "exportArray":0,
+    "sheetName":"vein",
+    "className":"Vein"
+  },
+
+  "veinupgrade":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "kind":{"index":1,"name":"kind","type":"number","referenceClass":""},
+      "level":{"index":2,"name":"level","type":"number","referenceClass":""},
+      "veinTrainCost":{"index":3,"name":"veinTrainCost","type":"number","referenceClass":""},
+      "selfCost":{"index":4,"name":"selfCost","type":"number","referenceClass":""},
+      "diamondCost":{"index":5,"name":"diamondCost","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"veinupgrades",
+    "exportArray":0,
+    "sheetName":"veinupgrade",
+    "className":"Veinupgrade"
+  },
+
+  "position":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "kind":{"index":1,"name":"kind","type":"number","referenceClass":""},
+      "odr":{"index":2,"name":"odr","type":"number","referenceClass":""},
+      "pos":{"index":3,"name":"pos","type":"number[]","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"positions",
+    "exportArray":0,
+    "sheetName":"position",
+    "className":"Position"
+  },
+
+  "vip":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "score":{"index":1,"name":"score","type":"number","referenceClass":""},
+      "itemId":{"index":2,"name":"itemId","type":"number","referenceClass":""},
+      "copyCountV6":{"index":3,"name":"copyCountV6","type":"number","referenceClass":""},
+      "copyCountV8":{"index":4,"name":"copyCountV8","type":"number","referenceClass":""},
+      "copyCountV10":{"index":5,"name":"copyCountV10","type":"number","referenceClass":""},
+      "bossCount":{"index":6,"name":"bossCount","type":"number","referenceClass":""},
+      "buyBossCount":{"index":7,"name":"buyBossCount","type":"number","referenceClass":""},
+      "realmCount":{"index":8,"name":"realmCount","type":"number","referenceClass":""},
+      "addEquipBag":{"index":9,"name":"addEquipBag","type":"number","referenceClass":""},
+      "openRole2":{"index":10,"name":"openRole2","type":"string","referenceClass":""},
+      "openRole3":{"index":11,"name":"openRole3","type":"string","referenceClass":""},
+      "openRole4":{"index":12,"name":"openRole4","type":"string","referenceClass":""},
+      "monsterElite":{"index":13,"name":"monsterElite","type":"number","referenceClass":""},
+      "monsterAutomatic":{"index":14,"name":"monsterAutomatic","type":"number","referenceClass":""},
+      "replenishWorship":{"index":15,"name":"replenishWorship","type":"number","referenceClass":""},
+      "callDiamondBoss":{"index":16,"name":"callDiamondBoss","type":"number","referenceClass":""},
+      "skipFight":{"index":17,"name":"skipFight","type":"number","referenceClass":""},
+      "isPickAct":{"index":18,"name":"isPickAct","type":"string","referenceClass":""},
+      "chatSign":{"index":19,"name":"chatSign","type":"string","referenceClass":""},
+      "bgImg":{"index":20,"name":"bgImg","type":"string","referenceClass":""},
+      "giftPrice":{"index":21,"name":"giftPrice","type":"string","referenceClass":""},
+      "dayId":{"index":22,"name":"dayId","type":"number","referenceClass":""},
+      "equipCount":{"index":23,"name":"equipCount","type":"number","referenceClass":""},
+      "angelCount":{"index":24,"name":"angelCount","type":"number","referenceClass":""},
+      "redEnvelopeCount":{"index":25,"name":"redEnvelopeCount","type":"number","referenceClass":""},
+      "openingCount":{"index":26,"name":"openingCount","type":"number","referenceClass":""},
+      "coffersBuild":{"index":27,"name":"coffersBuild","type":"number","referenceClass":""},
+      "worldCount":{"index":28,"name":"worldCount","type":"number","referenceClass":""},
+      "guildCount":{"index":29,"name":"guildCount","type":"number","referenceClass":""},
+      "bossAutoFight":{"index":30,"name":"bossAutoFight","type":"string","referenceClass":""},
+      "buyWBCount":{"index":31,"name":"buyWBCount","type":"string","referenceClass":""},
+      "isWipeMore":{"index":32,"name":"isWipeMore","type":"number","referenceClass":""},
+      "wipeCount":{"index":33,"name":"wipeCount","type":"number","referenceClass":""},
+      "pet2open":{"index":34,"name":"pet2open","type":"number","referenceClass":""},
+      "astrology":{"index":35,"name":"astrology","type":"number","referenceClass":""},
+      "giftCount":{"index":36,"name":"giftCount","type":"number[]","referenceClass":""},
+      "guildBossNum":{"index":37,"name":"guildBossNum","type":"number","referenceClass":""},
+      "purchaseResources":{"index":38,"name":"purchaseResources","type":"number","referenceClass":""},
+      "traceActPoint":{"index":39,"name":"traceActPoint","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"vips",
+    "exportArray":0,
+    "sheetName":"vip",
+    "className":"Vip"
+  },
+
+  "recharge":{
+
+    "fields":{
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""},
+      "name":{"index":1,"name":"name","type":"string","referenceClass":""},
+      "type":{"index":2,"name":"type","type":"number","referenceClass":""},
+      "diamond":{"index":3,"name":"diamond","type":"number","referenceClass":""},
+      "payId":{"index":4,"name":"payId","type":"number","referenceClass":""},
+      "cost":{"index":5,"name":"cost","type":"number","referenceClass":""},
+      "first":{"index":6,"name":"first","type":"number","referenceClass":""},
+      "extra":{"index":7,"name":"extra","type":"number","referenceClass":""},
+      "desc":{"index":8,"name":"desc","type":"string","referenceClass":""},
+      "visible":{"index":9,"name":"visible","type":"number","referenceClass":""},
+      "index":{"index":10,"name":"index","type":"number","referenceClass":""},
+      "eventIcon":{"index":11,"name":"eventIcon","type":"number","referenceClass":""},
+      "displayId":{"index":12,"name":"displayId","type":"string","referenceClass":""},
+      "isTreble":{"index":13,"name":"isTreble","type":"string","referenceClass":""},
+      "dailyReward":{"index":14,"name":"dailyReward","type":"number","referenceClass":""},
+      "daily":{"index":15,"name":"daily","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"recharges",
+    "exportArray":0,
+    "sheetName":"recharge",
+    "className":"Recharge"
+  },
+
+  "payinfo":{
+
+    "fields":{
+      "10001":{"index":2,"name":"10001","type":"string","referenceClass":""},
+      "10004":{"index":3,"name":"10004","type":"number[]","referenceClass":""},
+      "99999":{"index":1,"name":99999,"type":"number[]","referenceClass":""},
+      "id":{"index":0,"name":"id","type":"number","referenceClass":""}
+    },
+    
+    "index":"id",
+    "exportName":"payinfos",
+    "exportArray":0,
+    "sheetName":"payinfo",
+    "className":"Payinfo"
+  }
+
+}

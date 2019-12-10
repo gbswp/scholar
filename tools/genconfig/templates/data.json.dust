@@ -1,0 +1,8 @@
+{
+    "{versionName}":"{version}",
+    {#datas}
+    "{.exportName}":{
+{@itrdata obj=values}{~s}{~s}{~s}{~s}{~s}{~s}"{key}":{value}{@sep},{~n}{/sep}{/itrdata}
+    }{@sep},{/sep}
+    {/datas}
+}
