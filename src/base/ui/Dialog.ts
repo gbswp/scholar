@@ -9,9 +9,6 @@ namespace app.ui {
 
         protected loadClose: () => void;
         protected preFuncList: Array<() => Promise<any>> = [];
-        // protected _soundId: number;
-
-        // protected helpId: number;
         autoHideBackground: boolean = true; // 当全屏时，是否自动隐藏背后的界面
         showBgMask: boolean; // 是否显示一个背景的遮盖，以便界面没有完全显示时不至于显示后面的界面
         animating: boolean = true;

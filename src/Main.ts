@@ -37,7 +37,7 @@ class Main{
 
         manager.init();
 
-        this.loadIdioms();
+        ui.show(app.home.HomeDlg);
 
     }
 
@@ -46,12 +46,5 @@ class Main{
         return (str.length <= 0 || str.endsWith('/')) ? str : `${str}/`;
     }
 
-    private loadIdioms(){
-        let url = `~${config.resPath}idiomConfig.json`;
-        Laya.loader.loadP(url).then(data=>{
-            console.log(data);
-        })
-
-    }
 }
 var main = new Main();

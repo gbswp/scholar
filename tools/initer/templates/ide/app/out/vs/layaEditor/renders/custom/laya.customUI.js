@@ -200,6 +200,10 @@
         });
 
         __proto.changeClips = function () {
+            if(!this._skin){
+                console.log("null skin", this._skin);
+                return;
+            }
             var img = Laya.Loader.getRes(this._skin);
             if (!img) {
                 console.log("lose skin", this._skin);

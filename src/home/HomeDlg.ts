@@ -1,22 +1,18 @@
 namespace app.home {
-    export class HomeDlg extends HomeDlgUI {
+    export class HomeDlg extends HomeDlgUI  {
         static NAME = "HomeDlg";
         name = HomeDlg.NAME;
         protected _modelEvents: any[] = [];
 
         onCreate() {
             super.onCreate();
+            let sp = new Laya.Sprite();
+            this.addChild(sp)
+            let g = sp.graphics;
+            g.clear()
+            g.drawRect(0,0,this.width,this.height,"#ffffff")
         }
 
-
-
-        onLstRender(cell: ui.CellView, index: number): void { }
-
-        onCbHideSelect(index: number): void { }
-
-        onBtnDelClick(e: Laya.Event): void { }
-
-        onBtnAddClick(e: Laya.Event): void { }
 
     }
 
