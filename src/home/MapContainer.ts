@@ -14,22 +14,43 @@ namespace app.home {
         stage: IStageInfo;//关卡配置
 
         //字数据
-        wordMap: { [index: string]: model.WordData } = {};
+        wordMap: { [key: string]: model.WordData } = {};
         //成语数据
-        idiomMap: { [index: string]: model.IdiomData } = {};
+        idiomMap: { [key: string]: model.IdiomData } = {};
 
 
         //字的显示控件
-        cellMap: { [index: string]: IdiomGameCellView } = {};
+        cellMap: { [key: string]: IdiomGameCellView } = {};
 
         //选中项
         private _selectItem: IdiomGameCellView;
         set selectItem(value: IdiomGameCellView) {
             if (this._selectItem == value) return;
+            if (this._selectItem) this._selectItem.img_xuanzhong.visible = false;
             this._selectItem = value;
+            if (this._selectItem) this._selectItem.img_xuanzhong.visible = true;
         }
         get selectItem() {
             return this._selectItem;
+        }
+
+        //选中答案项
+        private _selectAnswerItem: IdiomAnswerCellUI;
+        set selectAnswerItem(value: IdiomAnswerCellUI) {
+            if (this._selectAnswerItem == value) return;
+
+            if (this._selectAnswerItem) {
+                this._selectAnswerItem.visible = true;
+                this._selectAnswerItem.ani1.play(0, false);
+            }
+            this._selectAnswerItem = value;
+            if (this._selectAnswerItem) {
+                this._selectAnswerItem.visible = false;
+                // this._selectAnswerItem.alpha = 0;
+            }
+        }
+        get selectAnswerItem() {
+            return this._selectAnswerItem;
         }
 
         constructor(container: Laya.Component, row: number = 9, rank: number = 9) {
@@ -92,6 +113,20 @@ namespace app.home {
             let row = Math.range(stage.posy[index] + this.offy, 1, 9);
             let rank = Math.range(stage.posx[index] + this.offx, 1, 9);
             return [row, rank]
+        }
+
+        getKey(row: number, rank: number) {
+            return row + "_" + rank;
+        }
+
+        getWordDataByIndex(index: number) {
+            let [row, rank] = this.getRowRank(index);
+            return this.wordMap[this.getKey(row, rank)];
+        }
+
+        getWordCellByIndex(index: number) {
+            let [row, rank] = this.getRowRank(index);
+            return this.cellMap[this.getKey(row, rank)];
         }
 
         setData(data: IStageInfo) {
@@ -180,7 +215,34 @@ namespace app.home {
                 let cell = Pool.get(Pool.IdiomGameCellView, IdiomGameCellView);
                 cell.setData(data);
                 this.container.addChild(cell);
+                cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
+                this.cellMap[data.key] = cell;
             })
+            Laya.timer.callLater(this, this.trySelectItem);
+        }
+
+        protected onCellClick(cell: IdiomGameCellView) {
+            this.selectItem = cell;
+        }
+
+        /**
+         *尝试选中
+         *
+         * @returns
+         * @memberof MapContainer
+         */
+        trySelectItem() {
+            if (this.selectItem && this.selectItem.data.canSelect()) return;
+            let answer = this.stage.answer;
+            for (let i = 0, len = answer.length; i < len; i++) {
+                let index = answer[i];
+                let wordData = this.getWordDataByIndex(index);
+                if (wordData.canSelect()) {
+                    this.selectItem = this.getWordCellByIndex(index);
+                    break;
+                }
+            }
+
         }
 
         clear() {

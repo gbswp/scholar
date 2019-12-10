@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"var":"img_xuanzhong","skin":"comp/youxinei_ui2/youxinei_tu5.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"img_xuanzhong","skin":"comp/youxinei_ui2/youxinei_tu5.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_xuanzhong)",
             "isDirectory":false,

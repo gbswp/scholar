@@ -12,6 +12,10 @@ namespace app.model {
             return this.row + "_" + this.rank;
         }
 
+        canSelect() {
+            return this.state == model.IdiomState.Answer || this.state == model.IdiomState.Wrong;
+        }
+
         reset() {
             this.value = "";
             this.row = 0;

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":41,
+    "selecteID":9,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -232,7 +232,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"y":851,"width":628,"var":"lstAnswer","spaceY":2,"spaceX":5,"height":233,"events":"render","centerX":0},
+            "props":{"y":851,"width":628,"var":"lstAnswer","spaceY":2,"spaceX":5,"height":233,"events":"render,cellClick","centerX":0},
             "nodeParent":1,
             "label":"List(lstAnswer)",
             "isOpen":true,
@@ -244,7 +244,7 @@
                 {
                     "x":30,
                     "type":"UIView",
-                    "source":"home/IdiomAnswerCellView.ui",
+                    "source":"home/IdiomAnswerCell.ui",
                     "props":{"name":"render"},
                     "nodeParent":41,
                     "label":"UIView(render)",
@@ -471,6 +471,20 @@
                                 "label":null,
                                 "key":"x",
                                 "index":12
+                            }]
+                    }
+                },
+                {
+                    "target":41,
+                    "keyframes":{
+                        "events":[
+                            {
+                                "value":"render,cellChildClick",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":41,
+                                "key":"events",
+                                "index":0
                             }]
                     }
                 }],
