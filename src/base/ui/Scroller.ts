@@ -1,4 +1,4 @@
-namespace app.ui {
+namespace app {
     export const enum ScrollerType {
         All = 0,
         Vertical = 1,
@@ -13,8 +13,8 @@ namespace app.ui {
         protected target: Laya.Sprite;
         protected contentWidth: number;
         protected contentHeight: number;
-        protected hTween: { clear(): void };
-        protected vTween: { clear(): void };
+        protected hTween: TweenWrapper;
+        protected vTween: TweenWrapper;
         private _elasticDistance: number = 300;
         private _scrollerType: number;
 
@@ -120,9 +120,9 @@ namespace app.ui {
 
         centerToValue(value: number) {
             if (this.hScrollBar) {
-                this.hScrollBar.value = Math.min(Math.max(value - this.scrollRect.width / 2, 0), this.maxScrollValue);
+                this.hScrollBar.value = Math.range(value - this.scrollRect.width / 2, 0, this.maxScrollValue);
             } else if (this.vScrollBar) {
-                this.vScrollBar.value = Math.min(Math.max(value - this.scrollRect.height / 2, 0), this.maxScrollValue);
+                this.vScrollBar.value = Math.range(value - this.scrollRect.height / 2, 0, this.maxScrollValue);
             }
         }
 
@@ -164,6 +164,18 @@ namespace app.ui {
             this.hScrollBar && (this.hScrollBar.elasticDistance = this._elasticDistance);
         }
 
+        stopVScrollBar() {
+            if (this.vScrollBar) {
+                this.vScrollBar.stopScroll();
+            }
+        }
+
+        stopHScrollBar() {
+            if (this.hScrollBar) {
+                this.hScrollBar.stopScroll();
+            }
+        }
+
         clearScorllerBar() {
             if (this.vScrollBar) {
                 this.vScrollBar.offAll();
@@ -177,22 +189,7 @@ namespace app.ui {
             }
         }
 
-        stopVScrollBar() {
-            if (this.vScrollBar) {
-                this.vScrollBar.stopScroll();
-            }
-        }
-
-        stopHScrollBar() {
-            if (this.hScrollBar) {
-                this.hScrollBar.stopScroll();
-            }
-        }
-
         dispose() {
-            if (this.hTween) this.hTween.clear();
-            if (this.vTween) this.vTween.clear();
-
             this.clearScorllerBar();
 
             if (this.onScrollHandler) {

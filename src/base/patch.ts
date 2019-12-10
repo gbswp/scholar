@@ -169,7 +169,7 @@ interface IBadgeStyle {
         return date;
     }
 
-    _proto.sub = function (date: Date, toSeconds = false): number {
+    _proto.sub = function (date: Date, toSeconds?:boolean): number {
         let diff = this.getTime() - date.getTime();
         return toSeconds ? (diff / 1e3 | 0) : diff;
     }
@@ -374,6 +374,7 @@ interface IBadgeStyle {
         if (runtime) {
             runtime = runtime.replace('app.', '');
             let temp = runtime.split('.');
+            compClass = app;
             for (let i = 0; i < temp.length; ++i) {
                 compClass = compClass[temp[i]];
                 if (!compClass) {

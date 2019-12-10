@@ -15,7 +15,6 @@ namespace app.ui {
         autoHideBackground: boolean = true; // 当全屏时，是否自动隐藏背后的界面
         showBgMask: boolean; // 是否显示一个背景的遮盖，以便界面没有完全显示时不至于显示后面的界面
         animating: boolean = true;
-        container: Laya.Component;//容器
         extraResMap: any[] = [];//额外需要加载资源
         showLoad = true;
         moduleKey: number;//功能key Data.openTypeKey 枚举
@@ -158,7 +157,7 @@ namespace app.ui {
         }
 
         protected addPreFunc(promise: () => Promise<any>) {
-            this.preFuncList.push(promise);
+            this.preFuncList.pushOnce(promise);
         }
 
         private showLoading() {
@@ -176,9 +175,10 @@ namespace app.ui {
 
         private openTimeOut() {
             this.removeLoading();
+            net.sendLoog(`ui:${this.name}打开界面超时`)
         }
 
-        protected loadRes(skin?: Skin): Promise<void> {
+        private loadRes(skin?: Skin): Promise<void> {
             return new Promise<void>((resolve: any, reject: any) => {
                 let constructor = Object.getPrototypeOf(this).constructor;
                 let uiResMap: any[] = constructor.uiResMap || [];
@@ -199,7 +199,7 @@ namespace app.ui {
             })
         }
 
-        protected onLoadComplete(skin: Skin) {
+        private onLoadComplete(skin: Skin) {
             let uiSkin: Skin = Object.getPrototypeOf(this).constructor;
             if (!uiSkin.uiView && skin) {
                 uiSkin = skin;
@@ -208,25 +208,12 @@ namespace app.ui {
             uiSkin.uiEvent && super.registerEvents(uiSkin);
             this.mouseEnabled = true;
             this._autoResize = this.width === UIConfig.designWidth && this.height === UIConfig.desighHeight;
-            let container = this.container;
-            if (!this._autoResize) {
-                this.centerX = this.centerY = 0;
-                this.pos(container.width / 2, container.height / 2);
-            } else {
-                let tHeight = this.height;
-                if (isNaN(this.centerY)) {
-                    let needAdapt = this.enableAdapt && ui.manager.needAdapt();
-                    this.top = needAdapt ? ui.adaptParam.top : 0;
-                    this.bottom = needAdapt ? ui.adaptParam.bottom : 0;
-                    tHeight = container.height - this.top - this.bottom;
-                }
-
-                let tWidth = this.width;
-                if (isNaN(this.centerX)) {
-                    this.left = this.right = 0;
-                    tWidth = container.width
-                }
-                this.size(tWidth, tHeight);
+            if (!this._autoResize) this.centerX = this.centerY = 0;
+            else {
+                let needAdapt = this.enableAdapt && ui.manager.needAdapt();
+                this.top = needAdapt ? ui.adaptParam.top : 0;
+                this.bottom = needAdapt ? ui.adaptParam.bottom : 0;
+                this.left = this.right = 0;
             }
         }
 
@@ -246,7 +233,6 @@ namespace app.ui {
         }
 
         destroy(destroyChild = true): void {
-            this.container = null;
             this.cancelLoad();
             this.removeLoading();
             super.destroy(destroyChild);

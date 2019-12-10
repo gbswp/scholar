@@ -90,7 +90,7 @@ namespace app {
                 g.drawCircle(this.mx, this.my, this.rad, '#ff0000');
             }
 
-            this.target && sdk.enableMask() && (this.target.mask = this.mask);
+            this.target && (this.target.mask = this.mask);
             this.label && (this.label.value = Math.floor(this._percent * 100) + "%");
 
             this.update && this.update.run();

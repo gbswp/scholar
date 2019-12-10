@@ -1,5 +1,5 @@
 namespace app.home {
-    export class HomeDlg extends HomeDlgUI implements IHomeDlgUI {
+    export class HomeDlg extends HomeDlgUI {
         static NAME = "HomeDlg";
         name = HomeDlg.NAME;
         protected _modelEvents: any[] = [];
@@ -8,8 +8,8 @@ namespace app.home {
             super.onCreate();
         }
 
-        
-        
+
+
         onLstRender(cell: ui.CellView, index: number): void { }
 
         onCbHideSelect(index: number): void { }
@@ -17,9 +17,9 @@ namespace app.home {
         onBtnDelClick(e: Laya.Event): void { }
 
         onBtnAddClick(e: Laya.Event): void { }
-        
+
     }
-    
+
     View.regViewRuntime(HomeDlg.NAME, HomeDlg)
-    
+
 }

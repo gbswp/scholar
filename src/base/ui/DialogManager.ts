@@ -137,11 +137,6 @@ namespace app.ui {
         modalize?: boolean; // 是否模态化
     }
 
-    export interface IDlgWaitItem {
-        dlg: Dialog;
-        container: Laya.Component;
-    }
-
     export interface LoadingCloser {
         (): void;
     }
@@ -269,6 +264,7 @@ namespace app.ui {
         }
 
         private onStageResize() {
+            Laya.Browser.onIPhoneX = !Laya.Render.isConchApp && (Laya.stage._height / Laya.stage._width > 2);
             this._layers.forEach(layer => {
                 layer.left = layer.right = 0;
                 layer.top = 0;
@@ -277,7 +273,7 @@ namespace app.ui {
         }
 
         needAdapt() {
-            return !Laya.Render.isConchApp && (Laya.stage._height / Laya.stage._width > 2) && adaptParam;
+            return Laya.Browser.onIPhoneX && adaptParam;
         }
 
         private addToContainer(view: Laya.Component, container: Laya.Component, opt: ShowOptions) {
@@ -287,82 +283,52 @@ namespace app.ui {
 
             container.addChild(view); // 必需先addChild，否则view的宽高获取不到
 
+            let num = container.numChildren;
             if (!isNaN(opt.zorder) && opt.zorder < container.numChildren - 1) {
                 container.setChildIndex(view, opt.zorder);
+                view = container.getChildAt(num - 1) as Laya.Component;
             }
 
-            let target = view as Laya.Sprite;
-            if (isViewHideBackground(view instanceof PopupMaskContainer ? view.view : view)) {
-                while (!(target instanceof Laya.Stage)) {
-                    let container = target.parent as Laya.Sprite;
-                    for (let i = 0, num = container.numChildren; i < num; i++) {
-                        let v = container.getChildAt(i) as Laya.Sprite;
-                        if (v === target) break;
-                        if (v[VIEW_AUTO_HIDDEN_KEY]) continue
-                        v[VIEW_AUTO_HIDDEN_KEY] = true;
-                        v.visible = false;
-                    }
-                    target = container;
-                }
+            if (isViewHideBackground(view)) {
+                this.enumChildren(container, (v: Laya.Component, index: number) => {
+                    if (v.destroyed) return false;
+                    if (v === view) // 排除刚加入的
+                        return false;
+                    if (v[VIEW_AUTO_HIDDEN_KEY])
+                        return true;
+                    v[VIEW_AUTO_HIDDEN_KEY] = true;
+                    v.visible = false;
+                    return false;
+                })
             }
         }
 
-        //此处还是有bug
-        //当移除一个非顶层全屏界面时该界面以下被隐藏界面会重新添加到显示列表
-        //后续优化
         private removeFromContainer(view: Laya.Component) {
-            if (!view) return;
-            let container = view.parent as Laya.Sprite;
-            if (container instanceof PopupMaskContainer && container.view === view) {
+            let container = view.parent;
+            if (container instanceof PopupMaskContainer && container.view == view) {
+                // container.removeChildren();
                 view = container;
+                container = container.parent;
             }
-            let target = view as Laya.Sprite;
-            if (isViewHideBackground(view instanceof PopupMaskContainer ? view.view : view)) {
-                while (!(target instanceof Laya.Stage)) {
-                    let container = target.parent as Laya.Sprite;
-                    let breakTag = false;
-                    for (let i = 0, num = container.numChildren; i < num; i++) {
-                        let v = container.getChildAt(i) as Laya.Sprite;
-                        if (v === target) break;
-                        if (v[VIEW_AUTO_HIDDEN_KEY]) {
-                            v.visible = true;
-                            v[VIEW_AUTO_HIDDEN_KEY] = false;
-                        }
-                        if (isViewHideBackground(v instanceof PopupMaskContainer ? v.view : v)) {
-                            breakTag = true;
-                            break;
-                        }
-                    }
-                    if (breakTag) break;
-                    target = container;
+            view && view.removeSelf();
+            this.enumChildren(container as any, (v: any, index: number) => {
+                if (v[VIEW_AUTO_HIDDEN_KEY]) {
+                    v.visible = true;
+                    v[VIEW_AUTO_HIDDEN_KEY] = false;
                 }
-            }
-
-            view.removeSelf();
+                return isViewHideBackground(v) // 如果是全屏的视图，则结束遍历
+            })
         }
 
         show(view: Laya.Component, layer: DisplayLayer, opt: ShowOptions = emptyObject) {
-            if (!view || view.destroyed) return;
             let container = opt.container || this._layers[layer];
-            if (!container || container.destroyed) return;
-            let popupBgAlpha = opt.popupBgAlpha;
-            let popupBgColor = opt.popupBgColor;
-            switch (layer) {
-                case DisplayLayer.LOADING:
-                    popupBgAlpha || (popupBgAlpha = 0);
-                    break;
-                case DisplayLayer.POPUP:
-                    popupBgAlpha || (popupBgAlpha = UIConfig.popupBgAlpha);
-                    popupBgColor || (popupBgColor = UIConfig.popupBgColor);
-                    break;
-            }
+            if (!container || container.destroyed || view.destroyed) return;
             let maskContainer: PopupMaskContainer;
-            //显示黑底 点击关闭或设置黑点透明度或设置黑底颜色或屏蔽鼠标点击
-            if (opt.popupNoMask != true && (opt.closeOnClick || popupBgAlpha != undefined || popupBgColor != undefined || opt.modalize)) {
+            if (opt.closeOnClick || layer == DisplayLayer.POPUP || layer == DisplayLayer.SYSTEM || layer == DisplayLayer.LOADING) {
                 maskContainer = new PopupMaskContainer({
                     closeOnClick: opt.closeOnClick,
-                    bgColor: popupBgColor,
-                    bgAlpha: popupBgAlpha,
+                    bgColor: opt.popupBgColor,
+                    bgAlpha: layer != DisplayLayer.LOADING ? opt.popupBgAlpha : 0,
                     noMask: opt.popupNoMask,
                     modalize: opt.modalize
                 });
@@ -442,7 +408,7 @@ namespace app.ui {
         }
     }
 
-    export function isViewHideBackground(view: Laya.Sprite): boolean {
+    export function isViewHideBackground(view: Laya.Component): boolean {
         if (!(view instanceof ui.Dialog))
             return false;
         let parent = view.parent;
@@ -469,10 +435,11 @@ namespace app.ui {
         }
         dlg.showBgMask = opt.showBgMask;
         opt.animating != undefined && (dlg.animating = opt.animating);
-        dlg.container  = opt.container || manager.getLayer(layer);
+
         return dlg.open(opt.skin).then(() => {
             manager.show(dlg, layer, opt);
             dlg.animatingShow();
+
             return dlg;
         })
     }
@@ -497,17 +464,16 @@ namespace app.ui {
         registerGuideImpl?: (btnID: number, comp: Laya.Component) => void;
         registerOpenKeyImpl?: (openKey: string, comp: Laya.Component) => void;
         opCheckLimit?: (key: string | number, time?: number, showTip?: boolean) => boolean;
-        modelEventsDispatcher?: Laya.EventDispatcher;
+        modelEventsDispatcher: Laya.EventDispatcher;
         adaptParam?: IAdaptParam;
-        init?: boolean;
     }
 
-    export let helpDlgImpl: { new(helpId: number | string): Dialog };
-    export let messageBoxImpl: { new(...parmas: any[]): Dialog };
-    export let inputBoxImpl: { new(...parmas: any[]): Dialog };
-    export let loadingImpl: { new(...params: any[]): View };
-    export let toastImpl: { new(...params: any[]): Laya.Component & { text: string } };
-    export let showMsgImpl: (msgId: number, ...args: any[]) => void;
+    let helpDlgImpl: { new(helpId: number | string): Dialog };
+    let messageBoxImpl: { new(...parmas: any[]): Dialog };
+    let inputBoxImpl: { new(...parmas: any[]): Dialog };
+    let loadingImpl: { new(...params: any[]): View };
+    let toastImpl: { new(...params: any[]): Laya.Component & { text: string } };
+    let showMsgImpl: (msgId: number, ...args: any[]) => void;
     export let adaptParam: IAdaptParam;//适配参数
     export let checkModuleOpenImpl: (openKey: number, showTip?: boolean, playSound?: boolean) => boolean;
     export let checkModuleOpenByTargetImpl: (targetKey: string, showTip?: boolean, playSound?: boolean) => boolean;
@@ -530,7 +496,7 @@ namespace app.ui {
         if (param.opCheckLimit) opCheckLimit = param.opCheckLimit;
         if (param.modelEventsDispatcher) modelEventsDispatcher = param.modelEventsDispatcher;
         if (param.adaptParam) adaptParam = param.adaptParam;
-        param.init && manager.init();
+        manager.init();
     }
 
     export function isParentComp(comp: Laya.Component, parentComp: Laya.Node): boolean {
@@ -661,4 +627,4 @@ namespace app.ui {
 
     export let manager = new DialogManager();
 }
-
+let ui = app.ui;

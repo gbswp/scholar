@@ -54,8 +54,7 @@ namespace app.ui {
         }
 
         protected put(item: View) {
-            if (this._pool.indexOf(item) != -1) return;
-            this._pool.push(item);
+            this._pool.pushOnce(item);
         }
 
         removeItem(oldIndex: number, value: any) {

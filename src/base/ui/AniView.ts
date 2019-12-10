@@ -67,13 +67,17 @@ namespace app.ui {
         set skin(value: string) {
             if (this._skin == value)
                 return;
+
             this._removeAsset(this._skin);
             this._skin = value;
+            if (value == "") {
+                return;
+            }
             this._addAsset(value);
 
-            value && Laya.loader.load(value, Laya.Handler.create(this, (result: any) => {
-                result && this.setAtlas(value);
-            }), null, Laya.Loader.ATLAS, 2)
+            Laya.loader.loadP(value, Laya.Loader.ATLAS, 2).then(() => {
+                this.setAtlas(value);
+            })
         }
 
         get miniAniScaleX() {

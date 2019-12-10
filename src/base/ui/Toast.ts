@@ -43,9 +43,7 @@ namespace app.ui {
             this.pivotX = this.width / 2;
             this.pivotY = this.height / 2;
             this.x = (stage.width) / 2;
-            // this.y = (stage.height) / 2;
-            this.centerY = undefined;
-            this.bottom = 550;
+            this.y = (stage.height) / 2;
             if (layout) {
                 this.x += (layout.horizontalLayoutDiff || 0) + (layout.horizontalLayout || 0) * (this._descDiv.width + 20);
                 this.y += (layout.verticalLayoutDiff || 0) + (layout.verticalLayout || 0) * (this._descDiv.height + 20);

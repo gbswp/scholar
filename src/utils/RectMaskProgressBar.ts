@@ -5,7 +5,7 @@ namespace app {
         update: Laya.Handler;
 
         protected mask: Laya.Sprite;
-        protected tween: Laya.Tween;
+        protected tween: TweenWrapper;
         protected _size: Laya.Rectangle;
         protected _percent: number = 0;
         protected _totalTime: number = 1000;
@@ -112,7 +112,7 @@ namespace app {
                 }
             }
 
-            if (sdk.enableMask()) this.target.mask = this.mask;
+            this.target.mask = this.mask;
             this.label && (this.label.value = Math.floor(this._percent * 100) + "%");
 
             this.update && this.update.run();

@@ -27,7 +27,7 @@ function getResVersion() {
 }
 
 function ProjectConfig() {
-    let configFile = path.join(config.projectPath, 'mergeplane.laya');
+    let configFile = path.join(config.projectPath, 'scholar.laya');
     let configObj = JSON.parse(fs.readFileSync(configFile));
 
     this.engineVersion = configObj.version || '0';

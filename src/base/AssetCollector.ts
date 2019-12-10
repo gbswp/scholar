@@ -112,16 +112,15 @@ namespace app {
             }
 
             return new Promise<void>((resolve: any, reject: any) => {
-                Laya.loader.load(url, Laya.Handler.create(this, (result: any) => {
-                    if (result) {
-                        let cacheItem = AssetCollector.resources[url];
-                        if (cacheItem)
-                            cacheItem.loaded = true;
-                        resolve(result);
-                    } else {
-                        reject({ message: 'load error' });
-                    }
-                }), null, type, priority, cache, group)
+                Laya.loader.loadP(url, type, priority, null, cache, group).then(() => {
+                    let cacheItem = AssetCollector.resources[url];
+                    if (cacheItem)
+                        cacheItem.loaded = true;
+
+                    resolve(void (0));
+                }).catch((err: any) => {
+                    reject(err);
+                })
             })
         }
 

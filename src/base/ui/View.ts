@@ -1,4 +1,5 @@
 namespace app.ui {
+
     export function getCompInfo(obj: any, compName: string) {
         if (compName.indexOf('.') >= 0) {
             var fields = compName.split('.')
@@ -14,8 +15,6 @@ namespace app.ui {
     }
 
     export class View extends Laya.View {
-        static ROOT: any;//根命名空间
-        static ROOTNAME: string;
         static registerOpenKeyImpl: (openKey: string, comp: Laya.Component) => void;
         static VIEW_CREATED = "onViewCreated";
         static getViewClass(name: string) {//获取注册的类
@@ -41,7 +40,7 @@ namespace app.ui {
         }
 
         setViewData(data?: any) {
-
+            
         }
 
         isAutoManageRes(): boolean {
@@ -112,7 +111,7 @@ namespace app.ui {
 
         set viewSkin(value: Skin | string) {
             if (typeof value == 'string') {
-                let skin = getCompInfo(View.ROOT, value).comp;
+                let skin = getCompInfo(app, value).comp;
                 this.setViewSkin(skin);
             } else {
                 this.setViewSkin(value);
@@ -128,20 +127,15 @@ namespace app.ui {
             }
         }
 
-        loadP(url: any, type?: string, priority?: number, cache?: boolean, group?: string): Promise<any> {
+        loadP(url: any, type?: string, priority?: number, cache?: boolean, group?: string): Promise<void> {
             if (this._assetCollector)
                 return this._assetCollector.loadP(url, type, priority, cache, group);
 
             let dlg = ui.getParentDialog(this);
             if (dlg)
                 return dlg.loadP(url, type, priority, cache, group);
-            else {
-                return new Promise((resolve: any, reject: any) => {
-                    Laya.loader.load(url, Laya.Handler.create(this, (result: any) => {
-                        result ? resolve(result) : reject({ message: "load error" })
-                    }), null, type, priority, cache, group);
-                })
-            }
+            else
+                return Laya.loader.loadP(url, type, priority, null, cache, group);
         }
 
         protected registerModelEvents(isRegister: boolean) {

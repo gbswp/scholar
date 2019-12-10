@@ -30,18 +30,15 @@ namespace app.ui {
         }
 
         set source(value: string) {
-            if (this._source == value) return;
+            if (this._source == value)
+                return;
 
             this._source = value;
             if (this._factory) {
                 this.cleanData();
             }
 
-            if (!value) return;
-
-            let str = '.sk';
-            let len = value.length;
-            if (value.substr(len - str.length, len) === str) { //加载sk文件
+            if (value.endsWith('.sk')) { //加载sk文件
                 this._loaded = false;
                 this._factory = new Laya.Templet();
                 this._factory.once(Event.COMPLETE, this, this.parseComplete);

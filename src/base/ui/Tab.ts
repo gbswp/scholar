@@ -1,8 +1,9 @@
 namespace app.ui {
     export class Tab extends Laya.UIGroup {
         beforeChangeHandler: Laya.Handler = Laya.Handler.create(this, this.beforeChageCheck, [], false);
+        static soundString = "";
         selectSp: Laya.Component;
-        tween: { clear: () => void };
+        tween: TweenWrapper;
         needTween = false;
 
         protected createItem(skin: string, label: string): Laya.Sprite {
@@ -17,6 +18,7 @@ namespace app.ui {
                 (item instanceof ui.Button) && (item.enableAnimating = false);
                 if (item instanceof Laya.Button) {
                     item.toggle = false;
+                    item.soundId = "switchUi";
                 }
             });
             this.selectSp = this.getChildByName("select") as Laya.Component;
@@ -33,6 +35,14 @@ namespace app.ui {
             }
             this["_$set_selectedIndex"](value);
             this.updateSelectSp();
+        }
+
+        protected setSelect(index: number, selected: boolean): void {
+            super.setSelect(index, selected);
+            if (this._items && index > -1 && index < this._items.length) {
+                let item = this._items[index] as Laya.Component;
+                item.badgeEnable = !selected;
+            }
         }
 
         protected updateSelectSp() {
@@ -52,7 +62,8 @@ namespace app.ui {
 
         beforeChageCheck(index: number) {
             if (!this._items) return false;
-            return !this._items[index];
+            let item = this._items[index] as Laya.Component;
+            return item && item.openKey && ui.checkModuleOpenByTargetImpl && !ui.checkModuleOpenByTargetImpl(item.openKey, true, true);
         }
 
         destroy(destroyChild = true) {

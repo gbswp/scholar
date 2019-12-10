@@ -19,12 +19,15 @@ namespace app.ui {
         private _showNative() {
             if (!TextInput.inputItem) {
                 TextInput.inputItem = this;
+                // JSProxy.showNativeEditTextView(this.text);
                 Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this._closeShowNative);
             }
         }
 
         private _closeShowNative() {
             if (TextInput.inputItem) {
+                //TextInput.inputItem = null;
+                // JSProxy.hideNativeEditTextView();
                 Laya.stage.off(Laya.Event.MOUSE_DOWN, this, this._closeShowNative);
             }
         }

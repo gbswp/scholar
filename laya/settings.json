@@ -1,33 +1,33 @@
 {
     "uiimports": {
-        "View": "ui.View",
-        "Dialog": "ui.Dialog",
-        "CellView": "ui.CellView",
-        "Button": "ui.Button",
-        "ImageView": "ui.ImageView",
-        "CheckBox": "ui.CheckBox",
-        "List": "ui.List",
-        "Tab": "ui.Tab",
-        "AniView": "ui.AniView",
-        "SpineView": "ui.SpineView",
-        "ViewStack": "ui.ViewStack",
-        "ComboBox": "ui.ComboBox",
-        "HBox": "ui.HBox",
-        "VBox": "ui.VBox"
+        "View": "app.ui.View",
+        "Dialog": "app.ui.Dialog",
+        "CellView": "app.ui.CellView",
+        "Button": "app.ui.Button",
+        "ImageView": "app.ui.ImageView",
+        "CheckBox": "app.ui.CheckBox",
+        "List": "app.ui.List",
+        "Tab": "app.ui.Tab",
+        "AniView": "app.ui.AniView",
+        "SpineView": "app.ui.SpineView",
+        "ViewStack": "app.ui.ViewStack",
+        "ComboBox": "app.ui.ComboBox",
+        "HBox": "app.ui.HBox",
+        "VBox": "app.ui.VBox"
     },
     "components": {
-        "Button": "ui.Button",
-        "Image": "ui.ImageView",
-        "CheckBox": "ui.CheckBox",
-        "List": "ui.List",
-        "Tab": "ui.Tab",
-        "AniView": "ui.AniView",
-        "SpineView": "ui.SpineView",
-        "ViewStack": "ui.ViewStack",
+        "Button": "app.ui.Button",
+        "Image": "app.ui.ImageView",
+        "CheckBox": "app.ui.CheckBox",
+        "List": "app.ui.List",
+        "Tab": "app.ui.Tab",
+        "AniView": "app.ui.AniView",
+        "SpineView": "app.ui.SpineView",
+        "ViewStack": "app.ui.ViewStack",
         "HTMLDivElement": "Laya.HTMLDivElement",
-        "ComboBox": "ui.ComboBox",
-        "HBox": "ui.HBox",
-        "VBox": "ui.VBox"
+        "ComboBox": "app.ui.ComboBox",
+        "HBox": "app.ui.HBox",
+        "VBox": "app.ui.VBox"
     },
     "skinLabels": {
         "Button": [
@@ -61,5 +61,5 @@
         "data.json"
     ],
     "beforeManifestFile": []
-   
+
 }

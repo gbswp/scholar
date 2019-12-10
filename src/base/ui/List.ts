@@ -90,7 +90,7 @@ namespace app.ui {
         }
 
         tweenPage(value: number) {
-            this._page = Math.min(Math.max(value, 0), this.totalPage);
+            this._page = Math.range(value, 0, this.totalPage);
             this.tweenTo(this._page * this.repeatX * this.repeatY);
         }
 

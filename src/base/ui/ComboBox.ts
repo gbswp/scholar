@@ -73,7 +73,7 @@ namespace app.ui {
         protected _defaultRenderHandler(cell: Laya.Box, index: number) {
             if (index < 0 && index >= this._labels.length) return;
             let label = cell.getChildByName("label") as Laya.Label;
-            label && (label.text = this._labels[index]);
+            label && (label.value = this._labels[index]);
             this.onRollHandler.runWith([index, false]);
         }
 
@@ -87,7 +87,7 @@ namespace app.ui {
 
         protected changeSelected() {
             let label = this.getChildByName("label") as Laya.Label;
-            if (label) label.text = this.selectedLabel || "";
+            if (label) label.value = this.selectedLabel || "";
             else this._button.label = this.selectedLabel || "";
         }
 

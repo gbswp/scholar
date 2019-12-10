@@ -21,8 +21,8 @@ namespace app.ui {
             if (rect && rect.width == this.width && rect.height == this.height) return;
             if (!rect) rect = new Laya.Rectangle(0, 0, this.width, this.height);
             else rect.setTo(rect.x, rect.y, this.width, this.height);
-            rect.x = Math.min(Math.max(rect.x, 0), Math.max(this.contentWidth - rect.width, 0));
-            rect.y = Math.min(Math.max(rect.y, 0), Math.max(this.contentHeight - rect.height, 0));
+            rect.x = Math.range(rect.x, 0, Math.max(this.contentWidth - rect.width, 0));
+            rect.y = Math.range(rect.y, 0, Math.max(this.contentHeight - rect.height, 0));
             this.scroller.bindTarget(this, rect);
         }
 
@@ -68,8 +68,7 @@ namespace app.ui {
         }
 
         protected put(item: View) {
-            if (this._pool.indexOf(item) != -1) return;
-            this._pool.push(item);
+            this._pool.pushOnce(item);
         }
 
         changeItems() {

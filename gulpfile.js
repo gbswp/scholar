@@ -10,8 +10,6 @@ var gulpconnect = require('gulp-connect');
 var sequence = require('run-sequence');
 var config = require('./tools/config');
 var genhtml = require('./tools/genhtml');
-var zippatch = require('./tools/zippatch');
-var copysvn = require('./tools/copysvn');
 var execSync = require('child_process').execSync;
 
 var _ = require('lodash');
@@ -41,15 +39,14 @@ const argv = require('yargs')
     .argv;
 
 var tsProject = ts.createProject('tsconfig.json');
-var enterProject = ts.createProject('tsconfig_enter.json');
 
 gulp.task('init', function () {
     return require('./tools/initer')();
 })
 
-gulp.task("compile_enter", function () {
-    return enterProject.src()
-        .pipe(enterProject())
+gulp.task("compile", function () {
+    return tsProject.src()
+        .pipe(tsProject())
         .on('error', function () {
             if (argv.error_break) {
                 console.error("gulp TypeScript->Javascript error:")
@@ -64,24 +61,6 @@ gulp.task("compile_enter", function () {
         .pipe(gulp.dest(''))
 });
 
-gulp.task("compile_main", function () {
-    return tsProject.src()
-        .pipe(tsProject())
-        .on('error', function () {
-            if (argv.error_break) {
-                console.error("gulp TypeScript->Javascript error:")
-                process.exit(1);
-            }
-        })
-        .js
-        .pipe(gulpif(argv.minify, uglify({ compress: { drop_console: argv.minify_drop_console } })))
-        .pipe(gulpif(argv.minify, rename({ extname: '.min.js' })))
-        .pipe(gulp.dest('.')) // 输出路径根据tsconfig.json
-});
-
-gulp.task('compile', function (cb) {
-    sequence('compile_main', 'compile_enter', cb);
-});
 
 gulp.task('genui', function () {
     return require('./tools/genui')(argv);
