@@ -58,7 +58,7 @@ var MiniFileMgr$5=(function(){
 		(isAutoClear===void 0)&& (isAutoClear=true);
 		var downloadTask=MiniFileMgr.wxdown({url:fileUrl,success:function (data){
 				if (data.statusCode===200)
-				MiniFileMgr.readFile(data.tempFilePath||data.filePath,encoding,callBack,readyUrl,isSaveFile,fileType,isAutoClear);
+					MiniFileMgr.readFile(data.tempFilePath,encoding,callBack,readyUrl,isSaveFile,fileType,isAutoClear);
 				else
 				if(data.statusCode===403){
 					callBack !=null && callBack.runWith([0,fileUrl]);
@@ -211,21 +211,17 @@ var MiniFileMgr$5=(function(){
 		return laya.qq.mini.MiniFileMgr.fileNativeDir+"/"+fileName;
 	}
 
-	MiniFileMgr.deleteFile=function(tempFilePath,readyUrl,callBack,encoding,fileSize){
+	MiniFileMgr.deleteFile=function(tempFileName,readyUrl,callBack,encoding,fileSize){
 		(readyUrl===void 0)&& (readyUrl="");
 		(encoding===void 0)&& (encoding="");
 		(fileSize===void 0)&& (fileSize=0);
 		var fileObj=MiniFileMgr.getFileInfo(readyUrl);
 		var deleteFileUrl=MiniFileMgr.getFileNativePath(fileObj.md5);
-		var tempFileName = tempFilePath;
-		if(tempFilePath.length>0){
-			tempFileName = tempFilePath.split("/").pop();
-		}
 		MiniFileMgr.fs.unlink({filePath:deleteFileUrl,success:function (data){
 				var isAdd=tempFileName !="" ? true :false;
 				if(tempFileName !=""){
 					var saveFilePath=MiniFileMgr.getFileNativePath(tempFileName);
-					MiniFileMgr.fs.copyFile({srcPath:tempFilePath,destPath:saveFilePath,success:function (data){
+					MiniFileMgr.fs.copyFile({srcPath:tempFileName,destPath:saveFilePath,success:function (data){
 							MiniFileMgr.onSaveFile(readyUrl,tempFileName,isAdd,encoding,callBack,data.size);
 							},fail:function (data){
 							callBack !=null && callBack.runWith([1,data]);
@@ -420,12 +416,8 @@ var MiniImage$5=(function(){
 					fileNativeUrl=tempFilePath;
 					}else{
 					var fileObj=MiniFileMgr$5.getFileInfo(sourceUrl);
-					if(fileObj){
-						var fileMd5Name=fileObj.md5;
-						fileNativeUrl=MiniFileMgr$5.getFileNativePath(fileMd5Name);
-					}else{
-						fileNativeUrl=sourceUrl;
-					}
+					var fileMd5Name=fileObj.md5;
+					fileNativeUrl=MiniFileMgr$5.getFileNativePath(fileMd5Name);
 				}
 			}else
 			if(QQMiniAdapter.isZiYu){
@@ -1477,7 +1469,7 @@ var MiniLoader$5=(function(_super){
 		(errorCode===void 0)&& (errorCode=0);
 		if (!errorCode){
 			var tempData;
-			if (type==/*laya.net.Loader.JSON*/"json" || type==/*laya.net.Loader.ATLAS*/"atlas"||type == "st"){
+			if (type==/*laya.net.Loader.JSON*/"json" || type==/*laya.net.Loader.ATLAS*/"atlas"){
 				tempData=QQMiniAdapter.getJson(data.data);
 				}else if (type==/*laya.net.Loader.XML*/"xml"){
 				tempData=Utils.parseXMLFromString(data.data);

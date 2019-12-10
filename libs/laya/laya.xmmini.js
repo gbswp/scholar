@@ -493,7 +493,8 @@ var MiniFileMgr$2=(function(){
 		var memSize=KGMiniAdapter.minClearSize;
 		var tempFileListArr=[];
 		for(var key in MiniFileMgr.filesListObj){
-			tempFileListArr.push(MiniFileMgr.filesListObj[key]);
+			if(key!="fileUsedSize")
+				tempFileListArr.push(MiniFileMgr.filesListObj[key]);
 		}
 		MiniFileMgr.sortOn(tempFileListArr,"times",16);
 		var clearSize=0;
@@ -517,24 +518,17 @@ var MiniFileMgr$2=(function(){
 		return laya.mi.mini.MiniFileMgr.fileNativeDir+"/"+fileName;
 	}
 
-	MiniFileMgr.deleteFile=function(tempFilePath,readyUrl,callBack,encoding,fileSize){
+	MiniFileMgr.deleteFile=function(tempFileName,readyUrl,callBack,encoding,fileSize){
 		(readyUrl===void 0)&& (readyUrl="");
 		(encoding===void 0)&& (encoding="");
 		(fileSize===void 0)&& (fileSize=0);
-
-		var tempFileName = tempFilePath;
-		if (tempFilePath.length > 0) {
-			var temp = tempFilePath.split("/");
-			tempFileName = temp[temp.length - 1];
-		}
-
 		var fileObj=MiniFileMgr.getFileInfo(readyUrl);
 		var deleteFileUrl=MiniFileMgr.getFileNativePath(fileObj.md5);
 		MiniFileMgr.fs.unlink({filePath:deleteFileUrl,success:function (data){
 				var isAdd=tempFileName !="" ? true :false;
 				if(tempFileName !=""){
 					var saveFilePath=MiniFileMgr.getFileNativePath(tempFileName);
-					MiniFileMgr.fs.copyFile({srcPath:tempFilePath,destPath:saveFilePath,success:function (data){
+					MiniFileMgr.fs.copyFile({srcPath:tempFileName,destPath:saveFilePath,success:function (data){
 							MiniFileMgr.onSaveFile(readyUrl,tempFileName,isAdd,encoding,callBack,data.size);
 							},fail:function (data){
 							callBack !=null && callBack.runWith([1,data]);
@@ -543,27 +537,14 @@ var MiniFileMgr$2=(function(){
 					MiniFileMgr.onSaveFile(readyUrl,tempFileName,isAdd,encoding,callBack,fileSize);
 				}
 				},fail:function (data){
-					var isAdd = tempFileName != "" ? true : false;
-					if (tempFileName != "") {
-						var saveFilePath = MiniFileMgr.getFileNativePath(tempFileName);
-						MiniFileMgr.fs.copyFile({
-							srcPath: tempFilePath,
-							destPath: saveFilePath,
-							success: function (data) {
-								MiniFileMgr.onSaveFile(readyUrl, tempFileName, isAdd, encoding, callBack, data.size);
-							},
-							fail: function (data) {
-								callBack != null && callBack.runWith([1, data]);
-							}
-						});
-					}
 		}});
 	}
 
 	MiniFileMgr.deleteAll=function(){
 		var tempFileListArr=[];
 		for(var key in MiniFileMgr.filesListObj){
-			tempFileListArr.push(MiniFileMgr.filesListObj[key]);
+			if(key!="fileUsedSize")
+				tempFileListArr.push(MiniFileMgr.filesListObj[key]);
 		}
 		for(var i=1,sz=tempFileListArr.length;i<sz;i++){
 			var fileObj=tempFileListArr[i];
@@ -1166,7 +1147,7 @@ var MiniLoader$2=(function(_super){
 		};
 		var encoding=KGMiniAdapter.getUrlEncode(url,type);
 		var urlType=Utils.getFileExtension(url);
-		if ((MiniLoader._fileTypeArr.indexOf(urlType)!=-1)){
+		if ((MiniLoader._fileTypeArr.indexOf(urlType)!=-1)|| type==/*laya.net.Loader.IMAGE*/"image"){
 			KGMiniAdapter.EnvConfig.load.call(this,url,type,cache,group,ignoreCache);
 			}else {
 			if(KGMiniAdapter.isZiYu && !MiniFileMgr$2.ziyuFileData[url]){
@@ -1177,7 +1158,7 @@ var MiniLoader$2=(function(_super){
 				thisLoader.onLoaded(tempData);
 				return;
 			}
-			if (!MiniFileMgr$2.getFileInfo(url)){
+			if (!MiniFileMgr$2.getFileInfo(URL.formatURL(url))){
 				if (MiniFileMgr$2.isLocalNativeFile(url)){
 					if (KGMiniAdapter.subNativeFiles && KGMiniAdapter.subNativeheads.length==0){
 						for (var key in KGMiniAdapter.subNativeFiles){
@@ -1199,16 +1180,31 @@ var MiniLoader$2=(function(_super){
 					return;
 				};
 				var tempUrl=url;
-				url=URL.formatURL(url);
-				if (url.indexOf("http://")!=-1 || url.indexOf("https://")!=-1){
+				var tempurl=URL.formatURL(url);
+				if (tempurl.indexOf(KGMiniAdapter.window.qg.env.USER_DATA_PATH)==-1 &&(url.indexOf("http://")!=-1 || url.indexOf("https://")!=-1)&& !KGMiniAdapter.AutoCacheDownFile){
 					KGMiniAdapter.EnvConfig.load.call(thisLoader,tempUrl,type,cache,group,ignoreCache);
 					}else {
-					MiniFileMgr$2.readFile(url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
+					fileObj=MiniFileMgr$2.getFileInfo(url);
+					if(fileObj){
+						fileObj.encoding=fileObj.encoding==null ? "utf8" :fileObj.encoding;
+						MiniFileMgr$2.readFile(fileObj.url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
+						}else if (thisLoader.type=="image" || thisLoader.type=="htmlimage"){
+						KGMiniAdapter.EnvConfig.load.call(thisLoader,url,type,cache,group,ignoreCache);
+					}
+					else{
+						url=URL.formatURL(url);
+						if(type !=/*laya.net.Loader.IMAGE*/"image" && ((url.indexOf("http://")==-1 && url.indexOf("https://")==-1)|| MiniFileMgr$2.isLocalNativeFile(url))){
+							MiniFileMgr$2.readFile(url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
+							}else{
+							MiniFileMgr$2.downFiles(url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url,cache);
+						}
+					}
 				}
 				}else {
-				var fileObj=MiniFileMgr$2.getFileInfo(url);
-				fileObj.encoding=fileObj.encoding==null ? "ascii" :fileObj.encoding;
-				MiniFileMgr$2.readFile(url,fileObj.encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
+				var fileObj=MiniFileMgr$2.getFileInfo(URL.formatURL(url));
+				fileObj.encoding=fileObj.encoding==null ? "utf8" :fileObj.encoding;
+				var nativepath=MiniFileMgr$2.getFileNativePath(fileObj.md5);
+				MiniFileMgr$2.readFile(nativepath,fileObj.encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),URL.formatURL(url));
 			}
 		}
 	}
