@@ -5,6 +5,8 @@ namespace app {
         static Frame = "Frame";
         static PendingReqItem = "PendingReqItem";
 
+        static IdiomCellView = "IdiomCellView";
+
 
         static get<T>(sign: string, cls: { new (): T }) {
             return Laya.Pool.getItemByClass(sign, cls) as T
