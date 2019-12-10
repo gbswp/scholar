@@ -4,4 +4,8 @@
 /src/gen
 /.vscode
 /app.js
+/libs/engine.min.js
+/libs/pre.min.js
+/libs/lodash/lodash.min.js
+/libs/promise/promise.min.js
 
