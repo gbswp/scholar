@@ -13,8 +13,10 @@ namespace app {
         private _dataLoaded = false;
 
         fight: FightManager;
+        player:PlayerManager;
         init() {
             this.fight = new FightManager();
+            this.player = new PlayerManager();
         }
 
         loadData(source: string, dispatch = false): Promise<void> {

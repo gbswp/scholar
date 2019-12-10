@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":109,
+    "selectedBox":25,
+    "selecteID":115,
     "referenceLines":null,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
@@ -17,7 +17,7 @@
             "x":15,
             "type":"UIView",
             "source":"home/FightView.ui",
-            "props":{"var":"viewFight","top":0,"right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"var":"viewFight"},
             "nodeParent":1,
             "label":"UIView(viewFight)",
             "isDirectory":false,
@@ -33,13 +33,14 @@
             "props":{"var":"contentContainer","top":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Box(contentContainer)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":108,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"skin":"comp/beijing/beijing_tu2.png","name":"beijing"},
                     "nodeParent":108,
@@ -175,75 +176,38 @@
                         }]
                 },
                 {
-                    "type":"Sprite",
-                    "props":{"y":0,"x":0,"var":"spr_fang_weizhi"},
-                    "nodeParent":108,
-                    "label":"Sprite(spr_fang_weizhi)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":88,
-                    "child":[
-                        {
-                            "type":"UIView",
-                            "source":"test/huobi_ui_shang.ui",
-                            "props":{},
-                            "nodeParent":88,
-                            "label":"UIView",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":110,
-                            "child":[
-                                ]
-                        }],
-                    "$LOCKED":true
-                },
-                {
+                    "x":30,
                     "type":"UIView",
-                    "source":"common/PowerView.ui",
-                    "props":{"y":12,"x":15},
+                    "source":"home/PlayerInfo.ui",
+                    "props":{"y":12,"x":15,"var":"viewPlayerInfo"},
                     "nodeParent":108,
-                    "label":"UIView",
+                    "label":"UIView(viewPlayerInfo)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":111,
+                    "compId":114,
                     "child":[
                         ]
                 },
                 {
-                    "type":"UIView",
-                    "source":"common/MoneyTypeView.ui",
-                    "props":{"y":24,"x":210,"scaleY":0.9,"scaleX":0.9},
-                    "nodeParent":108,
-                    "label":"UIView",
-                    "isOpen":false,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":112,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":568,"x":320,"width":640,"var":"box_neirong","height":640,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
                     "label":"Box(box_neirong)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":107,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":252,"x":156,"width":300,"var":"btn_shu","scaleY":1,"scaleX":1,"height":250,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":107,
                             "label":"Button(btn_shu)",
+                            "isOpen":null,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -297,6 +261,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Sprite",
                             "props":{"y":215,"x":431,"var":"spr_nvjuese_weizhi"},
                             "nodeParent":107,
@@ -309,6 +274,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Sprite",
                             "props":{"y":321,"x":231,"var":"spr_nanjuese_weizhi"},
                             "nodeParent":107,
@@ -322,17 +288,19 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":149,"x":-43,"width":80,"var":"btn_yinyue","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
                     "label":"Button(btn_yinyue)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":25,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"x":4,"var":"img_yinyue_guan","skin":"comp/zhujiemian_ui1/zhujiemian_tu10.png"},
                             "nodeParent":25,
@@ -345,6 +313,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"x":10,"var":"img_yinyue_kai","skin":"comp/zhujiemian_ui1/zhujiemian_tu9.png"},
                             "nodeParent":25,
@@ -358,6 +327,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":231,"x":-43,"width":80,"var":"btn_shezhi","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
@@ -382,6 +352,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":313,"x":-43,"width":80,"var":"btn_kefu","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
@@ -406,6 +377,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":203,"x":552,"skin":"comp/zhujiemian_ui1/zhujiemian_tu3.png","scaleY":0,"height":210,"anchorY":0,"anchorX":0.5},
                     "nodeParent":108,
@@ -430,18 +402,7 @@
                         }]
                 },
                 {
-                    "type":"Sprite",
-                    "props":{"y":0,"x":0,"var":"spr_ui_shang"},
-                    "nodeParent":108,
-                    "label":"Sprite(spr_ui_shang)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":102,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":1136,"x":0,"var":"box_ui_xia","bottom":0},
                     "nodeParent":108,
@@ -778,7 +739,7 @@
                         }],
                     "$HIDDEN":false
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {
