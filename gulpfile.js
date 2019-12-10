@@ -143,67 +143,12 @@ gulp.task('release', function (cb) {
 gulp.task('dist', function (cb) {
     var publishPath = path.join(config.publishPath, argv.target, argv.dpath || "");
     switch (argv.target) {
-        case 'wx':
-        case 'wxdev':
-            return fs.copy(config.wxTemplatePath, path.join(publishPath, 'wxgame')).then(() => {
-                return genhtml.genWxFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            });
-        case 'qq':
-        case 'qqdev':
-            return fs.copy(config.qqTemplatePath, path.join(publishPath, 'qqgame')).then(() => {
-                return genhtml.genQQFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            });
-        case 'bd':
-        case 'bddev':
-            return fs.copy(config.bdTemplatePath, path.join(publishPath, 'bdgame')).then(() => {
-                return genhtml.genBdFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            });
-        case 'vq':
-            upgradeVersion(config.vqManifestPath);
-        case 'vqdev':
-            return fs.copy(config.vqTemplatePath, path.join(publishPath, 'vqgame')).then(() => {
-                return genhtml.genVqFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            }).then(() => {
-                console.log(execSync(`npm run release`, { cwd: path.join(publishPath, 'vqgame'), encoding: 'utf8' }));
-                console.log(execSync(`git add -- ${config.vqTemplatePath}`, { encoding: 'utf8' }));
-                console.log(execSync(`git commit -m  VIVO包体版本号提升`, { encoding: 'utf8' }));
-            });
-
-        case 'tt':
-        case 'ttdev':
-            fs.copy(config.ttTemplatePath, path.join(publishPath, 'ttgame')).then(() => {
-                return genhtml.genTtFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            });
-        case 'oppo':
-            upgradeVersion(config.oppoManifestPath);
-        case 'oppodev':
-            return fs.copy(config.oppoTemplatePath, path.join(publishPath, 'oppogame')).then(() => {
-                return genhtml.genOppoFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            }).then(() => {
-                console.log(execSync(`quickgame pack release`, { cwd: path.join(publishPath, 'oppogame'), encoding: 'utf8' }));
-                console.log(execSync(`git add -- ${config.oppoTemplatePath}`, { encoding: 'utf8' }));
-                console.log(execSync(`git commit -m  OPPO包体版本号提升`, { encoding: 'utf8' }));
-            });
-        case 'xm':
-            upgradeVersion(config.xmManifestPath);
-        case 'xmdev':
-            return fs.copy(config.xmTemplatePath, path.join(publishPath, 'xmgame')).then(() => {
-                return genhtml.genXmFile(publishPath, enterProject.config.compilerOptions.outFile, tsProject.config.compilerOptions.outFile, argv);
-            }).then(() => {
-                console.log(execSync(`npm run release`, { cwd: path.join(publishPath, 'xmgame'), encoding: 'utf8' }));
-                console.log(execSync(`git add -- ${config.xmTemplatePath}`, { encoding: 'utf8' }));
-                console.log(execSync(`git commit -m  小米包体版本号提升`, { encoding: 'utf8' }));
-            });
         default:
-            var files = ['index.html', 'favicon.ico', 'index_native.html', 'app.ios.js'];
+            var files = ['index.html', 'favicon.ico'];
             //copy js
             var content = fs.readFileSync('index.html', 'utf8');
             var matches = content.match(/src\s*=\s*"(libs|bin).*\.js/g)
             files = files.concat(matches.map(file => file.substr(file.indexOf('"') + 1)));
-            files.push("libs/ptsdk/iossdk.js");
-            files.push("libs/ptsdk/websdk.js");
-            files.push("libs/pregame.min.js");
-            files.push("bin/js/game.min.js");
             files.forEach(file => fs.copySync(file, path.join(publishPath, file)));
 
             // copy res
@@ -247,140 +192,6 @@ gulp.task('pubweb', function (cb) {
     sequence('release', 'dist', cb);
 })
 
-gulp.task('pubwx', function (cb) {
-    argv.target = 'wx';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubwxdev', function (cb) {
-    argv.target = 'wxdev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubbd', function (cb) {
-    argv.target = 'bd';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubbddev', function (cb) {
-    argv.target = 'bddev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = false;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-gulp.task('pubvq', function (cb) {
-    argv.target = 'vq';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubvqdev', function (cb) {
-    argv.target = 'vqdev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = false;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubtt', function (cb) {
-    argv.target = 'tt';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('release', 'dist', cb);
-})
-
-gulp.task('pubttdev', function (cb) {
-    argv.target = 'ttdev';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('puboppo', function (cb) {
-    argv.target = 'oppo';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('puboppodev', function (cb) {
-    argv.target = 'oppodev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = false;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-
-gulp.task('pubxm', function (cb) {
-    argv.target = 'xm';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubxmdev', function (cb) {
-    argv.target = 'xmdev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = false;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubqq', function (cb) {
-    argv.target = 'qq';
-    argv.error_break = true;
-    argv.minify = true;
-    argv.minify_drop_console = true;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubqqdev', function (cb) {
-    argv.target = 'qqdev';
-    argv.error_break = true;
-    argv.minify = false;
-    argv.minify_drop_console = false;
-    argv.dynview = true;
-    sequence('build', 'dist', cb);
-})
-
-gulp.task('pubdev', function (cb) {
-    sequence('pubbddev', 'pubwxdev', 'pubqqdev', 'pubvqdev', 'puboppodev', 'pubxmdev', cb);
-})
-
-gulp.task('pubrelease', function (cb) {
-    sequence('pubbd', 'pubwx', 'pubqq', 'pubvq', 'puboppo', 'pubxm', cb);
-})
-
 gulp.task('default', ['build']);
 
 gulp.task('gencode', ["genui"], function () {
@@ -411,10 +222,6 @@ gulp.task('addTag', function (cb) {
     cb();
 })
 
-gulp.task('checkImage', function (cb) {
-    return require('./tools/checkImage')()
-})
-
 gulp.task("minify", function (cb) {
     if (!argv.file) return;
     let file = path.join(config.projectPath, "libs", argv.file);
@@ -438,29 +245,5 @@ gulp.task("layadcc", function (cb) {
 
 })
 
-function upgradeVersion(manifestPath) {
-    let manifest = require(manifestPath);
-    manifest.versionName = versionLevelUp(manifest.versionName);
-    manifest.versionCode = versionLevelUp(manifest.versionCode);
-    fs.outputFileSync(manifestPath, JSON.stringify(manifest));
-}
-
-function versionLevelUp(version) {
-    let vers = version.split(".");
-    vers.push(parseInt(vers.pop()) + 1)
-    return vers.join(".")
-}
-
-
-// gulp.task('zippatch',function(){
-//     gulp.src('./tools/zippatch/functionOpen.xlsx')
-//         .pipe(excel2json({
-//             headRow: 1,
-//             valueRowStart: 1,
-//             trace: true
-//         }))
-//         .pipe(gulp.dest('./tools/zippatch/json/'))
-//     zippatch.pack();
-// })
 
 
