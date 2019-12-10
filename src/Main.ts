@@ -36,11 +36,22 @@ class Main{
         });
 
         manager.init();
+
+        this.loadIdioms();
+
     }
 
      /** 斜杠结尾，但是空字符串不能加斜杠 **/
      private slashSuffix(str: string): string {
         return (str.length <= 0 || str.endsWith('/')) ? str : `${str}/`;
+    }
+
+    private loadIdioms(){
+        let url = `~${config.resPath}idiomConfig.json`;
+        Laya.loader.loadP(url).then(data=>{
+            console.log(data);
+        })
+
     }
 }
 var main = new Main();
