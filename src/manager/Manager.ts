@@ -12,7 +12,9 @@ namespace app {
 
         private _dataLoaded = false;
 
+        fight: FightManager;
         init() {
+            this.fight = new FightManager();
         }
 
         loadData(source: string, dispatch = false): Promise<void> {
