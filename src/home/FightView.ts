@@ -1,15 +1,21 @@
 namespace app.home {
-    export class FightView extends FightViewUI  {
+    export class FightView extends FightViewUI {
 
         protected _modelEvents: any[] = [];
 
         onCreate() {
             super.onCreate();
             let map = new MapContainer(this.img_caozuo);
-            map.setData(manager.fight.idioms[0])
+            let stage = manager.fight.idioms[me.stageLv]
+            map.setData(stage);
+            this.lstAnswer.data = stage.answer;
         }
 
-        onLstAnswerRender(cell: ui.CellView, index: number): void { }
+        onLstAnswerRender(cell: IdiomAnswerCellView, index: number): void {
+            let num = this.lstAnswer.getItem(index) as number;
+            let stage = manager.fight.idioms[me.stageLv];
+            cell.setData(stage.word[num])
+        }
 
 
 

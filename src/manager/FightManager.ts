@@ -14,6 +14,7 @@ namespace app {
 
     export class FightManager {
         idioms: IStageInfo[] = [];
+
         constructor() {
 
         }

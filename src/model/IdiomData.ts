@@ -1,7 +1,7 @@
 namespace app.model {
     export class IdiomData {
         value: string;
-        words: string[];
+        words: string[] = [];
 
         reset() {
             this.value = "";

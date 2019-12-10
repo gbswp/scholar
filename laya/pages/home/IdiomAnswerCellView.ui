@@ -2,6 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
+    "selecteID":2,
     "referenceLines":null,
     "props":{"width":74,"sceneColor":"#999999","height":76},
     "nodeParent":-1,
@@ -15,7 +16,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":38,"x":37,"var":"img_dikuang","skin":"comp/youxinei_ui2/youxinei_tu6.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":38,"x":37,"width":74,"var":"img_dikuang","skin":"comp/youxinei_ui2/youxinei_tu6.png","height":76,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_dikuang)",
             "isOpen":true,
