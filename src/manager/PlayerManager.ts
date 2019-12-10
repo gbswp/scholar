@@ -1,9 +1,10 @@
+let me: app.model.Player;
 namespace app {
-    export let me: model.Player;
-
     export class PlayerManager {
-        constructor() {
+        me: app.model.Player;
 
+        constructor() {
+            me = this.me = new model.Player();
         }
     }
 }

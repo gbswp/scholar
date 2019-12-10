@@ -19,6 +19,8 @@ namespace app.common {
 
             if (!isMax) {
                 t.updateRemainTime();
+            } else {
+                t.clearTicker();
             }
         }
 
@@ -31,18 +33,19 @@ namespace app.common {
                 tickTime = me.refreshTm;
             };
 
-            let serveTime = Date.serverTime();
-            if (t.ticker) {
-                t.ticker.dispose();
+            t.clearTicker();
+            if (tickTime > 0)
+                t.ticker = Ticker.create(tickTime + Date.serverTime(), 1000, t.lblRemainTm, 'MM:ss');
+            if (!t.ticker) return;
+
+            t.ticker.onEnd = () => {
+                t.updateView();
             }
-            if (tickTime - serveTime > 0)
-                t.ticker = Ticker.create(tickTime, 1000, t.lblRemainTm, 'MM:ss');
-            if (t.ticker) {
-                t.ticker.onEnd = () => {
-                    t.updateView();
-                }
-                t.ticker.start();
-            }
+            t.ticker.start();
+        }
+
+        protected clearTicker() {
+            this.ticker && this.ticker.dispose();
         }
     }
 }

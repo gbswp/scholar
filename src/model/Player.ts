@@ -8,6 +8,6 @@ module app.model {
         /** 当前最大体力 */
         public maxPower: number = 100;
         /** 下次体力刷新时间 */
-        public refreshTm: number = 9 * 3600 * 1000;
+        public refreshTm: number = 9 * 60 * 1000;
     }
 }

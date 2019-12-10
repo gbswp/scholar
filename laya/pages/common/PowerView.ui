@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":46,"x":106,"var":"lblRemainTm","text":"00:00","fontSize":32,"font":"Arial","color":"#92473c","bold":true,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":23,"x":18,"width":162,"var":"lblRemainTm","valign":"middle","text":"00:00","height":48,"fontSize":32,"color":"#92473c","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label(lblRemainTm)",
             "isDirectory":false,
