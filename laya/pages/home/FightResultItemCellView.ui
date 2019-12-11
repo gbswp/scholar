@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"width":202,"var":"btnInfo","skin":"comp/jiesuan_ui3/jiesuan_tu2.png","height":71,"events":"click"},
+            "props":{"width":202,"var":"btnInfo","skin":"fight/img_wordbtnbg.png","height":71,"events":"click"},
             "nodeParent":1,
             "label":"Button(btnInfo)",
             "isOpen":true,
