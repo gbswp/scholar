@@ -7,7 +7,7 @@ namespace app.model {
         posY: number;
         state: model.IdiomState = model.IdiomState.Normal;
 
-        get isAnswer(){
+        get isAnswer() {
             return this.state == model.IdiomState.Answer;
         }
 
@@ -21,6 +21,10 @@ namespace app.model {
 
         needAnswer() {
             return this.state == model.IdiomState.Answer || this.state == model.IdiomState.Wrong;
+        }
+
+        isLock() {
+            return this.state == model.IdiomState.Normal || this.state == model.IdiomState.Done;
         }
 
         reset() {

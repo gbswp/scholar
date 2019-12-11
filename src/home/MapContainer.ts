@@ -12,12 +12,13 @@ namespace app.home {
         offx: number = 0;//布局居中偏移量x
         offy: number = 0;//布局居中偏移量y
         stage: IStageInfo;//关卡配置
+        selectIndex: number = 0;
+
 
         //字数据
         wordMap: { [key: string]: model.WordData } = {};
         //成语数据
         idiomMap: { [key: string]: model.IdiomData[] } = {};
-
 
         //字的显示控件
         cellMap: { [key: string]: IdiomGameCellView } = {};
@@ -245,19 +246,19 @@ namespace app.home {
          * @memberof MapContainer
          */
         trySelectItem() {
-            if (this.selectItem && this.selectItem.data.canSelect()) return;
             let answer = this.stage.answer;
-            for (let i = 0, len = answer.length; i < len; i++) {
-                let index = answer[i];
-                let wordData = this.getWordDataByIndex(index);
-                if (wordData.canSelect()) {
-                    this.selectItem = this.getWordCellByIndex(index);
-                    return;
-                }
+            let wordIndex = answer[this.selectIndex];
+            if (this.selectIndex >= answer.length) {
+                return;
+            }
+            let wordData = this.getWordDataByIndex(wordIndex);
+            if (wordData.isLock()) {
+                this.selectIndex++;
+                this.trySelectItem();
+                return;
             }
 
-            this.selectItem = null;
-
+            this.selectItem = this.cellMap[wordData.key];
         }
 
         protected updateSelectItem() {
@@ -266,7 +267,7 @@ namespace app.home {
             let answerItem = this._selectAnswerItem;
             let answer = answerItem ? answerItem.lblText.value : "";
             this.selectItem.setAnswer(answer + "");
-            if (!answerItem){
+            if (!answerItem) {
                 this.selectItem.refreshState();
                 return;
             }
@@ -307,8 +308,8 @@ namespace app.home {
                         wordData.state = model.IdiomState.Done;
                         let cell = this.cellMap[key];
                         cell.refreshState();
-                        Laya.timer.once(i*80,this,()=>{
-                            cell.ani1.play(0,false);
+                        Laya.timer.once(i * 80, this, () => {
+                            cell.ani1.play(0, false);
                         });
                         i++;
                     }
