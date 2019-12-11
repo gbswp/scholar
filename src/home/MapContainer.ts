@@ -3,7 +3,7 @@
 var map: app.home.MapContainer;
 namespace app.home {
     export class MapContainer {
-        showDebug = true;
+        showDebug = false;
         container: Laya.Component;//容器
         cellSize: number;//格子大小
         row: number;//行
