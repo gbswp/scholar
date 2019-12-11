@@ -1,4 +1,5 @@
 {
+    "x":0,
     "type":"View",
     "selectedBox":1,
     "selecteID":3,
@@ -12,6 +13,7 @@
     "compId":1,
     "child":[
         {
+            "x":15,
             "type":"Image",
             "props":{"y":33,"x":32,"width":64,"var":"imgBg","skin":"fight/img_state_1.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
@@ -23,6 +25,7 @@
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"var":"lblText","text":"~嗨","fontSize":40,"font":"SimHei","color":"#000000","centerY":-5,"centerX":0,"bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
                     "nodeParent":2,
@@ -38,8 +41,9 @@
             "$HIDDEN":false
         },
         {
+            "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_state_0.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_select.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(imgSelect)",
             "isDirectory":false,
@@ -48,7 +52,7 @@
             "compId":3,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

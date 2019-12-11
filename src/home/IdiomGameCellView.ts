@@ -17,7 +17,6 @@ namespace app.home {
         }
 
 
-
         refreshState() {
             let data = this.data;
             this.imgBg.skin = r.getIdiomGameCellBg(data.state);

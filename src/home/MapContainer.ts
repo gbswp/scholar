@@ -12,7 +12,7 @@ namespace app.home {
         offx: number = 0;//布局居中偏移量x
         offy: number = 0;//布局居中偏移量y
         stage: IStageInfo;//关卡配置
-        selectIndex: number = 0;
+        selectIndex: number = -1;
         answers: string[];//答案
         answerList: ui.List;
 
@@ -36,27 +36,6 @@ namespace app.home {
         get selectItem() {
             return this._selectItem;
         }
-
-        // //选中答案项
-        // private _selectAnswerItem: IdiomAnswerCellUI;
-        // set selectAnswerItem(value: IdiomAnswerCellUI) {
-        //     if (this._selectAnswerItem == value) return;
-
-        //     if (this._selectAnswerItem) {
-        //         this._selectAnswerItem.visible = true;
-        //         this._selectAnswerItem.ani1.play(0, false);
-        //     }
-        //     this._selectAnswerItem = value;
-        //     if (this._selectAnswerItem) {
-        //         this._selectAnswerItem.visible = false;
-        //         // this._selectAnswerItem.alpha = 0;
-        //     }
-
-        //     this.updateSelectItem();
-        // }
-        // get selectAnswerItem() {
-        //     return this._selectAnswerItem;
-        // }
 
         constructor(container: Laya.Component, answerList: ui.List, row: number = 9, rank: number = 9) {
             this.container = container;
@@ -245,7 +224,7 @@ namespace app.home {
             let data = cell.data;
             if (!data || data.isLock()) return;
             this.selectItem = cell;
-            if ( data.state != model.IdiomState.Answer) {
+            if (data.state != model.IdiomState.Answer) {
                 data.state = model.IdiomState.Answer;
                 this.selectItem.refreshState();
             }
@@ -258,14 +237,15 @@ namespace app.home {
          * @memberof MapContainer
          */
         trySelectItem() {
+            this.selectIndex++;
             let answer = this.stage.answer;
             let wordIndex = answer[this.selectIndex];
             if (this.selectIndex >= answer.length) {
+                this.selectItem = null;
                 return;
             }
             let wordData = this.getWordDataByIndex(wordIndex);
             if (wordData.isLock()) {
-                this.selectIndex++;
                 this.trySelectItem();
                 return;
             }
@@ -284,20 +264,22 @@ namespace app.home {
             let idioms = this.getFullIdiomList(this.idiomMap[data.key]);
             if (!idioms.length) {
                 selectItem.refreshState();
+                this.trySelectItem();
                 return;
             }
-            let completed = false;
-            idioms.forEach(idiom=>{
-                if(this.checkIdiomCompleted(idiom)) completed = true;
-            })
-            if(!completed){
-                data.state = model.IdiomState.Wrong;
-                selectItem.refreshState();
+
+            let i = 0;
+            while (i < idioms.length) {
+                if (this.checkIdiomCompleted(idioms[i])) {
+                    this.trySelectItem();
+                    break;
+                }
+                i++;
             }
         }
 
         //取得填满的成语
-        getFullIdiomList(idioms: model.IdiomData[]) {
+        protected getFullIdiomList(idioms: model.IdiomData[]) {
             let temp: model.IdiomData[] = [];
             idioms.forEach(idiom => {
                 this.checkIdiomIsFull(idiom) && temp.push(idiom)
@@ -318,7 +300,7 @@ namespace app.home {
         }
 
         //检测成语是否完成
-        checkIdiomCompleted(idiom: model.IdiomData) {
+        protected checkIdiomCompleted(idiom: model.IdiomData) {
             let completed = true;
             idiom.enum(key => {
                 let wordData = this.wordMap[key];
@@ -326,13 +308,14 @@ namespace app.home {
                 if (!bool) completed = false;
                 return !bool;
             })
-            if (completed) {
-                let index = 0;
-                idiom.enum(key => {
-                    this.updateWordCompleted(key, index);
-                    index++;
-                })
-            }
+
+            let index = 0;
+            idiom.enum(key => {
+                if (completed) this.updateWordCompleted(key, index);
+                else this.updateWordWrong(key)
+                index++;
+            })
+
             return completed;
         }
 
@@ -342,9 +325,22 @@ namespace app.home {
             if (!cell) return;
             let data = cell.data;
             if (!data) return;
-            if (data.isLock()) return;
             data.state = model.IdiomState.Done;
+            cell.refreshState();
             Laya.timer.once(index * 80, this, () => cell.ani1.play(0, false))
+        }
+
+        //更新字的错误效果
+        protected updateWordWrong(key: string) {
+            let cell = this.cellMap[key];
+            if (!cell) return;
+            let data = cell.data;
+            if (!data) return;
+            if (this.selectItem == cell) {
+                data.state = model.IdiomState.Wrong;
+                cell.refreshState();
+            }
+            cell.ani2.play(0, false);
         }
 
 
@@ -361,6 +357,8 @@ namespace app.home {
             _.each(this.cellMap, value => {
                 value.removeSelf();
                 value.offAll();
+                value.ani1.stop();
+                value.ani2.stop();
                 Pool.put(Pool.IdiomGameCellView, value);
             });
             this.cellMap = {};
