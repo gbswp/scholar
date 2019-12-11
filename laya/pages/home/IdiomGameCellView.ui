@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"var":"imgBg","skin":"fight/img_top_frame.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"var":"imgBg","skin":"fight/img_state_0.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(imgBg)",
             "isOpen":true,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_select_0.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_select.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(imgSelect)",
             "isDirectory":false,

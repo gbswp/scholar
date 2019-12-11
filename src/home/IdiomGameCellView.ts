@@ -13,6 +13,17 @@ namespace app.home {
             this.lblText.value = data.isAnswer ? "" : data.value + "";
             this.pos(data.posX, data.posY);
             this.mouseEnabled = data.isAnswer;
+
+            this.refreshState();
+        }
+
+        refreshState(){
+            let data = this.data;
+            this.imgBg.skin = r.getIdiomGameCellBg(data.state);
+        }
+
+        setSelect(bool:boolean){
+            this.imgSelect.visible = bool;
         }
 
 

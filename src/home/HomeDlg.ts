@@ -6,7 +6,7 @@ namespace app.home {
 
         onCreate() {
             super.onCreate();
-            this.contentContainer.visible = true;
+            this.contentContainer.visible = false;
         }
 
 
