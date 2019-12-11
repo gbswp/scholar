@@ -225,6 +225,8 @@ namespace app.home {
             if (!data || data.isLock()) return;
             this.selectItem = cell;
             if (data.state != model.IdiomState.Answer) {
+                this.setAnswerItemSelect(data.answerIndex, false);
+                data.setAnswer(-1, "");
                 data.state = model.IdiomState.Answer;
                 this.selectItem.refreshState();
             }
@@ -256,7 +258,7 @@ namespace app.home {
 
         //设置答案
         setAnswerSelectIndex(index: number) {
-            this.setAnswerItemSelect(index,true);
+            this.setAnswerItemSelect(index, true);
 
             let selectItem = this._selectItem;
             if (!selectItem) return;
@@ -348,6 +350,7 @@ namespace app.home {
         //设置答案项状态
         protected setAnswerItemSelect(index: number, selected: boolean) {
             let cell = this.answerList.getCell(index) as IdiomAnswerCellUI;
+            if(!cell) return;
             cell.visible = !selected;
             if (!selected) cell.ani1.play(0, false);
         }
