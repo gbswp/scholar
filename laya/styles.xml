@@ -20,10 +20,15 @@
    <item name="fight/btn_blue_big.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
    <item name="home/img_frame.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,40,0,40" picType="0" scale="0"/>
    <item name="home/btn_yellow.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
-   <item name="home/btn_blue_small.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
+   <item name="common/btn_blue_small.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
+   <item name="common/btn_blue_big.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
    <item name="fight/img_wordbtnbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,35,0,35" picType="0" scale="0"/>
    <item name="fight/img_levelbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,95,0,95" picType="0" scale="0"/>
    <item name="fight/pbr_process.png" type="ProgressBar" compress="0" pack="0" quality="80" props="sizeGrid=0,15,0,15" picType="0" scale="0"/>
    <item name="fight/img_wordbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=25,25,25,25" picType="0" scale="0"/>
    <item name="nan/img_namebg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=32,0,43,0" picType="0" scale="0"/>
+   <item name="common/img_popupbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=66,66,66,66" picType="0" scale="0"/>
+   <item name="common/img_upbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,50,0,50" picType="0" scale="0"/>
+   <item name="common/img_tipbg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,40,0,40" picType="0" scale="0"/>
+   <item name="common/img_bg.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=12,12,12,12" picType="0" scale="0"/>
 </res>
