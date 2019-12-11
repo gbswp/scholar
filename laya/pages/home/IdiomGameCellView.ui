@@ -1,5 +1,4 @@
 {
-    "x":0,
     "type":"View",
     "selectedBox":1,
     "selecteID":3,
@@ -13,9 +12,8 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"var":"imgBg","skin":"fight/img_state_0.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"var":"imgBg","skin":"fight/img_state_1.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(imgBg)",
             "isOpen":true,
@@ -25,7 +23,6 @@
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"var":"lblText","text":"~嗨","fontSize":40,"font":"SimHei","color":"#000000","centerY":-5,"centerX":0,"bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
                     "nodeParent":2,
@@ -41,9 +38,8 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Image",
-            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_select.png","height":66,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":32,"width":64,"visible":false,"var":"imgSelect","skin":"fight/img_state_0.png","height":66,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(imgSelect)",
             "isDirectory":false,
@@ -52,7 +48,7 @@
             "compId":3,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         }],
     "animations":[
         {
@@ -158,6 +154,72 @@
                 }],
             "name":"ani1",
             "id":1,
+            "frameRate":24,
+            "action":0
+        },
+        {
+            "nodes":[
+                {
+                    "target":2,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":32,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":27,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "label":null,
+                                "key":"x",
+                                "index":3
+                            },
+                            {
+                                "value":37,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "label":null,
+                                "key":"x",
+                                "index":6
+                            },
+                            {
+                                "value":29,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "label":null,
+                                "key":"x",
+                                "index":9
+                            },
+                            {
+                                "value":35,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "label":null,
+                                "key":"x",
+                                "index":11
+                            },
+                            {
+                                "value":32,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":2,
+                                "label":null,
+                                "key":"x",
+                                "index":13
+                            }]
+                    }
+                }],
+            "name":"ani2",
+            "id":2,
             "frameRate":24,
             "action":0
         }]
