@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":1,
+    "selectedBox":41,
+    "selecteID":41,
     "props":{"width":640,"sceneColor":"#999999","height":500},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":274,"x":163,"skin":"comp/fang/fang1.png","name":"fang1"},
+            "props":{"y":274,"x":163,"skin":"house/fang1.png","name":"fang1"},
             "nodeParent":1,
             "label":"Image(fang1)",
             "isDirectory":false,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":242,"x":169,"skin":"comp/fang/fang2.png","name":"fang2"},
+            "props":{"y":242,"x":169,"skin":"house/fang2.png","name":"fang2"},
             "nodeParent":1,
             "label":"Image(fang2)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":228,"x":168,"skin":"comp/fang/fang3.png","name":"fang3"},
+            "props":{"y":228,"x":168,"skin":"house/fang3.png","name":"fang3"},
             "nodeParent":1,
             "label":"Image(fang3)",
             "isDirectory":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":200,"x":134,"skin":"comp/fang/fang4.png","name":"fang4"},
+            "props":{"y":200,"x":134,"skin":"house/fang4.png","name":"fang4"},
             "nodeParent":1,
             "label":"Image(fang4)",
             "isDirectory":false,
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":199,"x":88,"skin":"comp/fang/fang5.png","name":"fang5"},
+            "props":{"y":199,"x":88,"skin":"house/fang5.png","name":"fang5"},
             "nodeParent":1,
             "label":"Image(fang5)",
             "isDirectory":false,
@@ -85,7 +85,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":193,"x":90,"skin":"comp/fang/fang6.png","name":"fang6"},
+            "props":{"y":193,"x":90,"skin":"house/fang6.png","name":"fang6"},
             "nodeParent":1,
             "label":"Image(fang6)",
             "isDirectory":false,
@@ -99,7 +99,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":157,"x":91,"skin":"comp/fang/fang7.png","name":"fang7"},
+            "props":{"y":157,"x":91,"skin":"house/fang7.png","name":"fang7"},
             "nodeParent":1,
             "label":"Image(fang7)",
             "isDirectory":false,
@@ -113,7 +113,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":132,"x":90,"skin":"comp/fang/fang8.png","name":"fang8"},
+            "props":{"y":132,"x":90,"skin":"house/fang8.png","name":"fang8"},
             "nodeParent":1,
             "label":"Image(fang8)",
             "isDirectory":false,
@@ -127,7 +127,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":142,"x":90,"skin":"comp/fang/fang9.png","name":"fang9"},
+            "props":{"y":142,"x":90,"skin":"house/fang9.png","name":"fang9"},
             "nodeParent":1,
             "label":"Image(fang9)",
             "isDirectory":false,
@@ -141,7 +141,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":139,"x":68,"skin":"comp/fang/fang10.png","name":"fang10"},
+            "props":{"y":139,"x":68,"skin":"house/fang10.png","name":"fang10"},
             "nodeParent":1,
             "label":"Image(fang10)",
             "isDirectory":false,
@@ -155,7 +155,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":138,"x":75,"skin":"comp/fang/fang11.png","name":"fang11"},
+            "props":{"y":138,"x":75,"skin":"house/fang11.png","name":"fang11"},
             "nodeParent":1,
             "label":"Image(fang11)",
             "isDirectory":false,
@@ -170,7 +170,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":142,"x":30,"skin":"comp/fang/fang12.png","name":"fang12"},
+            "props":{"y":142,"x":30,"skin":"house/fang12.png","name":"fang12"},
             "nodeParent":1,
             "label":"Image(fang12)",
             "isDirectory":false,
@@ -184,7 +184,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":140,"x":30,"skin":"comp/fang/fang13.png","name":"fang13"},
+            "props":{"y":140,"x":30,"skin":"house/fang13.png","name":"fang13"},
             "nodeParent":1,
             "label":"Image(fang13)",
             "isDirectory":false,
@@ -198,7 +198,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":127,"x":28,"skin":"comp/fang/fang14.png","name":"fang14"},
+            "props":{"y":127,"x":28,"skin":"house/fang14.png","name":"fang14"},
             "nodeParent":1,
             "label":"Image(fang14)",
             "isDirectory":false,
@@ -212,7 +212,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":126,"x":28,"skin":"comp/fang/fang15.png","name":"fang15"},
+            "props":{"y":126,"x":28,"skin":"house/fang15.png","name":"fang15"},
             "nodeParent":1,
             "label":"Image(fang15)",
             "isDirectory":false,

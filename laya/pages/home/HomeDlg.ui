@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":25,
-    "selecteID":115,
+    "selectedBox":91,
+    "selecteID":90,
     "referenceLines":null,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
@@ -192,7 +192,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":568,"x":320,"width":640,"var":"box_neirong","height":640,"centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":248,"x":0,"width":640,"var":"box_neirong","height":640,"centerY":0,"centerX":0},
                     "nodeParent":108,
                     "label":"Box(box_neirong)",
                     "isOpen":true,
@@ -207,13 +207,14 @@
                             "props":{"y":252,"x":156,"width":300,"var":"btn_shu","scaleY":1,"scaleX":1,"height":250,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":107,
                             "label":"Button(btn_shu)",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":92,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Sprite",
                                     "props":{"y":-138,"x":-20,"var":"spr_shu_weizhi"},
                                     "nodeParent":92,
@@ -226,10 +227,12 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":144,"x":205,"width":140,"var":"img_shu_tishi","skin":"comp/zhujiemian_ui1/zhujiemian_tu17.png","anchorY":0.3},
                                     "nodeParent":92,
                                     "label":"Image(img_shu_tishi)",
+                                    "isOpen":null,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -290,91 +293,30 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":149,"x":-43,"width":80,"var":"btn_yinyue","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":149,"x":-43,"width":80,"var":"btnMusic","skin":"home/btn_music_1.png","scaleY":1,"scaleX":1,"height":80,"events":"click","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
-                    "label":"Button(btn_yinyue)",
+                    "label":"Button(btnMusic)",
                     "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":25,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":3,"x":4,"var":"img_yinyue_guan","skin":"comp/zhujiemian_ui1/zhujiemian_tu10.png"},
-                            "nodeParent":25,
-                            "label":"Image(img_yinyue_guan)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":26,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":3,"x":10,"var":"img_yinyue_kai","skin":"comp/zhujiemian_ui1/zhujiemian_tu9.png"},
-                            "nodeParent":25,
-                            "label":"Image(img_yinyue_kai)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":27,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":231,"x":-43,"width":80,"var":"btn_shezhi","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":231,"x":-43,"width":80,"var":"btnSet","skin":"home/btn_set.png","scaleY":1,"scaleX":1,"height":80,"events":"click","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
-                    "label":"Button(btn_shezhi)",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"Button(btnSet)",
+                    "isOpen":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":28,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":2,"x":10,"skin":"comp/zhujiemian_ui1/zhujiemian_tu19.png"},
-                            "nodeParent":28,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":30,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":313,"x":-43,"width":80,"var":"btn_kefu","scaleY":1,"scaleX":1,"height":80,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":108,
-                    "label":"Button(btn_kefu)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":85,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":2,"x":10,"skin":"comp/zhujiemian_ui1/zhujiemian_tu11.png"},
-                            "nodeParent":85,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":86,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
@@ -382,13 +324,14 @@
                     "props":{"y":203,"x":552,"skin":"comp/zhujiemian_ui1/zhujiemian_tu3.png","scaleY":0,"height":210,"anchorY":0,"anchorX":0.5},
                     "nodeParent":108,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":64,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":106,"x":45,"width":50,"var":"lbl_fang_dengji","text":"lv.1\\n家\\n徒\\n四\\n壁","leading":5,"fontSize":24,"font":"Microsoft YaHei","color":"#92473c","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
                             "nodeParent":64,
@@ -404,38 +347,43 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":1136,"x":0,"var":"box_ui_xia","bottom":0},
+                    "props":{"y":1136,"x":0,"var":"boxBottom","bottom":0},
                     "nodeParent":108,
-                    "label":"Box(box_ui_xia)",
-                    "isOpen":false,
+                    "label":"Box(boxBottom)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":106,
                     "child":[
                         {
+                            "x":45,
                             "type":"Sprite",
-                            "props":{"y":-456,"x":0,"var":"spr_ui_zhong"},
+                            "props":{"y":-456,"x":0,"var":"sprMid"},
                             "nodeParent":106,
-                            "label":"Sprite(spr_ui_zhong)",
+                            "label":"Sprite(sprMid)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":35,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":79,"x":-49,"var":"btn_qiandao","stateNum":1,"skin":"comp/zhujiemian_ui1/zhujiemian_tu5.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":79,"x":-49,"var":"btnSign","stateNum":1,"skin":"home/img_btn_frame.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":35,
-                                    "label":"Button(btn_qiandao)",
+                                    "label":"Button(btnSign)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":31,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":40,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_tu12.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":40,"x":41,"skin":"home/btn_sign.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":31,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -446,8 +394,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":88,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_zi4.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":88,"x":41,"skin":"home/title_mrqd.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":31,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -459,18 +408,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":190,"x":-49,"var":"btn_paihang","stateNum":1,"skin":"comp/zhujiemian_ui1/zhujiemian_tu5.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":190,"x":-49,"var":"btnRank","stateNum":1,"skin":"home/img_btn_frame.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":35,
-                                    "label":"Button(btn_paihang)",
+                                    "label":"Button(btnRank)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":42,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":41,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_tu14.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":41,"x":41,"skin":"home/btn_rank.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":42,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -481,8 +433,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":88,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_zi6.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":88,"x":41,"skin":"home/title_jbtm.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":42,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -494,18 +447,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":79,"x":689,"var":"btn_tixian","stateNum":1,"skin":"comp/zhujiemian_ui1/zhujiemian_tu5.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":79,"x":689,"var":"btnMoney","stateNum":1,"skin":"home/img_btn_frame.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":35,
-                                    "label":"Button(btn_tixian)",
+                                    "label":"Button(btnMoney)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":45,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":40,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_tu13.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":40,"x":41,"skin":"home/btn_money.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":45,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -516,8 +472,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":88,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_zi5.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":88,"x":41,"skin":"home/title_tx.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":45,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -529,16 +486,19 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":190,"x":689,"var":"btn_bianzhenjia","stateNum":1,"skin":"comp/zhujiemian_ui1/zhujiemian_tu5.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":190,"x":689,"var":"btnReal","stateNum":1,"skin":"home/img_btn_frame.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":35,
-                                    "label":"Button(btn_bianzhenjia)",
+                                    "label":"Button(btnReal)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":46,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":38,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_tu15.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":46,
@@ -551,6 +511,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":88,"x":41,"skin":"comp/zhujiemian_ui1/zhujiemian_zi7.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":46,
@@ -562,33 +523,39 @@
                                             "child":[
                                                 ]
                                         }]
-                                }]
+                                }],
+                            "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Sprite",
                             "props":{"y":-346,"x":140},
                             "nodeParent":106,
                             "label":"Sprite",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":66,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":72,"x":180,"width":320,"var":"btn_shengji","skin":"comp/zhujiemian_ui1/zhujiemian_btn3.png","scaleY":0,"scaleX":0,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":72,"x":180,"width":320,"var":"btnLevelUp","skin":"home/btn_yellow.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":66,
-                                    "label":"Button(btn_shengji)",
+                                    "label":"Button(btnLevelUp)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":54,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":42,"x":160,"var":"img_shengji_zi","skin":"comp/zhujiemian_ui1/zhujiemian_zi10.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":42,"x":160,"skin":"home/title_jsgz.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":54,
-                                            "label":"Image(img_shengji_zi)",
+                                            "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -597,8 +564,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":50,"x":160,"width":320,"skin":"comp/zhujiemian_ui1/zhujiemian_btn3.png","scaleY":1.0220588235294117,"scaleX":0.9911764705882352,"blendMode":"lighter","anchorY":0.5,"anchorX":0.5,"alpha":0.125},
+                                            "props":{"y":50,"x":160,"width":320,"skin":"home/btn_yellow.png","scaleY":1.0220588235294117,"scaleX":0.9911764705882352,"blendMode":"lighter","anchorY":0.5,"anchorX":0.5,"alpha":0.125},
                                             "nodeParent":54,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -610,18 +578,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":192,"x":180,"width":320,"var":"btn_kaishi","skin":"comp/zhujiemian_ui1/zhujiemian_btn1.png","scaleY":0,"scaleX":0,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":192,"x":180,"width":320,"var":"btnStart","skin":"home/btn_blue_small.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":66,
-                                    "label":"Button(btn_kaishi)",
+                                    "label":"Button(btnStart)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":51,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":51,"x":238,"skin":"comp/zhujiemian_ui1/zhujiemian_tu7.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":51,"x":238,"skin":"home/img_power.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":51,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -632,8 +603,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":51,"x":135,"skin":"comp/zhujiemian_ui1/zhujiemian_zi9.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":51,"x":135,"skin":"home/title_ks.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":51,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -642,23 +614,27 @@
                                             "compId":53,
                                             "child":[
                                                 ]
-                                        }]
+                                        }],
+                                    "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":156,"x":185,"var":"img_shengji_tishi","skin":"comp/zhujiemian_ui1/zhujiemian_zi8.png","anchorY":0.5,"anchorX":0.85,"alpha":0},
+                                    "props":{"y":156,"x":185,"var":"img_shengji_tishi","skin":"home/title_zgdsg.png","anchorY":0.5,"anchorX":0.85,"alpha":0},
                                     "nodeParent":66,
                                     "label":"Image(img_shengji_tishi)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":60,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":0,"x":161,"var":"img_tishi_zi","skin":"comp/zhujiemian_ui1/zhujiemian_zi18.png"},
+                                            "props":{"y":0,"x":161,"var":"imgTitle","skin":"comp/zhujiemian_ui1/zhujiemian_zi18.png"},
                                             "nodeParent":60,
-                                            "label":"Image(img_tishi_zi)",
+                                            "label":"Image(imgTitle)",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -667,43 +643,50 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"FontClip",
-                                            "props":{"y":13,"x":79,"var":"fc_shengji_guan","value":22,"spaceX":-4,"skin":"comp/zhujiemian_ui1/fontclip_zi2.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":13,"x":79,"var":"fcLevel","value":22,"spaceX":-4,"skin":"home/fc_green.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":60,
-                                            "label":"FontClip(fc_shengji_guan)",
+                                            "label":"FontClip(fcLevel)",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
                                             "compId":63,
                                             "child":[
                                                 ]
-                                        }]
+                                        }],
+                                    "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":241,"x":180,"width":400,"var":"img_tixian_tishi","skin":"comp/zhujiemian_ui1/zhujiemian_tu6.png","scaleY":0,"scaleX":0,"anchorY":0,"anchorX":0.5},
+                                    "props":{"y":241,"x":180,"width":400,"var":"imgMoney","skin":"home/img_tipsbg.png","scaleY":1,"scaleX":1,"anchorY":0,"anchorX":0.5},
                                     "nodeParent":66,
-                                    "label":"Image(img_tixian_tishi)",
+                                    "label":"Image(imgMoney)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":57,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":46,"x":325,"var":"lbl_jinbi_cha","text":2800,"fontSize":34,"font":"SimHei","color":"#f95918","bold":true,"anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":46,"x":325,"var":"lblDistance","text":2800,"fontSize":34,"font":"SimHei","color":"#f95918","bold":true,"anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":57,
-                                            "label":"Label(lbl_jinbi_cha)",
+                                            "label":"Label(lblDistance)",
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":59,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":18,"x":-3,"var":"lbl_jinbi_mubiao","text":"距离3000提现额度还差","fontSize":24,"font":"SimHei","color":"#65433a","bold":true,"anchorY":0.5,"anchorX":1},
+                                                    "props":{"y":18,"x":-3,"var":"imgMoneyCount","text":"距离3000提现额度还差","format":"距离%s提现额度还差","fontSize":24,"font":"SimHei","color":"#65433a","bold":true,"anchorY":0.5,"anchorX":1},
                                                     "nodeParent":59,
-                                                    "label":"Label(lbl_jinbi_mubiao)",
+                                                    "label":"Label(imgMoneyCount)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -711,21 +694,25 @@
                                                     "child":[
                                                         ]
                                                 }]
-                                        }]
+                                        }],
+                                    "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":77,"x":214,"var":"img_kou_tili","skin":"comp/zhujiemian_ui1/zhujiemian_tu7.png"},
+                                    "props":{"y":77,"x":214,"var":"imgPower","skin":"home/img_power.png"},
                                     "nodeParent":66,
-                                    "label":"Image(img_kou_tili)",
+                                    "label":"Image(imgPower)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":91,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":31,"x":54,"skin":"comp/zhujiemian_ui1/zhujiemian_zi20.png"},
+                                            "props":{"y":31,"x":54,"skin":"home/img_less.png"},
                                             "nodeParent":91,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -851,11 +838,536 @@
                                 "index":1000
                             }]
                     }
+                },
+                {
+                    "target":28,
+                    "keyframes":{
+                        "y":[
+                            {
+                                "value":231,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"y",
+                                "index":0
+                            },
+                            {
+                                "value":231,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"y",
+                                "index":1000
+                            }],
+                        "x":[
+                            {
+                                "value":-43,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":-43,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"x",
+                                "index":1000
+                            }],
+                        "width":[
+                            {
+                                "value":60,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"width",
+                                "index":0
+                            },
+                            {
+                                "value":60,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"width",
+                                "index":1000
+                            }],
+                        "var":[
+                            {
+                                "value":"btnSet",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":28,
+                                "key":"var",
+                                "index":0
+                            },
+                            {
+                                "value":"btnSet",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":28,
+                                "key":"var",
+                                "index":1000
+                            }],
+                        "skin":[
+                            {
+                                "value":"home/btn_set.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":28,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_set.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":28,
+                                "key":"skin",
+                                "index":1000
+                            }],
+                        "height":[
+                            {
+                                "value":74,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"height",
+                                "index":0
+                            },
+                            {
+                                "value":74,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"height",
+                                "index":1000
+                            }],
+                        "events":[
+                            {
+                                "value":"click",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":28,
+                                "key":"events",
+                                "index":0
+                            }],
+                        "anchorY":[
+                            {
+                                "value":0.5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"anchorY",
+                                "index":0
+                            },
+                            {
+                                "value":0.5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"anchorY",
+                                "index":1000
+                            }],
+                        "anchorX":[
+                            {
+                                "value":0.5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"anchorX",
+                                "index":0
+                            },
+                            {
+                                "value":0.5,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":28,
+                                "key":"anchorX",
+                                "index":1000
+                            }]
+                    }
+                },
+                {
+                    "target":25,
+                    "keyframes":{
+                        "width":[
+                            {
+                                "value":60,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":25,
+                                "key":"width",
+                                "index":0
+                            },
+                            {
+                                "value":60,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":25,
+                                "key":"width",
+                                "index":1000
+                            }],
+                        "var":[
+                            {
+                                "value":"btnMusic",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":25,
+                                "key":"var",
+                                "index":0
+                            },
+                            {
+                                "value":"btnMusic",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":25,
+                                "key":"var",
+                                "index":1000
+                            }],
+                        "skin":[
+                            {
+                                "value":"home/btn_music_0.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":25,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_music_1.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":25,
+                                "key":"skin",
+                                "index":1000
+                            }],
+                        "height":[
+                            {
+                                "value":74,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":25,
+                                "key":"height",
+                                "index":0
+                            },
+                            {
+                                "value":74,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":25,
+                                "key":"height",
+                                "index":1000
+                            }],
+                        "events":[
+                            {
+                                "value":"click",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":25,
+                                "key":"events",
+                                "index":0
+                            }]
+                    }
+                },
+                {
+                    "target":31,
+                    "keyframes":{
+                        "var":[
+                            {
+                                "value":"btn_qiandao",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"var",
+                                "index":0
+                            },
+                            {
+                                "value":"btnSign",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"var",
+                                "index":25
+                            }],
+                        "stateNum":[
+                            {
+                                "value":1,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":31,
+                                "key":"stateNum",
+                                "index":0
+                            },
+                            {
+                                "value":"",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"stateNum",
+                                "index":25
+                            }],
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu5.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"common/img_btn_frame.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"skin",
+                                "index":25
+                            }],
+                        "image":[
+                            {
+                                "value":"",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"image",
+                                "index":0
+                            },
+                            {
+                                "value":"",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":31,
+                                "key":"image",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":33,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu12.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":33,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_sign.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":33,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":34,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_zi4.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":34,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/title_mrqd.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":34,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":44,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_zi6.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":44,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/title_jbtm.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":44,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":43,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu14.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":43,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_rank.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":43,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":42,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu5.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":42,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"common/img_btn_frame.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":42,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":47,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu13.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":47,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_money.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":47,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":48,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_zi5.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":48,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/title_tx.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":48,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":50,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_zi7.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":50,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/title_cybzj.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":50,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":49,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_tu15.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":49,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_real.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":49,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
+                },
+                {
+                    "target":54,
+                    "keyframes":{
+                        "skin":[
+                            {
+                                "value":"comp/zhujiemian_ui1/zhujiemian_btn3.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":54,
+                                "key":"skin",
+                                "index":0
+                            },
+                            {
+                                "value":"home/btn_yellow.png",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":54,
+                                "key":"skin",
+                                "index":25
+                            }]
+                    }
                 }],
             "name":"ani1_yun",
             "id":1,
             "frameRate":24,
-            "action":0
+            "action":2
         },
         {
             "nodes":[
@@ -1446,53 +1958,11 @@
                                 "index":17
                             }]
                     }
-                },
-                {
-                    "target":85,
-                    "keyframes":{
-                        "x":[
-                            {
-                                "value":-43,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":85,
-                                "label":null,
-                                "key":"x",
-                                "index":0
-                            },
-                            {
-                                "value":-43,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":85,
-                                "label":null,
-                                "key":"x",
-                                "index":3
-                            },
-                            {
-                                "value":57,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":85,
-                                "label":null,
-                                "key":"x",
-                                "index":9
-                            },
-                            {
-                                "value":47,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":85,
-                                "label":null,
-                                "key":"x",
-                                "index":13
-                            }]
-                    }
                 }],
             "name":"tanchu",
             "id":2,
             "frameRate":24,
-            "action":0
+            "action":1
         },
         {
             "nodes":[
@@ -1946,6 +2416,23 @@
                 {
                     "target":54,
                     "keyframes":{
+                        "var":[
+                            {
+                                "value":"btn_shengji",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":54,
+                                "key":"var",
+                                "index":0
+                            },
+                            {
+                                "value":"btnLevelUp",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":54,
+                                "key":"var",
+                                "index":25
+                            }],
                         "scaleY":[
                             {
                                 "value":1,
@@ -2163,6 +2650,15 @@
                                 "label":null,
                                 "key":"scaleX",
                                 "index":65
+                            }],
+                        "events":[
+                            {
+                                "value":"click",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":54,
+                                "key":"events",
+                                "index":25
                             }]
                     }
                 }],

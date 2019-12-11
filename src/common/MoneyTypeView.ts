@@ -11,7 +11,7 @@ namespace app.common {
 
         public updateView() {
             let t = this;
-            t.lblCount.value = `${me.money}`;
+            t.lblCount.value = utils.getDigitString(me.money);
         }
     }
 }

@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":23,"x":18,"width":180,"skin":"common/img_frame.png","scaleY":0.9,"scaleX":0.9},
+            "props":{"y":23,"x":18,"width":180,"skin":"home/img_frame.png","scaleY":0.9,"scaleX":0.9},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -30,7 +30,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"common/img_power.png"},
+            "props":{"y":0,"x":0,"skin":"home/img_power.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":31,"x":80,"var":"imgMax","skin":"common/img_max.png","scaleY":1.11,"scaleX":1.11},
+            "props":{"y":31,"x":80,"var":"imgMax","skin":"home/img_max.png","scaleY":1.11,"scaleX":1.11},
             "nodeParent":1,
             "label":"Image(imgMax)",
             "isDirectory":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"FontClip",
-            "props":{"y":48,"x":29,"var":"fcCount","value":"8","spaceX":-4,"skin":"common/fc_normal.png","sheet":"0123456789"},
+            "props":{"y":48,"x":29,"var":"fcCount","value":"8","spaceX":-4,"skin":"home/fc_normal.png","sheet":"0123456789"},
             "nodeParent":1,
             "label":"FontClip(fcCount)",
             "isDirectory":false,

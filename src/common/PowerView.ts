@@ -39,6 +39,7 @@ namespace app.common {
             if (!t.ticker) return;
 
             t.ticker.onEnd = () => {
+                me.power++;
                 t.updateView();
             }
             t.ticker.start();

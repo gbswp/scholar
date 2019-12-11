@@ -1,6 +1,8 @@
 {
+    "x":0,
     "type":"View",
     "selectedBox":1,
+    "selecteID":7,
     "props":{"width":183,"sceneColor":"#999999","height":256},
     "nodeParent":-1,
     "label":"View",
@@ -11,10 +13,11 @@
     "compId":1,
     "child":[
         {
+            "x":15,
             "type":"Image",
-            "props":{"y":236,"x":92,"skin":"comp/nanjuese/juese_yy.png","name":"yy","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":236,"x":92,"var":"imgShadow","skin":"home/img_shadow.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image(yy)",
+            "label":"Image(imgShadow)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -24,21 +27,23 @@
             "$HIDDEN":false
         },
         {
+            "x":15,
             "type":"Image",
-            "props":{"y":236,"x":90,"width":100,"scaleY":0.99,"scaleX":1.01,"name":"shen","height":101,"anchorY":0.9,"anchorX":0.5},
+            "props":{"y":236,"x":90,"width":100,"scaleY":0.99,"scaleX":1.01,"height":101,"anchorY":0.9,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image(shen)",
-            "isOpen":false,
+            "label":"Image",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"var":"img_shen","skin":"comp/nanjuese/nanjuese_shen1.png"},
+                    "props":{"y":0,"x":0,"var":"imgBody","skin":"man/nanjuese_shen1.png"},
                     "nodeParent":6,
-                    "label":"Image(img_shen)",
+                    "label":"Image(imgBody)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -50,10 +55,11 @@
             "$HIDDEN":false
         },
         {
+            "x":15,
             "type":"Image",
-            "props":{"y":155.8,"x":86,"width":183,"scaleY":0.996,"scaleX":1.004,"rotation":-1.7999999999999998,"name":"tou","height":173,"anchorY":0.9,"anchorX":0.48},
+            "props":{"y":155.8,"x":86,"width":183,"scaleY":0.996,"scaleX":1.004,"rotation":-1.7999999999999998,"height":173,"anchorY":0.9,"anchorX":0.48},
             "nodeParent":1,
-            "label":"Image(tou)",
+            "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -61,20 +67,23 @@
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"var":"img_tou","skin":"comp/nanjuese/nanjuese_tou1.png"},
+                    "props":{"y":0,"x":0,"var":"imgHead","skin":"man/nanjuese_tou1.png"},
                     "nodeParent":9,
-                    "label":"Image(img_tou)",
+                    "label":"Image(imgHead)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":8,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":132,"x":90,"skin":"comp/nanjuese/nanjuese_hongyun.png","name":"hongyun","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":132,"x":90,"skin":"man/nanjuese_hongyun.png","name":"hongyun","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":9,
                     "label":"Image(hongyun)",
                     "isDirectory":false,
@@ -86,8 +95,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":130,"x":77,"skin":"comp/nanjuese/nanjuese_bi.png","name":"bi"},
+                    "props":{"y":130,"x":77,"skin":"man/nanjuese_bi.png","name":"bi"},
                     "nodeParent":9,
                     "label":"Image(bi)",
                     "isDirectory":false,
@@ -99,8 +109,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":101,"x":59,"skin":"comp/nanjuese/nanjuese_mei.png","skewX":0,"scaleX":1,"name":"mei"},
+                    "props":{"y":101,"x":59,"skin":"man/nanjuese_mei.png","skewX":0,"scaleX":1,"name":"mei"},
                     "nodeParent":9,
                     "label":"Image(mei)",
                     "isDirectory":false,
@@ -112,8 +123,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":119,"x":59,"skin":"comp/nanjuese/nanjuese_yan1.png","name":"yan_1","alpha":1},
+                    "props":{"y":119,"x":59,"skin":"man/nanjuese_yan1.png","name":"yan_1","alpha":1},
                     "nodeParent":9,
                     "label":"Image(yan_1)",
                     "isDirectory":false,
@@ -124,8 +136,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":119,"x":62,"skin":"comp/nanjuese/nanjuese_yan2.png","name":"yan1","alpha":1},
+                    "props":{"y":119,"x":62,"skin":"man/nanjuese_yan2.png","name":"yan1","alpha":1},
                     "nodeParent":9,
                     "label":"Image(yan1)",
                     "isDirectory":false,
@@ -137,8 +150,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":119,"x":95,"skin":"comp/nanjuese/nanjuese_yan1.png","name":"yan_2","alpha":1},
+                    "props":{"y":119,"x":95,"skin":"man/nanjuese_yan1.png","name":"yan_2","alpha":1},
                     "nodeParent":9,
                     "label":"Image(yan_2)",
                     "isDirectory":false,
@@ -149,8 +163,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":119,"x":98,"skin":"comp/nanjuese/nanjuese_yan2.png","name":"yan2","alpha":1},
+                    "props":{"y":119,"x":98,"skin":"man/nanjuese_yan2.png","name":"yan2","alpha":1},
                     "nodeParent":9,
                     "label":"Image(yan2)",
                     "isDirectory":false,
@@ -161,8 +176,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":146,"x":79,"skin":"comp/nanjuese/nanjuese_zui1.png","name":"zui1"},
+                    "props":{"y":146,"x":79,"skin":"man/nanjuese_zui1.png","name":"zui1"},
                     "nodeParent":9,
                     "label":"Image(zui1)",
                     "isDirectory":false,
@@ -174,8 +190,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":141,"x":73,"skin":"comp/nanjuese/nanjuese_zui2.png","name":"zui2","alpha":0},
+                    "props":{"y":141,"x":73,"skin":"man/nanjuese_zui2.png","name":"zui2","alpha":0},
                     "nodeParent":9,
                     "label":"Image(zui2)",
                     "isDirectory":false,
@@ -187,8 +204,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":121,"x":61,"skin":"comp/nanjuese/nanjuese_yan3.png","name":"biyan1","alpha":0},
+                    "props":{"y":121,"x":61,"skin":"man/nanjuese_yan3.png","name":"biyan1","alpha":0},
                     "nodeParent":9,
                     "label":"Image(biyan1)",
                     "isDirectory":false,
@@ -199,8 +217,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":121,"x":97,"skin":"comp/nanjuese/nanjuese_yan3.png","name":"biyan2","alpha":0},
+                    "props":{"y":121,"x":97,"skin":"man/nanjuese_yan3.png","name":"biyan2","alpha":0},
                     "nodeParent":9,
                     "label":"Image(biyan2)",
                     "isDirectory":false,
@@ -211,8 +230,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":82,"x":128,"skin":"comp/nanjuese/nanjuese_han.png","name":"han","anchorY":0.5,"anchorX":0.5,"alpha":0},
+                    "props":{"y":82,"x":128,"skin":"man/nanjuese_han.png","name":"han","anchorY":0.5,"anchorX":0.5,"alpha":0},
                     "nodeParent":9,
                     "label":"Image(han)",
                     "isDirectory":false,
@@ -223,8 +243,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":123,"x":65,"skin":"comp/nanjuese/nanjuese_yan4.png","scaleY":0.5,"scaleX":0.5,"name":"yan_da1","anchorY":0.5,"anchorX":0.5,"alpha":0},
+                    "props":{"y":123,"x":65,"skin":"man/nanjuese_yan4.png","scaleY":0.5,"scaleX":0.5,"name":"yan_da1","anchorY":0.5,"anchorX":0.5,"alpha":0},
                     "nodeParent":9,
                     "label":"Image(yan_da1)",
                     "isDirectory":false,
@@ -236,8 +257,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":123,"x":101,"skin":"comp/nanjuese/nanjuese_yan4.png","scaleY":0.5,"scaleX":0.5,"name":"yan_da2","anchorY":0.5,"anchorX":0.5,"alpha":0},
+                    "props":{"y":123,"x":101,"skin":"man/nanjuese_yan4.png","scaleY":0.5,"scaleX":0.5,"name":"yan_da2","anchorY":0.5,"anchorX":0.5,"alpha":0},
                     "nodeParent":9,
                     "label":"Image(yan_da2)",
                     "isDirectory":false,

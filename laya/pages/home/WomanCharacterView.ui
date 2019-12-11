@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
+    "selecteID":10,
     "props":{"width":128,"sceneColor":"#999999","height":216},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":195,"x":64,"skin":"comp/nanjuese/juese_yy.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":195,"x":64,"skin":"home/img_shadow.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"var":"img_shen","skin":"comp/nvjuese/nvjuese_shen0.png"},
+                    "props":{"y":0,"x":0,"var":"img_shen","skin":"woman/nvjuese_shen0.png"},
                     "nodeParent":6,
                     "label":"Image(img_shen)",
                     "isDirectory":false,
@@ -69,24 +69,25 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"var":"img_tou","skin":"comp/nvjuese/nvjuese_tou0.png"},
+                    "props":{"y":0,"x":0,"var":"imgHead","skin":"woman/nvjuese_tou0.png"},
                     "nodeParent":9,
-                    "label":"Image(img_tou)",
+                    "label":"Image(imgHead)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":8,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":121,"x":63,"var":"img_wenhao","skin":"comp/nvjuese/nvjuese_tu1.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":121,"x":63,"var":"imgMark","skin":"woman/nvjuese_tu1.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image(img_wenhao)",
+            "label":"Image(imgMark)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
