@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":35,
-    "selecteID":46,
+    "selectedBox":91,
+    "selecteID":90,
     "referenceLines":null,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
@@ -544,13 +544,14 @@
                                     "props":{"y":72,"x":180,"width":320,"var":"btnLevelUp","skin":"home/btn_yellow.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":66,
                                     "label":"Button(btnLevelUp)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":54,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":42,"x":160,"skin":"home/title_jsgz.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":54,
@@ -563,8 +564,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":50,"x":160,"width":320,"skin":"comp/zhujiemian_ui1/zhujiemian_btn3.png","scaleY":1.0220588235294117,"scaleX":0.9911764705882352,"blendMode":"lighter","anchorY":0.5,"anchorX":0.5,"alpha":0.125},
+                                            "props":{"y":50,"x":160,"width":320,"skin":"home/btn_yellow.png","scaleY":1.0220588235294117,"scaleX":0.9911764705882352,"blendMode":"lighter","anchorY":0.5,"anchorX":0.5,"alpha":0.125},
                                             "nodeParent":54,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -590,7 +592,7 @@
                                         {
                                             "x":75,
                                             "type":"Image",
-                                            "props":{"y":51,"x":238,"skin":"common/img_power.png","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":51,"x":238,"skin":"home/img_power.png","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":51,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -643,7 +645,7 @@
                                         {
                                             "x":75,
                                             "type":"FontClip",
-                                            "props":{"y":13,"x":79,"var":"fcLevel","value":22,"spaceX":-4,"skin":"common/fc_green.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
+                                            "props":{"y":13,"x":79,"var":"fcLevel","value":22,"spaceX":-4,"skin":"home/fc_green.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":60,
                                             "label":"FontClip(fcLevel)",
                                             "isDirectory":false,
@@ -658,7 +660,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":241,"x":180,"width":400,"var":"imgMoney","skin":"comp/zhujiemian_ui1/zhujiemian_tu6.png","scaleY":1,"scaleX":1,"anchorY":0,"anchorX":0.5},
+                                    "props":{"y":241,"x":180,"width":400,"var":"imgMoney","skin":"home/img_tipsbg.png","scaleY":1,"scaleX":1,"anchorY":0,"anchorX":0.5},
                                     "nodeParent":66,
                                     "label":"Image(imgMoney)",
                                     "isOpen":true,
@@ -698,7 +700,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":77,"x":214,"var":"imgPower","skin":"comp/zhujiemian_ui1/zhujiemian_tu7.png"},
+                                    "props":{"y":77,"x":214,"var":"imgPower","skin":"home/img_power.png"},
                                     "nodeParent":66,
                                     "label":"Image(imgPower)",
                                     "isOpen":true,
@@ -710,7 +712,7 @@
                                         {
                                             "x":75,
                                             "type":"Image",
-                                            "props":{"y":31,"x":54,"skin":"comp/zhujiemian_ui1/zhujiemian_zi20.png"},
+                                            "props":{"y":31,"x":54,"skin":"home/img_less.png"},
                                             "nodeParent":91,
                                             "label":"Image",
                                             "isDirectory":false,
