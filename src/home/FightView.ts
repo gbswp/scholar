@@ -2,18 +2,15 @@ namespace app.home {
     export class FightView extends FightViewUI {
 
         protected _modelEvents: any[] = [];
-        map: MapContainer;
 
         onCreate() {
             super.onCreate();
-            let map = this.map = new MapContainer(this.img_caozuo, this.lstAnswer);
-            let stage = manager.fight.idioms[me.stageLv]
-            map.setData(stage);
-
+            let map  = new MapContainer(this.img_caozuo, this.lstAnswer,manager.fight.idioms);
+            map.setData(me.stageLv);
         }
 
         onLstAnswerCellClick(e: Laya.Event, index: number): void {
-            this.map.setAnswerSelectIndex(index);
+            map.setAnswerSelectIndex(index);
         }
 
 

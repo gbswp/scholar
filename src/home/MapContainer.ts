@@ -1,5 +1,6 @@
 ///<reference path='../../libs/LayaAir.d.ts'/>
 ///<reference path='../model/WordData.ts'/>
+var map: app.home.MapContainer;
 namespace app.home {
     export class MapContainer {
         showDebug = true;
@@ -11,7 +12,12 @@ namespace app.home {
         height: number;
         offx: number = 0;//布局居中偏移量x
         offy: number = 0;//布局居中偏移量y
-        stage: IStageInfo;//关卡配置
+        idiomConfigs: IStageInfo[] = [];
+        stageLv: number;
+        //关卡配置
+        get stage() {
+            return this.idiomConfigs[this.stageLv]
+        }
 
         answers: string[] = [];//答案
         answerList: ui.List;
@@ -38,9 +44,10 @@ namespace app.home {
             return this._selectItem;
         }
 
-        constructor(container: Laya.Component, answerList: ui.List, row: number = 9, rank: number = 9) {
+        constructor(container: Laya.Component, answerList: ui.List, configs: IStageInfo[], row: number = 9, rank: number = 9) {
             this.container = container;
             this.answerList = answerList;
+            this.idiomConfigs = configs;
 
             this.cellSize = container.width / row;
             this.row = row;
@@ -50,6 +57,8 @@ namespace app.home {
             this.height = container.height;
 
             this.showMapLine();
+
+            map = this;
         }
 
         /**
@@ -116,9 +125,9 @@ namespace app.home {
             return this.cellKeyMap[this.getKey(row, rank)];
         }
 
-        setData(data: IStageInfo) {
+        setData(stageLv: number) {
+            this.stageLv = stageLv;
             this.clear();
-            this.stage = data;
             this.initData();
             this.layout();
         }
@@ -252,8 +261,7 @@ namespace app.home {
             let wordIndex = answer[this.selectIndex];
             if (this.selectIndex >= answer.length) {
                 if (this.checkStageCompleted()) {
-                    me.stageLv++;
-                    this.setData(manager.fight.idioms[me.stageLv])
+                    this.setData(me.stageLv++)
                 } else {
                     this.selectItem = null;
                     this.selectIndex = -1;
@@ -305,7 +313,7 @@ namespace app.home {
                 let bool = this.checkIdiomCompleted(idiom);
                 this.updateIdiomEffect(idiom, bool)
                 if (bool) {
-                    Laya.timer.once(1000, this, this.trySelectItem);
+                    Laya.timer.once(500, this, this.trySelectItem);
                     break;
                 }
                 i++;
@@ -391,7 +399,6 @@ namespace app.home {
 
 
         clear() {
-            this.stage = null;
             this.offy = 0;
             this.offx = 0;
             this.selectItem = null;
