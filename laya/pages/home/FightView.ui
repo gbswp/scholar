@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":9,
+    "selectedBox":9,
+    "selecteID":10,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"comp/youxinei_ui2/youxinei_tu10.png","right":0,"left":0,"bottom":0},
+            "props":{"top":0,"skin":"fight/img_wordbg1.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -29,18 +29,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":72,"x":320,"width":278,"skin":"comp/youxinei_ui2/youxinei_tu7.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":72,"x":320,"width":278,"skin":"fight/img_levelbg.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"FontClip",
-                    "props":{"y":32,"x":139,"var":"fcLevel","value":"40","skin":"comp/youxinei_ui2/fontclip_zi4.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":32,"x":139,"var":"fcLevel","value":"40","skin":"fight/fc_level.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":4,
                     "label":"FontClip(fcLevel)",
                     "isDirectory":false,
@@ -56,7 +57,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":70,"x":58,"var":"btnBack","skin":"comp/youxinei_ui2/youxinei_tu8.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":70,"x":58,"var":"btnBack","skin":"fight/ben_back.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btnBack)",
             "isOpen":true,
@@ -72,18 +73,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":439,"x":320,"width":620,"var":"img_caozuo","skin":"comp/youxinei_ui2/youxinei_tu9.png","height":620,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":439,"x":320,"width":620,"var":"img_caozuo","skin":"fight/img_wordbg.png","height":620,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_caozuo)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":224,"x":445,"skin":"comp/youxinei_ui2/youxinei_tu12.png"},
+                    "props":{"y":224,"x":445,"skin":"fight/img_wordbg3.png"},
                     "nodeParent":9,
                     "label":"Image",
                     "isDirectory":false,
@@ -95,8 +97,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":355,"x":3,"skin":"comp/youxinei_ui2/youxinei_tu11.png"},
+                    "props":{"y":355,"x":3,"skin":"fight/img_wordbg2.png"},
                     "nodeParent":9,
                     "label":"Image",
                     "isDirectory":false,
@@ -115,55 +118,32 @@
             "props":{"y":750,"var":"spr_ui_zhong"},
             "nodeParent":1,
             "label":"Sprite(spr_ui_zhong)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":40,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":24,"x":37,"width":190,"skin":"comp/zhujiemian_ui1/zhujiemian_tu1.png"},
+                    "x":30,
+                    "type":"UIView",
+                    "source":"common/MoneyTypeView.ui",
+                    "props":{"y":13,"x":12,"var":"viewMoney","templateParam":"btnReceive.viible=0"},
                     "nodeParent":40,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"UIView(viewMoney)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":20,
+                    "hasChild":false,
+                    "compId":43,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":27,"x":8,"skin":"comp/zhujiemian_ui1/zhujiemian_tu8.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":20,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":21,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":26,"x":103,"var":"lbl_jinbi","text":"0","fontSize":32,"font":"Arial","color":"#92473c","bold":true,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":20,
-                            "label":"Label(lbl_jinbi)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":24,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":52,"x":391,"var":"btn_zmwan","skin":"comp/youxinei_ui2/youxinei_btn1.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":52,"x":391,"var":"btnHelp","skin":"fight/btn_help.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":40,
-                    "label":"Button(btn_zmwan)",
+                    "label":"Button(btnHelp)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -175,10 +155,11 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":52,"x":491,"var":"btn_tishi","skin":"comp/youxinei_ui2/youxinei_btn2.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":52,"x":491,"var":"btnTip","skin":"fight/btn_tip.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":40,
-                    "label":"Button(btn_tishi)",
+                    "label":"Button(btnTip)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -186,10 +167,11 @@
                     "compId":14,
                     "child":[
                         {
+                            "x":45,
                             "type":"FontClip",
-                            "props":{"y":16,"x":68,"var":"fc_tishi_shu","value":"3","spaceX":-5,"skin":"comp/youxinei_ui2/fontclip_zi3.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":16,"x":68,"var":"fcTip","value":"3","spaceX":-5,"skin":"fight/fc_tip.png","sheet":"0123456789","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":14,
-                            "label":"FontClip(fc_tishi_shu)",
+                            "label":"FontClip(fcTip)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -199,10 +181,11 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":37,"x":40,"skin":"comp/youxinei_ui2/youxinei_tu13.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":37,"x":40,"var":"imgTip","skin":"fight/img_tip_0.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":14,
-                            "label":"Image",
+                            "label":"Image(imgTip)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -214,10 +197,11 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":52,"x":591,"var":"btn_chongwan","skin":"comp/youxinei_ui2/youxinei_btn3.png","scaleY":1,"scaleX":1,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":52,"x":591,"var":"btnAgain","skin":"fight/btn_again.png","scaleY":1,"scaleX":1,"events":"click","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":40,
-                    "label":"Button(btn_chongwan)",
+                    "label":"Button(btnAgain)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -318,39 +302,6 @@
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":6,
-                                "label":null,
-                                "key":"x",
-                                "index":10
-                            }]
-                    }
-                },
-                {
-                    "target":20,
-                    "keyframes":{
-                        "x":[
-                            {
-                                "value":-193,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":20,
-                                "label":null,
-                                "key":"x",
-                                "index":0
-                            },
-                            {
-                                "value":47,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":20,
-                                "label":null,
-                                "key":"x",
-                                "index":6
-                            },
-                            {
-                                "value":37,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":20,
                                 "label":null,
                                 "key":"x",
                                 "index":10
