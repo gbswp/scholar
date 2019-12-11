@@ -9,13 +9,11 @@ namespace app.home {
             let map = this.map = new MapContainer(this.img_caozuo);
             let stage = manager.fight.idioms[me.stageLv]
             map.setData(stage);
-            this.lstAnswer.data = stage.answer;
+
+            let temp = stage.answer.concat();
+            temp.sort((a:number,b:number)=>Math.random() - .5);
+            this.lstAnswer.data = temp;
         }
-
-        onBtnAgainClick(e: Laya.Event): void { }
-
-        onBtnTipClick(e: Laya.Event): void { }
-
 
         onLstAnswerCellClick(e: Laya.Event, index: number): void {
             this.map.selectAnswerItem = this.lstAnswer.getCell(index) as IdiomAnswerCellUI;

@@ -3,7 +3,7 @@ namespace r {
 
     export function getIdiomGameCellBg(state: number) {
         if (state == 3) state = 2;
-        return `fight/youxinei_tu${state}.png`
+        return `fight/img_state_${state}.png`
     }
 
 }
