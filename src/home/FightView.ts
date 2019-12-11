@@ -20,7 +20,7 @@ namespace app.home {
         onLstAnswerRender(cell: IdiomAnswerCellUI, index: number): void {
             let num = this.lstAnswer.getItem(index) as number;
             let stage = manager.fight.idioms[me.stageLv];
-            cell.lbl_dizi.value = stage.word[num];
+            cell.lblText.value = stage.word[num];
         }
 
 

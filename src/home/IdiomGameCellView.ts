@@ -10,7 +10,7 @@ namespace app.home {
 
         setData(data: model.WordData) {
             this.data = data;
-            this.lbl_zi.value = data.isAnswer ? "" : data.value + "";
+            this.lblText.value = data.isAnswer ? "" : data.value + "";
             this.pos(data.posX, data.posY);
             this.mouseEnabled = data.isAnswer;
         }

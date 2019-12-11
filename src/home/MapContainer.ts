@@ -26,9 +26,9 @@ namespace app.home {
         private _selectItem: IdiomGameCellView;
         set selectItem(value: IdiomGameCellView) {
             if (this._selectItem == value) return;
-            if (this._selectItem) this._selectItem.img_xuanzhong.visible = false;
+            if (this._selectItem) this._selectItem.imgSelect.visible = false;
             this._selectItem = value;
-            if (this._selectItem) this._selectItem.img_xuanzhong.visible = true;
+            if (this._selectItem) this._selectItem.imgSelect.visible = true;
         }
         get selectItem() {
             return this._selectItem;
