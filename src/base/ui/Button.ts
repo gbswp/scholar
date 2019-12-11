@@ -263,7 +263,7 @@ namespace app.ui {
 
         protected onMouse(e: Laya.Event) {
             if (e.type == Laya.Event.CLICK && this.soundOn)
-                ui.playButtonSound(this.soundId);
+                this.soundId && ui.playButtonSound(this.soundId);
             if (!this.enableAnimating) {
                 super.onMouse(e);
                 return;
