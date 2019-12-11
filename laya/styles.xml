@@ -21,4 +21,6 @@
    <item name="comp/jiesuan_ui3/jiesuan_tu2.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,35,0,35" picType="0" scale="0"/>
    <item name="comp/jiesuan_ui3/progress_1.png" type="ProgressBar" compress="0" pack="0" quality="80" props="sizeGrid=0,15,0,15" picType="0" scale="0"/>
    <item name="common/img_frame.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,40,0,40" picType="0" scale="0"/>
+   <item name="home/btn_yellow.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
+   <item name="home/btn_blue_small.png" type="Image" compress="0" pack="0" quality="80" props="sizeGrid=0,60,0,60" picType="0" scale="0"/>
 </res>
