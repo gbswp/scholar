@@ -12,6 +12,11 @@ namespace app.home {
             this.lstAnswer.data = stage.answer;
         }
 
+        onBtnAgainClick(e: Laya.Event): void { }
+
+        onBtnTipClick(e: Laya.Event): void { }
+
+
         onLstAnswerCellClick(e: Laya.Event, index: number): void {
             this.map.selectAnswerItem = this.lstAnswer.getCell(index) as IdiomAnswerCellUI;
         }
