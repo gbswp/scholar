@@ -256,6 +256,8 @@ namespace app.home {
 
         //设置答案
         setAnswerSelectIndex(index: number) {
+            this.setAnswerItemSelect(index,true);
+
             let selectItem = this._selectItem;
             if (!selectItem) return;
             let data = selectItem.data;
@@ -341,6 +343,13 @@ namespace app.home {
                 cell.refreshState();
             }
             cell.ani2.play(0, false);
+        }
+
+        //设置答案项状态
+        protected setAnswerItemSelect(index: number, selected: boolean) {
+            let cell = this.answerList.getCell(index) as IdiomAnswerCellUI;
+            cell.visible = !selected;
+            if (!selected) cell.ani1.play(0, false);
         }
 
 
