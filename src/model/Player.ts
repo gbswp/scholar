@@ -1,6 +1,6 @@
 
-module app.model {
-    export class Player extends Laya.EventDispatcher {
+namespace app.model {
+    export class Player  {
         /** 当前金币 */
         public money: number = 1000000;
         /** 当前体力 */
@@ -9,5 +9,10 @@ module app.model {
         public maxPower: number = 100;
         /** 下次体力刷新时间 */
         public refreshTm: number = 9 * 60 * 1000;
+
+        //关卡
+        stageLv: number = 1;
+        constructor() {
+        }
     }
 }

@@ -3,18 +3,55 @@
 namespace app.home {
     export class MapContainer {
         showDebug = true;
-        container: Laya.Component;
+        container: Laya.Component;//容器
         cellSize: number;//格子大小
-        row: number;//排
+        row: number;//行
         rank: number;//列
         width: number;
         height: number;
-        offx: number = 0;
-        offy: number = 0;
-        stage: IStageInfo;
-        // words: model.WordData[] = [];
-        wordMap: { [index: string]: model.WordData } = {};
-        cellMap: { [index: string]: IdiomCellView } = {}
+        offx: number = 0;//布局居中偏移量x
+        offy: number = 0;//布局居中偏移量y
+        stage: IStageInfo;//关卡配置
+
+        //字数据
+        wordMap: { [key: string]: model.WordData } = {};
+        //成语数据
+        idiomMap: { [key: string]: model.IdiomData } = {};
+
+
+        //字的显示控件
+        cellMap: { [key: string]: IdiomGameCellView } = {};
+
+        //选中项
+        private _selectItem: IdiomGameCellView;
+        set selectItem(value: IdiomGameCellView) {
+            if (this._selectItem == value) return;
+            if (this._selectItem) this._selectItem.img_xuanzhong.visible = false;
+            this._selectItem = value;
+            if (this._selectItem) this._selectItem.img_xuanzhong.visible = true;
+        }
+        get selectItem() {
+            return this._selectItem;
+        }
+
+        //选中答案项
+        private _selectAnswerItem: IdiomAnswerCellUI;
+        set selectAnswerItem(value: IdiomAnswerCellUI) {
+            if (this._selectAnswerItem == value) return;
+
+            if (this._selectAnswerItem) {
+                this._selectAnswerItem.visible = true;
+                this._selectAnswerItem.ani1.play(0, false);
+            }
+            this._selectAnswerItem = value;
+            if (this._selectAnswerItem) {
+                this._selectAnswerItem.visible = false;
+                // this._selectAnswerItem.alpha = 0;
+            }
+        }
+        get selectAnswerItem() {
+            return this._selectAnswerItem;
+        }
 
         constructor(container: Laya.Component, row: number = 9, rank: number = 9) {
             this.container = container;
@@ -28,6 +65,12 @@ namespace app.home {
             this.showMapLine();
         }
 
+        /**
+         *现实地图格
+         *
+         * @returns
+         * @memberof MapContainer
+         */
         showMapLine() {
             if (!this.showDebug) return;
             let sp = new Laya.Sprite();
@@ -43,6 +86,14 @@ namespace app.home {
             }
         }
 
+        /**
+         *根据行列取得位置
+         *
+         * @param {number} row
+         * @param {number} rank
+         * @returns
+         * @memberof MapContainer
+         */
         getPos(row: number, rank: number) {
             let halfSize = this.cellSize / 2;
             let tx = (rank - 1) * this.cellSize + halfSize;
@@ -50,12 +101,46 @@ namespace app.home {
             return [tx, ty];
         }
 
+        /**
+         *根据index取得行列
+         *
+         * @param {number} index
+         * @returns
+         * @memberof MapContainer
+         */
+        getRowRank(index: number) {
+            let stage = this.stage;
+            let row = Math.range(stage.posy[index] + this.offy, 1, 9);
+            let rank = Math.range(stage.posx[index] + this.offx, 1, 9);
+            return [row, rank]
+        }
+
+        getKey(row: number, rank: number) {
+            return row + "_" + rank;
+        }
+
+        getWordDataByIndex(index: number) {
+            let [row, rank] = this.getRowRank(index);
+            return this.wordMap[this.getKey(row, rank)];
+        }
+
+        getWordCellByIndex(index: number) {
+            let [row, rank] = this.getRowRank(index);
+            return this.cellMap[this.getKey(row, rank)];
+        }
+
         setData(data: IStageInfo) {
+            this.clear();
             this.stage = data;
             this.initData();
             this.layout();
         }
 
+        /**
+         *初始化数据
+         *
+         * @memberof MapContainer
+         */
         initData() {
             let data = this.stage;
 
@@ -67,27 +152,115 @@ namespace app.home {
             let ymax = Math.max(...data.posy);
             this.offy = Math.ceil((this.row - ymax - ymin + 1) / 2);
 
-            let words = data.word;
+            this.initIdiom();
+            this.initWord();
+        }
+
+        /**
+         * 初始化成语
+         *
+         * @memberof MapContainer
+         */
+        initIdiom() {
+            let stage = this.stage;
+            stage.idiom.forEach(str => {
+                let idiom = Pool.get(Pool.IdiomData, model.IdiomData);
+                idiom.value = str;
+                let temp = str.split("");
+                temp.forEach(word => {
+                    let index = stage.word.indexOf(word);
+                    if (index != -1) {
+                        let [row, rank] = this.getRowRank(index);
+                        let key = `${row}_${rank}`;
+                        idiom.words.push(key);
+                        if (stage.answer.indexOf(index) != -1)
+                            this.idiomMap[key] = idiom;
+                    }
+                })
+            })
+        }
+
+        /**
+         * 初始化字
+         *
+         * @memberof MapContainer
+         */
+        initWord() {
+            let stage = this.stage;
+            let words = stage.word;
             for (let i = 0, len = words.length; i < len; i++) {
-                let word = new model.WordData();
+                let word = Pool.get(Pool.WordData, model.WordData);
                 word.value = words[i];
-                word.row = data.posy[i] + this.offy;
-                word.rank = data.posx[i] + this.offx;
+                let [row, rank] = this.getRowRank(i);
+                word.row = row;
+                word.rank = rank;
                 let [px, py] = this.getPos(word.row, word.rank);
                 word.posX = px;
                 word.posY = py;
-                word.isAnswer = data.answer.indexOf(i) != -1;
-                // this.words.push(word);
+                word.isAnswer = stage.answer.indexOf(i) != -1;
+                word.isAnswer && (word.state = model.IdiomState.Answer)
                 this.wordMap[word.key] = word;
             }
         }
 
+
+
+        /**
+         * 生成
+         *
+         * @memberof MapContainer
+         */
         layout() {
             _.each(this.wordMap, data => {
-                let cell = Pool.get(Pool.IdiomCellView, IdiomCellView);
+                let cell = Pool.get(Pool.IdiomGameCellView, IdiomGameCellView);
                 cell.setData(data);
                 this.container.addChild(cell);
+                cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
+                this.cellMap[data.key] = cell;
             })
+            Laya.timer.callLater(this, this.trySelectItem);
+        }
+
+        protected onCellClick(cell: IdiomGameCellView) {
+            this.selectItem = cell;
+        }
+
+        /**
+         *尝试选中
+         *
+         * @returns
+         * @memberof MapContainer
+         */
+        trySelectItem() {
+            if (this.selectItem && this.selectItem.data.canSelect()) return;
+            let answer = this.stage.answer;
+            for (let i = 0, len = answer.length; i < len; i++) {
+                let index = answer[i];
+                let wordData = this.getWordDataByIndex(index);
+                if (wordData.canSelect()) {
+                    this.selectItem = this.getWordCellByIndex(index);
+                    break;
+                }
+            }
+
+        }
+
+        clear() {
+            this.stage = null;
+            this.offy = 0;
+            this.offx = 0;
+            _.each(this.wordMap, value => Pool.put(Pool.WordData, value));
+            this.wordMap = {};
+
+            _.each(this.idiomMap, value => Pool.put(Pool.IdiomData, value));
+            this.idiomMap = {};
+
+            _.each(this.cellMap, value => {
+                value.removeSelf();
+                Pool.put(Pool.IdiomGameCellView, value);
+            });
+            this.cellMap = {};
+
         }
     }
 }

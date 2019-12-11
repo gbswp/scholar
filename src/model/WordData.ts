@@ -6,10 +6,24 @@ namespace app.model {
         posX: number;
         posY: number;
         isAnswer: boolean;
-        // idioms: IdiomData[];
+        state: model.IdiomState = model.IdiomState.Normal;
 
         get key() {
             return this.row + "_" + this.rank;
+        }
+
+        canSelect() {
+            return this.state == model.IdiomState.Answer || this.state == model.IdiomState.Wrong;
+        }
+
+        reset() {
+            this.value = "";
+            this.row = 0;
+            this.rank = 0;
+            this.posY = 0;
+            this.posX = 0;
+            this.isAnswer = false;
+            this.state = model.IdiomState.Normal;
         }
 
     }
