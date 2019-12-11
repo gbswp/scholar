@@ -13,17 +13,17 @@ namespace app.home {
         offy: number = 0;//布局居中偏移量y
         stage: IStageInfo;//关卡配置
 
-        answers: string[];//答案
+        answers: string[] = [];//答案
         answerList: ui.List;
 
-
+        //本关卡成语数组
+        idiomList: model.IdiomData[] = [];
         //字数据
-        wordMap: { [key: string]: model.WordData } = {};
+        wordKeyMap: { [key: string]: model.WordData } = {};
         //成语数据
-        idiomMap: { [key: string]: model.IdiomData[] } = {};
-
+        idiomKeyMap: { [key: string]: model.IdiomData[] } = {};
         //字的显示控件
-        cellMap: { [key: string]: IdiomGameCellView } = {};
+        cellKeyMap: { [key: string]: IdiomGameCellView } = {};
 
         selectIndex: number = -1;
         //选中项
@@ -108,12 +108,12 @@ namespace app.home {
 
         getWordDataByIndex(index: number) {
             let [row, rank] = this.getRowRank(index);
-            return this.wordMap[this.getKey(row, rank)];
+            return this.wordKeyMap[this.getKey(row, rank)];
         }
 
         getWordCellByIndex(index: number) {
             let [row, rank] = this.getRowRank(index);
-            return this.cellMap[this.getKey(row, rank)];
+            return this.cellKeyMap[this.getKey(row, rank)];
         }
 
         setData(data: IStageInfo) {
@@ -165,12 +165,14 @@ namespace app.home {
                         }
                         idiom.wordKeyList.push(key);
                         if (stage.answer.indexOf(index) != -1) {
-                            let temp = this.idiomMap[key];
-                            if (!temp) this.idiomMap[key] = temp = [];
+                            let temp = this.idiomKeyMap[key];
+                            if (!temp) this.idiomKeyMap[key] = temp = [];
                             temp.push(idiom);
                         }
                     }
                 })
+
+                this.idiomList.push(idiom);
             })
         }
 
@@ -193,7 +195,7 @@ namespace app.home {
                 word.posY = py;
                 word.index = stage.answer.indexOf(i);
                 word.index != -1 && (word.state = model.IdiomState.Answer)
-                this.wordMap[word.key] = word;
+                this.wordKeyMap[word.key] = word;
             }
         }
 
@@ -205,12 +207,12 @@ namespace app.home {
          * @memberof MapContainer
          */
         layout() {
-            _.each(this.wordMap, data => {
+            _.each(this.wordKeyMap, data => {
                 let cell = Pool.get(Pool.IdiomGameCellView, IdiomGameCellView);
                 cell.setData(data);
                 this.container.addChild(cell);
                 cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
-                this.cellMap[data.key] = cell;
+                this.cellKeyMap[data.key] = cell;
             })
             Laya.timer.callLater(this, this.trySelectItem);
 
@@ -249,9 +251,14 @@ namespace app.home {
             let answer = this.stage.answer;
             let wordIndex = answer[this.selectIndex];
             if (this.selectIndex >= answer.length) {
-                this.selectItem = null;
-                me.stageLv++;
-                this.setData(manager.fight.idioms[me.stageLv])
+                if (this.checkStageCompleted()) {
+                    me.stageLv++;
+                    this.setData(manager.fight.idioms[me.stageLv])
+                } else {
+                    this.selectItem = null;
+                    this.selectIndex = -1;
+                    this.trySelectItem();
+                }
                 return;
             }
             let wordData = this.getWordDataByIndex(wordIndex);
@@ -260,7 +267,19 @@ namespace app.home {
                 return;
             }
 
-            this.selectItem = this.cellMap[wordData.key];
+            this.selectItem = this.cellKeyMap[wordData.key];
+        }
+
+        //检测关卡是否完成
+        checkStageCompleted() {
+            let idiomList = this.idiomList;
+            for (let i = 0, len = idiomList.length; i < len; i++) {
+                let idiom = idiomList[i];
+                if (!this.checkIdiomCompleted(idiom)) {
+                    return false;
+                }
+            }
+            return true;
         }
 
 
@@ -273,7 +292,7 @@ namespace app.home {
             this.setAnswerItemSelect(data.answerSelectIndex, false)
             data.setAnswer(index, this.answers[index]);
             this.setAnswerItemSelect(index, true);
-            let idioms = this.getFullIdiomList(this.idiomMap[data.key]);
+            let idioms = this.getFullIdiomList(this.idiomKeyMap[data.key]);
             if (!idioms.length) {
                 selectItem.refreshState();
                 this.trySelectItem();
@@ -282,8 +301,11 @@ namespace app.home {
 
             let i = 0;
             while (i < idioms.length) {
-                if (this.checkIdiomCompleted(idioms[i])) {
-                    this.trySelectItem();
+                let idiom = idioms[i]
+                let bool = this.checkIdiomCompleted(idiom);
+                this.updateIdiomEffect(idiom, bool)
+                if (bool) {
+                    Laya.timer.once(1000, this, this.trySelectItem);
                     break;
                 }
                 i++;
@@ -303,7 +325,7 @@ namespace app.home {
         protected checkIdiomIsFull(idiom: model.IdiomData) {
             let isFull = true;
             idiom.enum(key => {
-                let wordData = this.wordMap[key];
+                let wordData = this.wordKeyMap[key];
                 let isAnswer = wordData.isAnswer();
                 isAnswer && (isFull = false)
                 return isAnswer;
@@ -312,28 +334,30 @@ namespace app.home {
         }
 
         //检测成语是否完成
-        protected checkIdiomCompleted(idiom: model.IdiomData) {
+        protected checkIdiomCompleted(idiom: model.IdiomData, ) {
             let completed = true;
             idiom.enum(key => {
-                let wordData = this.wordMap[key];
+                let wordData = this.wordKeyMap[key];
                 let bool = wordData.isComplted();
                 if (!bool) completed = false;
                 return !bool;
             })
+            return completed;
+        }
 
+        //更新成语表现
+        protected updateIdiomEffect(idiom: model.IdiomData, completed: boolean) {
             let index = 0;
             idiom.enum(key => {
                 if (completed) this.updateWordCompleted(key, index);
                 else this.updateWordWrong(key)
                 index++;
             })
-
-            return completed;
         }
 
         //更新字的完成效果
         protected updateWordCompleted(key: string, index: number) {
-            let cell = this.cellMap[key];
+            let cell = this.cellKeyMap[key];
             if (!cell) return;
             let data = cell.data;
             if (!data) return;
@@ -346,7 +370,7 @@ namespace app.home {
 
         //更新字的错误效果
         protected updateWordWrong(key: string) {
-            let cell = this.cellMap[key];
+            let cell = this.cellKeyMap[key];
             if (!cell) return;
             let data = cell.data;
             if (!data) return;
@@ -370,25 +394,25 @@ namespace app.home {
             this.stage = null;
             this.offy = 0;
             this.offx = 0;
-            _.each(this.wordMap, value => Pool.put(Pool.WordData, value));
-            this.wordMap = {};
+            this.selectItem = null;
+            this.selectIndex = -1;
+            this.answers.length = 0;
 
-            _.each(this.idiomMap, (values: model.IdiomData[]) => {
-                values.forEach(value => {
-                    Pool.put(Pool.IdiomData, value);
-                })
-                values.length = 0;
-            });
-            this.idiomMap = {};
+            _.each(this.wordKeyMap, value => Pool.put(Pool.WordData, value));
+            this.wordKeyMap = {};
 
-            _.each(this.cellMap, value => {
+            this.idiomKeyMap = {};
+            this.idiomList.forEach(value => Pool.put(Pool.IdiomData, value));
+            this.idiomList.length = 0;
+
+            _.each(this.cellKeyMap, value => {
                 value.removeSelf();
                 value.offAll();
                 value.ani1.stop();
                 value.ani2.stop();
                 Pool.put(Pool.IdiomGameCellView, value);
             });
-            this.cellMap = {};
+            this.cellKeyMap = {};
 
             Laya.timer.clearAll(this)
 
