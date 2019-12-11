@@ -5,15 +5,18 @@ namespace app.model {
         rank: number;
         posX: number;
         posY: number;
-        isAnswer: boolean;
         state: model.IdiomState = model.IdiomState.Normal;
+
+        get isAnswer(){
+            return this.state == model.IdiomState.Answer;
+        }
 
         get key() {
             return this.row + "_" + this.rank;
         }
 
         canSelect() {
-            return this.needAnswer() || this.state == model.IdiomState.Right;
+            return this.needAnswer();
         }
 
         needAnswer() {
@@ -26,7 +29,6 @@ namespace app.model {
             this.rank = 0;
             this.posY = 0;
             this.posX = 0;
-            this.isAnswer = false;
             this.state = model.IdiomState.Normal;
         }
 

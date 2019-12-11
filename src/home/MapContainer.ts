@@ -201,8 +201,7 @@ namespace app.home {
                 let [px, py] = this.getPos(word.row, word.rank);
                 word.posX = px;
                 word.posY = py;
-                word.isAnswer = stage.answer.indexOf(i) != -1;
-                word.isAnswer && (word.state = model.IdiomState.Answer)
+                stage.answer.indexOf(i) != -1 && (word.state = model.IdiomState.Answer)
                 this.wordMap[word.key] = word;
             }
         }
@@ -231,6 +230,11 @@ namespace app.home {
             let data = cell.data;
             if (!data || !data.canSelect()) return;
             this.selectItem = cell;
+            if (data.state == model.IdiomState.Wrong && this._selectAnswerItem) {
+                data.state = model.IdiomState.Answer;
+                this.selectItem.refreshState();
+                this.selectAnswerItem = null;
+            }
         }
 
         /**
@@ -247,9 +251,11 @@ namespace app.home {
                 let wordData = this.getWordDataByIndex(index);
                 if (wordData.canSelect()) {
                     this.selectItem = this.getWordCellByIndex(index);
-                    break;
+                    return;
                 }
             }
+
+            this.selectItem = null;
 
         }
 
@@ -267,6 +273,8 @@ namespace app.home {
             } else {
                 data.state = model.IdiomState.Right;
                 this.checkIdiomsComplete(data.key);
+                this._selectAnswerItem = null;
+                this.trySelectItem();
             }
         }
 
@@ -288,16 +296,20 @@ namespace app.home {
                 }
             }
             if (completed) {
+                let i = 1;
                 wordKeyList.forEach(key => {
                     let wordData = this.wordMap[key];
                     if (wordData.state != model.IdiomState.Done) {
                         wordData.state = model.IdiomState.Done;
                         let cell = this.cellMap[key];
                         cell.refreshState();
+                        Laya.timer.once(i*80,this,()=>{
+                            cell.ani1.play(0,false);
+                        });
+                        i++;
                     }
                 })
-                this._selectAnswerItem = null;
-                this.trySelectItem();
+
             } else {
                 this.selectItem.refreshState();
             }
@@ -319,6 +331,8 @@ namespace app.home {
                 Pool.put(Pool.IdiomGameCellView, value);
             });
             this.cellMap = {};
+
+            Laya.timer.clearAll(this)
 
         }
     }
