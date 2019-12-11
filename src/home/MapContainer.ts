@@ -12,7 +12,7 @@ namespace app.home {
         offx: number = 0;//布局居中偏移量x
         offy: number = 0;//布局居中偏移量y
         stage: IStageInfo;//关卡配置
-        selectIndex: number = -1;
+
         answers: string[];//答案
         answerList: ui.List;
 
@@ -25,6 +25,7 @@ namespace app.home {
         //字的显示控件
         cellMap: { [key: string]: IdiomGameCellView } = {};
 
+        selectIndex: number = -1;
         //选中项
         private _selectItem: IdiomGameCellView;
         set selectItem(value: IdiomGameCellView) {
@@ -159,6 +160,9 @@ namespace app.home {
                     if (index != -1) {
                         let [row, rank] = this.getRowRank(index);
                         let key = `${row}_${rank}`;
+                        if (!idiom.wordKeyList) {
+                            console.log();
+                        }
                         idiom.wordKeyList.push(key);
                         if (stage.answer.indexOf(index) != -1) {
                             let temp = this.idiomMap[key];
@@ -187,7 +191,8 @@ namespace app.home {
                 let [px, py] = this.getPos(word.row, word.rank);
                 word.posX = px;
                 word.posY = py;
-                stage.answer.indexOf(i) != -1 && (word.state = model.IdiomState.Answer)
+                word.index = stage.answer.indexOf(i);
+                word.index != -1 && (word.state = model.IdiomState.Answer)
                 this.wordMap[word.key] = word;
             }
         }
@@ -224,8 +229,9 @@ namespace app.home {
             let data = cell.data;
             if (!data || data.isLock()) return;
             this.selectItem = cell;
+            this.selectIndex = data.index;
             if (data.state != model.IdiomState.Answer) {
-                this.setAnswerItemSelect(data.answerIndex, false);
+                this.setAnswerItemSelect(data.answerSelectIndex, false);
                 data.setAnswer(-1, "");
                 data.state = model.IdiomState.Answer;
                 this.selectItem.refreshState();
@@ -244,6 +250,8 @@ namespace app.home {
             let wordIndex = answer[this.selectIndex];
             if (this.selectIndex >= answer.length) {
                 this.selectItem = null;
+                me.stageLv++;
+                this.setData(manager.fight.idioms[me.stageLv])
                 return;
             }
             let wordData = this.getWordDataByIndex(wordIndex);
@@ -258,13 +266,13 @@ namespace app.home {
 
         //设置答案
         setAnswerSelectIndex(index: number) {
-            this.setAnswerItemSelect(index, true);
-
             let selectItem = this._selectItem;
             if (!selectItem) return;
             let data = selectItem.data;
             if (!data) return;
+            this.setAnswerItemSelect(data.answerSelectIndex, false)
             data.setAnswer(index, this.answers[index]);
+            this.setAnswerItemSelect(index, true);
             let idioms = this.getFullIdiomList(this.idiomMap[data.key]);
             if (!idioms.length) {
                 selectItem.refreshState();
@@ -329,9 +337,11 @@ namespace app.home {
             if (!cell) return;
             let data = cell.data;
             if (!data) return;
-            data.state = model.IdiomState.Done;
-            cell.refreshState();
-            Laya.timer.once(index * 80, this, () => cell.ani1.play(0, false))
+            if (data.state != model.IdiomState.Done) {
+                data.state = model.IdiomState.Done;
+                cell.refreshState();
+                Laya.timer.once(index * 80, this, () => cell.ani1.play(0, false))
+            }
         }
 
         //更新字的错误效果
@@ -350,7 +360,7 @@ namespace app.home {
         //设置答案项状态
         protected setAnswerItemSelect(index: number, selected: boolean) {
             let cell = this.answerList.getCell(index) as IdiomAnswerCellUI;
-            if(!cell) return;
+            if (!cell) return;
             cell.visible = !selected;
             if (!selected) cell.ani1.play(0, false);
         }
@@ -363,7 +373,12 @@ namespace app.home {
             _.each(this.wordMap, value => Pool.put(Pool.WordData, value));
             this.wordMap = {};
 
-            _.each(this.idiomMap, value => Pool.put(Pool.IdiomData, value));
+            _.each(this.idiomMap, (values: model.IdiomData[]) => {
+                values.forEach(value => {
+                    Pool.put(Pool.IdiomData, value);
+                })
+                values.length = 0;
+            });
             this.idiomMap = {};
 
             _.each(this.cellMap, value => {

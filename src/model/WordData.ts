@@ -6,8 +6,9 @@ namespace app.model {
         posX: number;
         posY: number;
         state: model.IdiomState = model.IdiomState.Normal;
+        index:number;//在答案中的序号
 
-        answerIndex: number;
+        answerSelectIndex: number;
         answer: string;
 
         get key() {
@@ -23,7 +24,7 @@ namespace app.model {
         }
 
         setAnswer(answerIndex: number, answer: string) {
-            this.answerIndex = answerIndex;
+            this.answerSelectIndex = answerIndex;
             this.answer = answer;
             this.state = model.IdiomState.Wait;
         }
@@ -41,7 +42,7 @@ namespace app.model {
             this.posY = 0;
             this.posX = 0;
             this.state = model.IdiomState.Normal;
-            this.answerIndex = -1;
+            this.answerSelectIndex = -1;
             this.answer = "";
         }
 
