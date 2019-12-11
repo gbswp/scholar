@@ -13,6 +13,10 @@ namespace app.model {
         }
 
         canSelect() {
+            return this.needAnswer() || this.state == model.IdiomState.Right;
+        }
+
+        needAnswer() {
             return this.state == model.IdiomState.Answer || this.state == model.IdiomState.Wrong;
         }
 

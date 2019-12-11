@@ -1,11 +1,11 @@
 namespace app.model {
     export class IdiomData {
         value: string;
-        words: string[] = [];
+        wordKeyList: string[] = [];
 
         reset() {
             this.value = "";
-            this.words.length = 0;
+            this.wordKeyList.length = 0;
         }
     }
 }

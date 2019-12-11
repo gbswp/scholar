@@ -17,14 +17,23 @@ namespace app.home {
             this.refreshState();
         }
 
-        refreshState(){
-            let data = this.data;
-            this.imgBg.skin = r.getIdiomGameCellBg(data.state);
+        setAnswer(answer: string) {
+            this.lblText.value = answer + "";
         }
 
-        setSelect(bool:boolean){
+        refreshState() {
+            let data = this.data;
+            this.imgBg.skin = r.getIdiomGameCellBg(data.state);
+            this.lblText.color = data.state == model.IdiomState.Wrong ? "#ff0000" : "#000000";
+            if (data.state == model.IdiomState.Done) {
+                this.ani1.play(0, false);
+            }
+        }
+
+        setSelect(bool: boolean) {
             this.imgSelect.visible = bool;
         }
+
 
 
 
