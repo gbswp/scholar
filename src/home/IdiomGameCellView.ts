@@ -20,9 +20,15 @@ namespace app.home {
         refreshState() {
             let data = this.data;
             this.imgBg.skin = r.getIdiomGameCellBg(data.state);
+            if(data.state==model.IdiomState.Done){
+                this.setSelect(false);
+            }
+
             if (data.answer) this.lblText.value = data.answer;
             else this.lblText.value = data.isAnswer() ? "" : data.value + "";
+
             this.lblText.color = data.state == model.IdiomState.Wrong ? "#ff0000" : "#000000";
+
         }
 
         setSelect(bool: boolean) {
