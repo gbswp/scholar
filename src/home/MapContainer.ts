@@ -48,6 +48,7 @@ namespace app.home {
                 this._selectAnswerItem.visible = false;
                 // this._selectAnswerItem.alpha = 0;
             }
+
             this.updateSelectItem();
         }
         get selectAnswerItem() {
@@ -263,9 +264,12 @@ namespace app.home {
             let selectItem = this._selectItem;
             if (!selectItem) return;
             let answerItem = this._selectAnswerItem;
-            if (!answerItem) return;
             let answer = answerItem ? answerItem.lblText.value : "";
             this.selectItem.setAnswer(answer + "");
+            if (!answerItem){
+                this.selectItem.refreshState();
+                return;
+            }
             let data = selectItem.data;
             if (data.value != answer) {
                 data.state = model.IdiomState.Wrong;
