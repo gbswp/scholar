@@ -3,7 +3,6 @@ namespace app.home {
 
         protected _modelEvents: any[] = [];
         data: model.WordData;
-        answer: string;
         onCreate() {
             super.onCreate();
             this.anchorX = this.anchorY = .5;
@@ -12,20 +11,18 @@ namespace app.home {
         setData(data: model.WordData) {
             this.data = data;
             this.pos(data.posX, data.posY);
-            this.mouseEnabled = data.isAnswer;
+            this.mouseEnabled = data.isAnswer();
 
             this.refreshState();
         }
 
-        setAnswer(answer: string) {
-            this.answer = answer;
-        }
+
 
         refreshState() {
             let data = this.data;
             this.imgBg.skin = r.getIdiomGameCellBg(data.state);
-            if (this.answer) this.lblText.value = this.answer;
-            else this.lblText.value = data.isAnswer ? "" : data.value + "";
+            if (data.answer) this.lblText.value = data.answer;
+            else this.lblText.value = data.isAnswer() ? "" : data.value + "";
             this.lblText.color = data.state == model.IdiomState.Wrong ? "#ff0000" : "#000000";
         }
 
@@ -33,8 +30,7 @@ namespace app.home {
             this.imgSelect.visible = bool;
         }
 
-        reset(){
-            this.answer = "";
+        reset() {
             this.data = null;
         }
 

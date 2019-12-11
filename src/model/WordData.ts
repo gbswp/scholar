@@ -7,25 +7,32 @@ namespace app.model {
         posY: number;
         state: model.IdiomState = model.IdiomState.Normal;
 
-        get isAnswer() {
-            return this.state == model.IdiomState.Answer;
-        }
+        answerIndex: number;
+        answer: string;
 
         get key() {
             return this.row + "_" + this.rank;
         }
 
-        canSelect() {
-            return this.needAnswer();
-        }
-
-        needAnswer() {
-            return this.state == model.IdiomState.Answer || this.state == model.IdiomState.Wrong;
-        }
-
         isLock() {
             return this.state == model.IdiomState.Normal || this.state == model.IdiomState.Done;
         }
+
+        isAnswer() {
+            return this.state == model.IdiomState.Answer;
+        }
+
+        setAnswer(answerIndex: number, answer: string) {
+            this.answerIndex = answerIndex;
+            this.answer = answer;
+            this.state = model.IdiomState.Wait;
+        }
+
+        isComplted(){
+            if(this.isLock()) return true;
+            return this.value == this.answer;
+        }
+
 
         reset() {
             this.value = "";
@@ -34,6 +41,8 @@ namespace app.model {
             this.posY = 0;
             this.posX = 0;
             this.state = model.IdiomState.Normal;
+            this.answerIndex = -1;
+            this.answer = "";
         }
 
     }

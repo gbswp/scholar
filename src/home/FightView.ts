@@ -6,24 +6,20 @@ namespace app.home {
 
         onCreate() {
             super.onCreate();
-            let map = this.map = new MapContainer(this.img_caozuo);
+            let map = this.map = new MapContainer(this.img_caozuo, this.lstAnswer);
             let stage = manager.fight.idioms[me.stageLv]
             map.setData(stage);
 
-            let temp = stage.answer.concat();
-            temp.sort((a:number,b:number)=>Math.random() - .5);
-            this.lstAnswer.data = temp;
         }
 
         onLstAnswerCellClick(e: Laya.Event, index: number): void {
-            this.map.selectAnswerItem = this.lstAnswer.getCell(index) as IdiomAnswerCellUI;
+            this.map.setAnswerSelectIndex(index);
         }
 
 
         onLstAnswerRender(cell: IdiomAnswerCellUI, index: number): void {
-            let num = this.lstAnswer.getItem(index) as number;
-            let stage = manager.fight.idioms[me.stageLv];
-            cell.lblText.value = stage.word[num];
+            let word = this.lstAnswer.getItem(index) as string;
+            cell.lblText.value = word;
         }
 
 

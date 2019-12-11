@@ -14,8 +14,8 @@ namespace app.model {
     export const enum IdiomState {
         Normal = 0,//普通状态
         Answer,//填空状态
+        Wait,//等待校验状态
         Wrong,//错误状态
-        Right,//正确未完成状态
         Done//完成状态
     }
 

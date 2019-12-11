@@ -13,6 +13,8 @@ namespace app.home {
         offy: number = 0;//布局居中偏移量y
         stage: IStageInfo;//关卡配置
         selectIndex: number = 0;
+        answers: string[];//答案
+        answerList: ui.List;
 
 
         //字数据
@@ -35,29 +37,31 @@ namespace app.home {
             return this._selectItem;
         }
 
-        //选中答案项
-        private _selectAnswerItem: IdiomAnswerCellUI;
-        set selectAnswerItem(value: IdiomAnswerCellUI) {
-            if (this._selectAnswerItem == value) return;
+        // //选中答案项
+        // private _selectAnswerItem: IdiomAnswerCellUI;
+        // set selectAnswerItem(value: IdiomAnswerCellUI) {
+        //     if (this._selectAnswerItem == value) return;
 
-            if (this._selectAnswerItem) {
-                this._selectAnswerItem.visible = true;
-                this._selectAnswerItem.ani1.play(0, false);
-            }
-            this._selectAnswerItem = value;
-            if (this._selectAnswerItem) {
-                this._selectAnswerItem.visible = false;
-                // this._selectAnswerItem.alpha = 0;
-            }
+        //     if (this._selectAnswerItem) {
+        //         this._selectAnswerItem.visible = true;
+        //         this._selectAnswerItem.ani1.play(0, false);
+        //     }
+        //     this._selectAnswerItem = value;
+        //     if (this._selectAnswerItem) {
+        //         this._selectAnswerItem.visible = false;
+        //         // this._selectAnswerItem.alpha = 0;
+        //     }
 
-            this.updateSelectItem();
-        }
-        get selectAnswerItem() {
-            return this._selectAnswerItem;
-        }
+        //     this.updateSelectItem();
+        // }
+        // get selectAnswerItem() {
+        //     return this._selectAnswerItem;
+        // }
 
-        constructor(container: Laya.Component, row: number = 9, rank: number = 9) {
+        constructor(container: Laya.Component, answerList: ui.List, row: number = 9, rank: number = 9) {
             this.container = container;
+            this.answerList = answerList;
+
             this.cellSize = container.width / row;
             this.row = row;
             this.rank = rank;
@@ -155,6 +159,7 @@ namespace app.home {
             let ymax = Math.max(...data.posy);
             this.offy = Math.ceil((this.row - ymax - ymin + 1) / 2);
 
+
             this.initIdiom();
             this.initWord();
         }
@@ -220,22 +225,29 @@ namespace app.home {
                 let cell = Pool.get(Pool.IdiomGameCellView, IdiomGameCellView);
                 cell.setData(data);
                 this.container.addChild(cell);
-                if (data.canSelect()) {
-                    cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
-                }
+                cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
                 this.cellMap[data.key] = cell;
             })
             Laya.timer.callLater(this, this.trySelectItem);
+
+            this.layoutAnswerList();
+        }
+
+        layoutAnswerList() {
+            let data = this.stage;
+            let temp = data.answer.concat().sort((a: number, b: number) => Math.random() - .5);
+            this.answers = [];
+            temp.forEach(index => this.answers.push(data.word[index]));
+            this.answerList.data = this.answers;
         }
 
         protected onCellClick(cell: IdiomGameCellView) {
             let data = cell.data;
-            if (!data || !data.canSelect()) return;
+            if (!data || data.isLock()) return;
             this.selectItem = cell;
-            if (data.state == model.IdiomState.Wrong && this._selectAnswerItem) {
+            if ( data.state != model.IdiomState.Answer) {
                 data.state = model.IdiomState.Answer;
                 this.selectItem.refreshState();
-                this.selectAnswerItem = null;
             }
         }
 
@@ -261,64 +273,80 @@ namespace app.home {
             this.selectItem = this.cellMap[wordData.key];
         }
 
-        protected updateSelectItem() {
+
+        //设置答案
+        setAnswerSelectIndex(index: number) {
             let selectItem = this._selectItem;
             if (!selectItem) return;
-            let answerItem = this._selectAnswerItem;
-            let answer = answerItem ? answerItem.lblText.value : "";
-            this.selectItem.setAnswer(answer + "");
-            if (!answerItem) {
-                this.selectItem.refreshState();
+            let data = selectItem.data;
+            if (!data) return;
+            data.setAnswer(index, this.answers[index]);
+            let idioms = this.getFullIdiomList(this.idiomMap[data.key]);
+            if (!idioms.length) {
+                selectItem.refreshState();
                 return;
             }
-            let data = selectItem.data;
-            if (data.value != answer) {
+            let completed = false;
+            idioms.forEach(idiom=>{
+                if(this.checkIdiomCompleted(idiom)) completed = true;
+            })
+            if(!completed){
                 data.state = model.IdiomState.Wrong;
-                this.selectItem.refreshState();
-            } else {
-                data.state = model.IdiomState.Right;
-                this.checkIdiomsComplete(data.key);
-                this._selectAnswerItem = null;
-                this.trySelectItem();
+                selectItem.refreshState();
             }
         }
 
-        protected checkIdiomsComplete(key: string) {
-            let idioms = this.idiomMap[key];
-            idioms.forEach(idiom => this.checkIdiomComplete(idiom));
+        //取得填满的成语
+        getFullIdiomList(idioms: model.IdiomData[]) {
+            let temp: model.IdiomData[] = [];
+            idioms.forEach(idiom => {
+                this.checkIdiomIsFull(idiom) && temp.push(idiom)
+            })
+            return temp;
         }
 
-        protected checkIdiomComplete(idiomData: model.IdiomData) {
-            if (!idiomData) return;
-            let wordKeyList = idiomData.wordKeyList;
-            let completed = true;
-            for (let i = 0, len = wordKeyList.length; i < len; i++) {
-                let key = wordKeyList[i];
+        //检测成语是否填满
+        protected checkIdiomIsFull(idiom: model.IdiomData) {
+            let isFull = true;
+            idiom.enum(key => {
                 let wordData = this.wordMap[key];
-                if (wordData.needAnswer()) {
-                    completed = false;
-                    break;
-                }
-            }
-            if (completed) {
-                let i = 1;
-                wordKeyList.forEach(key => {
-                    let wordData = this.wordMap[key];
-                    if (wordData.state != model.IdiomState.Done) {
-                        wordData.state = model.IdiomState.Done;
-                        let cell = this.cellMap[key];
-                        cell.refreshState();
-                        Laya.timer.once(i * 80, this, () => {
-                            cell.ani1.play(0, false);
-                        });
-                        i++;
-                    }
-                })
-
-            } else {
-                this.selectItem.refreshState();
-            }
+                let isAnswer = wordData.isAnswer();
+                isAnswer && (isFull = false)
+                return isAnswer;
+            })
+            return isFull;
         }
+
+        //检测成语是否完成
+        checkIdiomCompleted(idiom: model.IdiomData) {
+            let completed = true;
+            idiom.enum(key => {
+                let wordData = this.wordMap[key];
+                let bool = wordData.isComplted();
+                if (!bool) completed = false;
+                return !bool;
+            })
+            if (completed) {
+                let index = 0;
+                idiom.enum(key => {
+                    this.updateWordCompleted(key, index);
+                    index++;
+                })
+            }
+            return completed;
+        }
+
+        //更新字的完成效果
+        protected updateWordCompleted(key: string, index: number) {
+            let cell = this.cellMap[key];
+            if (!cell) return;
+            let data = cell.data;
+            if (!data) return;
+            if (data.isLock()) return;
+            data.state = model.IdiomState.Done;
+            Laya.timer.once(index * 80, this, () => cell.ani1.play(0, false))
+        }
+
 
         clear() {
             this.stage = null;
