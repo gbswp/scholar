@@ -1,19 +1,19 @@
 namespace app.model {
     export class IdiomData {
-        value: string;
-        wordKeyList: string[] = [];
+        name: string;
+        wordPosList: string[] = [];//字序号组
 
-        enum(cb: (key: string) => boolean | void) {
+        enum(cb: (index: string) => boolean | void) {
             let i = 0;
-            while (i < this.wordKeyList.length) {
-                if (cb(this.wordKeyList[i])) break;
+            while (i < this.wordPosList.length) {
+                if (cb(this.wordPosList[i])) break;
                 i++;
             }
         }
 
         reset() {
-            this.value = "";
-            this.wordKeyList.length = 0;
+            this.name = "";
+            this.wordPosList.length = 0;
         }
     }
 }

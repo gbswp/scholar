@@ -10,7 +10,6 @@ namespace app.home {
 
         setData(data: model.WordData) {
             this.data = data;
-            this.pos(data.posX, data.posY);
             this.mouseEnabled = data.isAnswer();
 
             this.refreshState();
@@ -25,7 +24,7 @@ namespace app.home {
             }
 
             if (data.answer) this.lblText.value = data.answer;
-            else this.lblText.value = data.isAnswer() ? "" : data.value + "";
+            else this.lblText.value = data.isAnswer() ? "" : data.name + "";
 
             this.lblText.color = data.state == model.IdiomState.Wrong ? "#ff0000" : "#000000";
 

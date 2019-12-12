@@ -1,28 +1,27 @@
 namespace app {
+    /**
+     *{
+    "answer": "23:50:52",
+    "id": 1,
+    "isSave": 0,
+    "idiom": "柳暗花明:21:22:23:24,花好月圆:23:32:41:50,自圆其说:49:50:51:52",
+    "version": 1554950361418
+     }
+     * @export
+     * @interface IStageInfo
+     */
     export interface IStageInfo {
-        answer: number[];
-        hero: number;
-        house: number;
+        answer: string;
         id: number;
-        idiom: string[];
-        levelUp: number;
-        posx: number[];
-        posy: number[];
-        wifinum: number;
-        word: string[];
+        isSave: 0;
+        idiom: string;
+        version: number;
     }
 
     export class FightManager {
-        idioms: IStageInfo[] = [];
-
         constructor() {
 
         }
 
-        loadIdioms() {
-            return Laya.loader.loadP(`~${config.resPath}idiomConfig.json`).then((data: any) => {
-                this.idioms = data;
-            })
-        }
     }
 }

@@ -39,7 +39,6 @@ class Main {
 
         Promise.all([
             this.loadViews(),
-            manager.fight.loadIdioms()
         ]).then(()=>{
             ui.show(app.home.HomeDlg);
         })

@@ -5,7 +5,7 @@ namespace app.home {
         lastClickTime = 0;
         onCreate() {
             super.onCreate();
-            let map = new MapContainer(this.img_caozuo, this.lstAnswer, manager.fight.idioms);
+            let map = new MapContainer(this.img_caozuo, this.lstAnswer);
             map.setData(me.stageLv);
         }
 
