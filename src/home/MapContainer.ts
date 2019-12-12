@@ -14,13 +14,9 @@ namespace app.home {
         offy: number = 0;//布局居中偏移量y
         idiomConfigs: IStageInfo[] = [];
         stageLv: number;
-        //关卡配置
-        get stage() {
-            return this.idiomConfigs[this.stageLv]
-        }
-
         answers: string[] = [];//答案
         answerList: ui.List;
+        tapWordList: model.WordData[] = [];//可填入列表
 
         //本关卡成语数组
         idiomList: model.IdiomData[] = [];
@@ -34,15 +30,7 @@ namespace app.home {
         selectIndex: number = -1;
         //选中项
         private _selectItem: IdiomGameCellView;
-        set selectItem(value: IdiomGameCellView) {
-            if (this._selectItem == value) return;
-            if (this._selectItem) this._selectItem.setSelect(false)
-            this._selectItem = value;
-            if (this._selectItem) this._selectItem.setSelect(true);
-        }
-        get selectItem() {
-            return this._selectItem;
-        }
+
 
         constructor(container: Laya.Component, answerList: ui.List, configs: IStageInfo[], row: number = 9, rank: number = 9) {
             this.container = container;
@@ -59,6 +47,21 @@ namespace app.home {
             this.showMapLine();
 
             map = this;
+        }
+
+        //关卡配置
+        get stage() {
+            return this.idiomConfigs[this.stageLv]
+        }
+
+        set selectItem(value: IdiomGameCellView) {
+            if (this._selectItem == value) return;
+            if (this._selectItem) this._selectItem.setSelect(false)
+            this._selectItem = value;
+            if (this._selectItem) this._selectItem.setSelect(true);
+        }
+        get selectItem() {
+            return this._selectItem;
         }
 
         /**
@@ -148,9 +151,27 @@ namespace app.home {
             let ymax = Math.max(...data.posy);
             this.offy = Math.ceil((this.row - ymax - ymin + 1) / 2);
 
-
             this.initIdiom();
             this.initWord();
+            this.initTapWordList();
+        }
+
+        /**
+         *初始化可选中列表
+         *
+         * @memberof MapContainer
+         */
+        initTapWordList() {
+            let stage = this.stage;
+            let temp = stage.idiom.join("").split("");
+            let answer = _.sortBy(stage.answer, index => {
+                let word = stage.word[index];
+                return temp.indexOf(word);
+            })
+            this.tapWordList.length = 0;
+            answer.forEach(index => {
+                this.tapWordList.push(this.getWordDataByIndex(index));
+            })
         }
 
         /**
@@ -168,10 +189,7 @@ namespace app.home {
                     let index = stage.word.indexOf(word);
                     if (index != -1) {
                         let [row, rank] = this.getRowRank(index);
-                        let key = `${row}_${rank}`;
-                        if (!idiom.wordKeyList) {
-                            console.log();
-                        }
+                        let key = this.getKey(row, rank);
                         idiom.wordKeyList.push(key);
                         if (stage.answer.indexOf(index) != -1) {
                             let temp = this.idiomKeyMap[key];
@@ -257,11 +275,10 @@ namespace app.home {
          */
         trySelectItem() {
             this.selectIndex++;
-            let answer = this.stage.answer;
-            let wordIndex = answer[this.selectIndex];
-            if (this.selectIndex >= answer.length) {
+            let temp = this.tapWordList;
+            if (this.selectIndex >= temp.length) {
                 if (this.checkStageCompleted()) {
-                    this.setData(me.stageLv++)
+                    this.setData(++me.stageLv)
                 } else {
                     this.selectItem = null;
                     this.selectIndex = -1;
@@ -269,7 +286,7 @@ namespace app.home {
                 }
                 return;
             }
-            let wordData = this.getWordDataByIndex(wordIndex);
+            let wordData = temp[this.selectIndex];
             if (wordData.isLock()) {
                 this.trySelectItem();
                 return;
@@ -404,6 +421,8 @@ namespace app.home {
             this.selectItem = null;
             this.selectIndex = -1;
             this.answers.length = 0;
+
+            this.tapWordList.length = 0;
 
             _.each(this.wordKeyMap, value => Pool.put(Pool.WordData, value));
             this.wordKeyMap = {};

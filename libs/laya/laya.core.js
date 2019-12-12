@@ -23,7 +23,7 @@ var Laya=window.Laya=(function(window,document){
 			for (var p in b){
 				if (!b.hasOwnProperty(p)) continue;
 				var gs=Object.getOwnPropertyDescriptor(b, p);
-				var g = gs.get, s = gs.set; 
+				var g = gs.get, s = gs.set;
 				if ( g || s ) {
 					if ( g && s)
 						Object.defineProperty(d,p,gs);
@@ -160,7 +160,7 @@ var Laya=window.Laya=(function(window,document){
 				getfn && (o['_$GET_'+name]=getfn);
 				setfn && (o['_$SET_'+name]=setfn);
 			}
-			if(getfn && setfn) 
+			if(getfn && setfn)
 				Object.defineProperty(o,name,{get:getfn,set:setfn,enumerable:false,configurable:true});
 			else{
 				getfn && Object.defineProperty(o,name,{get:getfn,enumerable:false,configurable:true});
@@ -169,7 +169,7 @@ var Laya=window.Laya=(function(window,document){
 		},
 		static:function(_class,def){
 				for(var i=0,sz=def.length;i<sz;i+=2){
-					if(def[i]=='length') 
+					if(def[i]=='length')
 						_class.length=def[i+1].call(_class);
 					else{
 						function tmp(){
@@ -182,7 +182,7 @@ var Laya=window.Laya=(function(window,document){
 						tmp();
 					}
 				}
-		},		
+		},
 		un:function(obj,name,value){
 			value || (value=obj[name]);
 			Laya.__propun.value=value;
@@ -9638,6 +9638,7 @@ var Timer=(function(){
 							}
 						}
 						}else {
+						this._map[handler.key]=null;
 						handler.run(true);
 					}
 				}
