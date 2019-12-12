@@ -3,7 +3,6 @@ namespace app.model {
         name: string;
         wordPos: string;
         state: model.IdiomState = model.IdiomState.Normal;
-        index: number;//在答案中的序号
 
         answerSelectIndex: number;
         answer: string;

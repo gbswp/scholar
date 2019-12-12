@@ -3,7 +3,7 @@
 var map: app.home.MapContainer;
 namespace app.home {
     export class MapContainer {
-        showDebug = true;
+        showDebug = false;
         container: Laya.Component;//容器
         cellSize: number;//格子大小
         row: number;//行
@@ -16,7 +16,7 @@ namespace app.home {
         stage: IStageInfo;
         answers: string[] = [];//答案
         answerList: ui.List;
-        tapWordPosList: model.WordData[] = [];//可填入列表
+        tapWordPosList: string[] = [];//可填入列表
 
         //本关卡成语数组
         idiomList: model.IdiomData[] = [];
@@ -129,10 +129,11 @@ namespace app.home {
         initTapWordPosList() {
             let stage = this.stage;
             let ansers = stage.answer.split(":");
+            ansers = _.sortBy(ansers, pos => +pos);
 
             this.tapWordPosList.length = 0;
             ansers.forEach(pos => {
-                this.tapWordPosList.push(this.wordMapByPos[pos]);
+                this.tapWordPosList.push(pos);
             })
         }
 
@@ -164,9 +165,7 @@ namespace app.home {
                 wordData.name = words[i];
                 let wordPos = temp[i];
                 wordData.wordPos = wordPos;
-                let index = answers.indexOf(wordPos);
-                wordData.index = index;
-                if (index != -1) {
+                if (answers.indexOf(wordPos) != -1) {
                     wordData.state = model.IdiomState.Answer;
                     let arr = this.idiomMapByPos[wordPos];
                     if (!arr) this.idiomMapByPos[wordPos] = arr = [];
@@ -186,8 +185,8 @@ namespace app.home {
             _.each(this.wordMapByPos, data => {
                 let cell = Pool.get(Pool.IdiomGameCellView, IdiomGameCellView);
                 cell.setData(data);
-                let [posx,posy] = this.getPos(data.wordPos);
-                cell.pos(posx,posy);
+                let [posx, posy] = this.getPos(data.wordPos);
+                cell.pos(posx, posy);
                 this.container.addChild(cell);
                 cell.on(Laya.Event.CLICK, this, this.onCellClick, [cell]);
                 this.cellMapByPos[data.wordPos] = cell;
@@ -210,7 +209,7 @@ namespace app.home {
             let data = cell.data;
             if (!data || data.isLock()) return;
             this.selectItem = cell;
-            this.selectIndex = data.index;
+            this.selectIndex = this.tapWordPosList.indexOf(data.wordPos);
             if (data.state != model.IdiomState.Answer) {
                 this.setAnswerItemSelect(data.answerSelectIndex, false);
                 data.setAnswer(-1, "");
@@ -238,7 +237,7 @@ namespace app.home {
                 }
                 return;
             }
-            let wordData = temp[this.selectIndex];
+            let wordData = this.wordMapByPos[temp[this.selectIndex]];
             if (wordData.isLock()) {
                 this.trySelectItem();
                 return;
@@ -350,11 +349,13 @@ namespace app.home {
             if (!cell) return;
             let data = cell.data;
             if (!data) return;
-            if (this.selectItem == cell) {
-                data.state = model.IdiomState.Wrong;
-                cell.refreshState();
+            if (data.state != model.IdiomState.Done) {
+                if (this.selectItem == cell) {
+                    data.state = model.IdiomState.Wrong;
+                    cell.refreshState();
+                }
+                cell.ani2.play(0, false);
             }
-            cell.ani2.play(0, false);
         }
 
         //设置答案项状态
