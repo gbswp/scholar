@@ -128,13 +128,21 @@ namespace app.home {
          */
         initTapWordPosList() {
             let stage = this.stage;
-            let ansers = stage.answer.split(":");
-            ansers = _.sortBy(ansers, pos => +pos);
+            let answer = stage.answer.split(":");
+            let temp:string[] = [];
+            this.idiomList.forEach(value => temp.push(value.name));
+            temp = temp.join("").split("");
 
-            this.tapWordPosList.length = 0;
-            ansers.forEach(pos => {
-                this.tapWordPosList.push(pos);
+            answer = _.sortBy(answer, pos => {
+                let wordData = this.wordMapByPos[pos];
+                return temp.indexOf(wordData.name)
             })
+
+            // this.tapWordPosList.length = 0;
+            // answer.forEach(pos => {
+            //     this.tapWordPosList.push(pos);
+            // })
+            this.tapWordPosList = answer;
         }
 
         /**
